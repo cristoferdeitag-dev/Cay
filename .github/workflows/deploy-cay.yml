@@ -1,0 +1,28 @@
+name: Deploy to Hostinger - Cay
+
+on:
+  push:
+    branches:
+      - main # o la rama que uses para producción
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy with rsync
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -p 65002 195.35.35.27 >> ~/.ssh/known_hosts
+        rsync -avz --delete -e "ssh -p 65002 -i ~/.ssh/id_rsa" . u781187371@195.35.35.27:/home/u781187371/domains/cay.mx/public_html
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
