@@ -3,66 +3,558 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAY</title>
+    <title>CAY — Acuaponía Sustentable</title>
+    <meta name="description" content="Hortalizas orgánicas y pescado fresco cultivados mediante acuaponía. 100% natural, eco-friendly y comprometido con el planeta.">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="logo-cay.png" alt="CAY Logo">
-                <span>CAY.</span>
-            </div>
-            <ul>
+    <!-- Header -->
+    <header id="top">
+        <nav class="container">
+            <a href="#top" class="logo">
+                <div class="logo-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                        <path d="M10 20c2-4 4-8 6-8s4 4 6 8" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M8 16c3-2 6-3 8-3s5 1 8 3" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.6"/>
+                    </svg>
+                </div>
+                <span>CAY<span class="dot">.</span></span>
+            </a>
+            <button class="mobile-toggle" aria-label="Menú" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#acuaponia">Acuaponía</a></li>
                 <li><a href="#beneficios">Beneficios</a></li>
                 <li><a href="#productos">Productos</a></li>
                 <li><a href="#impacto">Impacto</a></li>
                 <li><a href="#equipo">Equipo</a></li>
-                <li><a href="#contacto">Contacto</a></li>
                 <li><a href="#congreso">Congreso</a></li>
+                <li><a href="#contacto" class="nav-cta">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Hero -->
     <section class="hero">
-        <div class="hero-content">
-            <span class="tag"># ACUAPONÍA SUSTENTABLE</span>
-            <h1>El Futuro de la Alimentación Sustentable</h1>
-            <p>Hortalizas orgánicas y pescado fresco cultivados mediante acuaponía. 100% natural, eco-friendly y comprometido con el planeta.</p>
-            <div class="hero-buttons">
-                <a href="#" class="button primary">Conoce la Acuaponía</a>
-                <a href="#" class="button secondary">Ver Productos</a>
+        <div class="hero-bg"></div>
+        <div class="container hero-inner">
+            <div class="hero-content">
+                <span class="badge">Acuaponía Sustentable</span>
+                <h1>El Futuro de la<br><em>Alimentación Sustentable</em></h1>
+                <p class="hero-sub">Hortalizas orgánicas y pescado fresco cultivados mediante acuaponía. 100% natural, eco-friendly y comprometido con el planeta.</p>
+                <div class="hero-actions">
+                    <a href="#acuaponia" class="btn btn-primary">Conoce la Acuaponía</a>
+                    <a href="#productos" class="btn btn-outline">Ver Productos</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="hero-illustration">
+                        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="400" height="400" rx="24" fill="#e8f5e9"/>
+                            <ellipse cx="200" cy="300" rx="140" ry="40" fill="#a5d6a7" opacity="0.5"/>
+                            <rect x="80" y="200" width="240" height="100" rx="16" fill="#81c784" opacity="0.6"/>
+                            <path d="M160 200 Q160 160 200 140 Q240 160 240 200" fill="#4caf50" opacity="0.7"/>
+                            <path d="M140 200 Q140 150 200 120 Q260 150 260 200" fill="#66bb6a" opacity="0.5"/>
+                            <circle cx="180" cy="260" r="12" fill="#fff" opacity="0.6"/>
+                            <circle cx="220" cy="250" r="10" fill="#fff" opacity="0.5"/>
+                            <circle cx="200" cy="270" r="8" fill="#fff" opacity="0.4"/>
+                            <path d="M170 180 Q170 155 190 145" stroke="#2e7d32" stroke-width="2" fill="none"/>
+                            <ellipse cx="190" cy="142" rx="8" ry="5" fill="#2e7d32" opacity="0.8"/>
+                            <path d="M210 175 Q210 148 230 138" stroke="#2e7d32" stroke-width="2" fill="none"/>
+                            <ellipse cx="230" cy="135" rx="8" ry="5" fill="#388e3c" opacity="0.8"/>
+                        </svg>
+                    </div>
+                </div>
             </div>
         </div>
-        <img src="./file_8---c7634d18-5c0c-4c29-a1e2-9b92d691beb4.jpg" alt="Acuaponía" class="hero-image">
+        <div class="hero-scroll">
+            <a href="#nosotros" aria-label="Scroll">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+            </a>
+        </div>
     </section>
 
-    <section class="how-it-works">
-        <h2>¿Cómo Funciona?</h2>
-        <div class="steps">
-            <div class="step">
-                <img src="./file_6---bb02da5f-32ad-4653-be2f-a5fc7265baff.jpg" alt="Paso 1" class="step-image">
-                <h3>PASO 01</h3>
-                <p>Acuacultura: Los peces producen desechos ricos en nutrientes esenciales para el crecimiento de las plantas.</p>
+    <!-- Nosotros -->
+    <section id="nosotros" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Sobre Nosotros</span>
+                <h2>Cultivamos el futuro desde <em>la raíz</em></h2>
+                <p class="section-desc">Somos una empresa mexicana comprometida con la producción sustentable de alimentos a través de sistemas acuapónicos de última generación.</p>
             </div>
-            <div class="step">
-                <img src="./file_7---463a74d8-ccd3-4afe-aeea-81c6725adf6f.jpg" alt="Paso 2" class="step-image">
-                <h3>PASO 02</h3>
-                <p>Filtración Natural: El agua pasa por filtros que convierten los desechos en fertilizante natural para las hortalizas.</p>
-            </div>
-            <div class="step">
-                <img src="./file_8---c7634d18-5c0c-4c29-a1e2-9b92d691beb4.jpg" alt="Paso 3" class="step-image">
-                <h3>PASO 03</h3>
-                <p>Hidroponía: Las plantas absorben nutrientes del agua fertilizada y la purifican para devolverla al tanque.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Misión</h3>
+                    <p>Democratizar el acceso a alimentos orgánicos frescos mediante tecnología acuapónica innovadora y accesible.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Visión</h3>
+                    <p>Ser el referente en acuaponía sustentable en México, transformando la manera en que producimos y consumimos alimentos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
+                    <h3>Valores</h3>
+                    <p>Sustentabilidad, innovación, compromiso comunitario y respeto absoluto por los ecosistemas naturales.</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Acuaponía -->
+    <section id="acuaponia" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">¿Cómo Funciona?</span>
+                <h2>El ciclo perfecto de la <em>acuaponía</em></h2>
+                <p class="section-desc">Un sistema cerrado donde peces y plantas colaboran en armonía, produciendo alimentos sin desperdiciar recursos.</p>
+            </div>
+            <div class="steps">
+                <div class="step" data-step="01">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M2 16s0-4 4-4c2 0 3 1 4 2s2 2 4 2c4 0 4-4 4-4"/>
+                            <path d="M2 12s0-4 4-4c2 0 3 1 4 2s2 2 4 2c4 0 4-4 4-4"/>
+                            <circle cx="7" cy="18" r="1.5" fill="currentColor" opacity="0.4"/>
+                            <circle cx="12" cy="19" r="1" fill="currentColor" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <h3>Acuacultura</h3>
+                    <p>Los peces producen desechos ricos en nutrientes esenciales para el crecimiento de las plantas.</p>
+                </div>
+                <div class="step-connector">
+                    <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+                        <path d="M0 12h36m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="step" data-step="02">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2v6m0 0l-3-3m3 3l3-3"/>
+                            <path d="M12 22v-6m0 0l-3 3m3-3l3 3"/>
+                            <circle cx="12" cy="12" r="4"/>
+                        </svg>
+                    </div>
+                    <h3>Filtración Natural</h3>
+                    <p>El agua pasa por filtros que convierten los desechos en fertilizante natural para las hortalizas.</p>
+                </div>
+                <div class="step-connector">
+                    <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+                        <path d="M0 12h36m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="step" data-step="03">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22c-4 0-7-3-7-7 0-5 7-13 7-13s7 8 7 13c0 4-3 7-7 7z"/>
+                            <path d="M12 22v-8"/>
+                            <path d="M9 17l3-3 3 3"/>
+                        </svg>
+                    </div>
+                    <h3>Hidroponía</h3>
+                    <p>Las plantas absorben nutrientes del agua fertilizada y la purifican para devolverla al tanque de peces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section id="beneficios" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Beneficios</span>
+                <h2>¿Por qué elegir <em>acuaponía</em>?</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-number">90%</div>
+                    <h4>Menos agua</h4>
+                    <p>Utiliza hasta un 90% menos de agua que la agricultura tradicional.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">0</div>
+                    <h4>Químicos</h4>
+                    <p>Sin pesticidas, herbicidas ni fertilizantes sintéticos. 100% orgánico.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">2x</div>
+                    <h4>Más rápido</h4>
+                    <p>Las plantas crecen hasta el doble de rápido que en agricultura convencional.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">365</div>
+                    <h4>Días al año</h4>
+                    <p>Producción continua sin depender de temporadas o clima exterior.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">2</div>
+                    <h4>Productos en 1</h4>
+                    <p>Un solo sistema produce hortalizas frescas y pescado de alta calidad.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">CO₂</div>
+                    <h4>Huella reducida</h4>
+                    <p>Menor huella de carbono al eliminar transporte y químicos industriales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section id="productos" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Productos</span>
+                <h2>Del sistema a <em>tu mesa</em></h2>
+                <p class="section-desc">Alimentos frescos, orgánicos y cultivados localmente con la más alta calidad.</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-visual product-green">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75"/>
+                        </svg>
+                    </div>
+                    <h3>Hortalizas</h3>
+                    <p>Lechugas, espinacas, albahaca, cilantro, kale y más — cultivadas sin tierra ni químicos.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-visual product-blue">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M2 16s0-4 4-4c2 0 3 1 4 2s2 2 4 2c4 0 4-4 4-4"/>
+                            <path d="M18 8c-2 0-3-1-4-2S12 4 10 4C6 4 6 8 6 8"/>
+                            <ellipse cx="12" cy="12" rx="3" ry="2"/>
+                        </svg>
+                    </div>
+                    <h3>Pescado Fresco</h3>
+                    <p>Tilapia de alta calidad criada en condiciones óptimas, sin hormonas ni antibióticos.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-visual product-amber">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="3"/>
+                            <path d="M7 12h10M12 7v10"/>
+                        </svg>
+                    </div>
+                    <h3>Kits Acuapónicos</h3>
+                    <p>Sistemas modulares para hogar, escuelas y comunidades. Todo lo que necesitas para empezar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impacto -->
+    <section id="impacto" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Impacto</span>
+                <h2>Nuestros <em>números</em> hablan</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" data-target="5000">5,000+</div>
+                    <div class="stat-label">kg de hortalizas producidas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1,200+</div>
+                    <div class="stat-label">kg de pescado cultivado</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label">familias beneficiadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">2M+</div>
+                    <div class="stat-label">litros de agua ahorrados</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section id="equipo" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Equipo</span>
+                <h2>Las personas detrás de <em>CAY</em></h2>
+                <p class="section-desc">Un equipo multidisciplinario apasionado por la sustentabilidad y la innovación agrícola.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h4>Fundador & CEO</h4>
+                    <p>Visión estratégica y desarrollo de negocio</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h4>Ing. Agrónomo</h4>
+                    <p>Diseño y optimización de sistemas acuapónicos</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h4>Biólogo Marino</h4>
+                    <p>Manejo de especies acuáticas y calidad del agua</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h4>Coord. Comunitario</h4>
+                    <p>Vinculación social y programas educativos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Congreso -->
+    <section id="congreso" class="section section-dark">
+        <div class="container">
+            <div class="section-header light">
+                <span class="section-label">Congreso 2026</span>
+                <h2>Congreso Nacional de <em>Acuaponía</em></h2>
+                <p class="section-desc">Únete al evento más importante de acuaponía en México. Conferencias, talleres y networking con expertos del sector.</p>
+            </div>
+            <div class="congress-details">
+                <div class="congress-card">
+                    <div class="congress-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                    </div>
+                    <h4>Fecha</h4>
+                    <p>Por confirmar — 2026</p>
+                </div>
+                <div class="congress-card">
+                    <div class="congress-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h4>Ubicación</h4>
+                    <p>Guadalajara, Jalisco, México</p>
+                </div>
+                <div class="congress-card">
+                    <div class="congress-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h4>Asistentes</h4>
+                    <p>200+ profesionales esperados</p>
+                </div>
+            </div>
+            <div class="congress-cta">
+                <a href="#contacto" class="btn btn-primary btn-lg">Regístrate al Congreso</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Contacto</span>
+                <h2>Hablemos sobre <em>tu proyecto</em></h2>
+                <p class="section-desc">¿Interesado en acuaponía? Escríbenos y te ayudamos a dar el primer paso.</p>
+            </div>
+            <div class="contact-grid">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <select id="subject" name="subject">
+                            <option value="">Selecciona un tema</option>
+                            <option value="productos">Productos y precios</option>
+                            <option value="kits">Kits acuapónicos</option>
+                            <option value="congreso">Congreso 2026</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">Enviar Mensaje</button>
+                </form>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <div>
+                            <strong>Email</strong>
+                            <p>contacto@cay.mx</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <div>
+                            <strong>Ubicación</strong>
+                            <p>Guadalajara, Jalisco, México</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                        <div>
+                            <strong>Instagram</strong>
+                            <p>@cay.mx</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Cay. Todos los derechos reservados.</p>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="logo-text">CAY<span class="dot">.</span></span>
+                <p>Acuaponía sustentable para un futuro mejor.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#nosotros">Nosotros</a>
+                <a href="#acuaponia">Acuaponía</a>
+                <a href="#productos">Productos</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cay. Todos los derechos reservados.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const toggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            toggle.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                toggle.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.feature-card, .step, .benefit-item, .product-card, .stat-card, .team-card, .congress-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            btn.textContent = 'Enviado';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+            setTimeout(() => {
+                btn.textContent = 'Enviar Mensaje';
+                btn.disabled = false;
+                btn.style.opacity = '1';
+                this.reset();
+            }, 3000);
+        });
+    </script>
 </body>
 </html>
