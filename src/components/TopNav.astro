@@ -1,0 +1,46 @@
+---
+const links = [
+  { href: '#inicio', label: 'Inicio', active: true },
+  { href: '#granjas', label: 'Granjas' },
+  { href: '#cafecitos', label: 'Cafecitos' },
+  { href: '#hortalizas', label: 'Hortalizas' },
+  { href: '#koi', label: 'Koi' },
+];
+---
+
+<nav class="fixed top-0 w-full z-50 bg-surface/95 backdrop-blur-sm border-b border-primary/10 shadow-soft-primary">
+  <div class="flex justify-between items-center px-6 py-4 max-w-[1200px] mx-auto">
+    <a class="flex items-center gap-3 font-headline text-2xl font-bold text-secondary" href="/">
+      <img alt="CAY Logo" class="h-10 w-10 object-contain" src="/images/cay-logo.jpg" />
+      <span>CAY</span>
+    </a>
+
+    <div class="hidden md:flex gap-8 items-center font-body text-base">
+      {
+        links.map((link) => (
+          <a
+            class={
+              link.active
+                ? 'text-primary font-bold border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-200'
+                : 'text-onSurface font-medium hover:text-primary transition-colors duration-200'
+            }
+            href={link.href}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <a
+      href="#contacto"
+      class="hidden md:inline-flex bg-primary text-white px-6 py-2.5 rounded-full font-medium hover:bg-primary/90 active:scale-95 transition-all"
+    >
+      Contáctanos
+    </a>
+
+    <button class="md:hidden text-onSurface" aria-label="Abrir menú">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+  </div>
+</nav>

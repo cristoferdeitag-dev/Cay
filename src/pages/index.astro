@@ -1,0 +1,262 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TopNav from '../components/TopNav.astro';
+import Footer from '../components/Footer.astro';
+
+const ecosystem = [
+  {
+    id: 'granjas',
+    title: 'Granjas acuapónicas',
+    description:
+      'Diseño, construcción y operación de sistemas de cultivo en ambiente cerrado. Eficiencia hídrica y alta densidad productiva.',
+    icon: 'water_drop',
+    span: 'md:col-span-2',
+    variant: 'card',
+  },
+  {
+    id: 'cafecitos',
+    title: "Cafecitos 'Fruto'",
+    description: 'Farm-to-table en su máxima expresión.',
+    image: '/images/cafecito-fruto.jpg',
+    span: 'md:col-span-1',
+    variant: 'image',
+  },
+  {
+    id: 'hortalizas',
+    title: 'Hortalizas',
+    description: 'Producto fresco directo al consumidor.',
+    image: '/images/hortalizas.jpg',
+    span: 'md:col-span-1',
+    variant: 'image',
+  },
+  {
+    id: 'koi',
+    title: 'Carpas Koi',
+    description: 'Ejemplares seleccionados de ornato.',
+    image: '/images/koi.jpg',
+    span: 'md:col-span-1',
+    variant: 'image',
+  },
+  {
+    id: 'proyectos',
+    title: 'Proyectos a medida',
+    description: 'Sistemas residenciales y comerciales.',
+    image: '/images/proyectos.jpg',
+    span: 'md:col-span-1',
+    variant: 'image',
+  },
+];
+
+const cycle = [
+  {
+    step: '01',
+    icon: 'phishing',
+    title: 'Peces',
+    description: 'Alimentamos a los peces, quienes a través de su proceso digestivo generan amoniaco en el agua.',
+  },
+  {
+    step: '02',
+    icon: 'science',
+    title: 'Bacterias',
+    description: 'Biofiltros albergan bacterias benéficas que transforman el amoniaco en nitratos absorbibles.',
+  },
+  {
+    step: '03',
+    icon: 'eco',
+    title: 'Plantas',
+    description: 'Las raíces absorben los nutrientes, limpiando el agua que regresa purificada a los tanques.',
+  },
+];
+
+const timeline = [
+  { year: '2018', label: 'Fundación de CAY en Jalisco' },
+  { year: '2020', label: 'Primer cafecito Fruto abre puertas' },
+  { year: '2022', label: 'Cinco granjas activas en producción' },
+  { year: '2024', label: 'Alianza con Bofish y Aquaponic Events' },
+];
+---
+
+<Layout>
+  <TopNav />
+
+  <main class="pt-24">
+    <!-- Hero -->
+    <section id="inicio" class="max-w-[1200px] mx-auto px-6 py-12 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-8">
+        <h1 class="font-headline text-5xl md:text-6xl lg:text-[72px] leading-tight text-secondary">
+          Acuaponía<br />
+          mexicana,<br />
+          raíz del futuro.
+        </h1>
+        <p class="text-onSurface-variant text-lg max-w-md font-body leading-relaxed">
+          Cultivamos vida mediante el círculo virtuoso del agua. Granjas tecnificadas que producen alimentos limpios,
+          frescos y con propósito.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="#granjas"
+            class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-primary/90 transition-colors"
+          >
+            Conoce nuestras granjas
+          </a>
+          <a
+            href="#contacto"
+            class="border-2 border-secondary text-secondary px-8 py-3 rounded-full font-medium hover:bg-secondary/5 transition-colors"
+          >
+            Habla con nosotros
+          </a>
+        </div>
+        <div class="pt-8 border-t border-surface-dim">
+          <p class="text-sm text-onSurface-variant mb-4 uppercase tracking-wider font-semibold">
+            Partners &amp; Presencia
+          </p>
+          <div class="flex flex-wrap items-center gap-6">
+            <span class="font-bold text-lg text-secondary">Bofish</span>
+            <span class="font-bold text-lg text-secondary">Aquaponic Events</span>
+            <span class="text-sm text-onSurface-variant">Jalisco · Colima · CDMX</span>
+          </div>
+        </div>
+      </div>
+      <div class="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl shadow-primary/10">
+        <img
+          src="/images/hero-granja.jpg"
+          alt="Interior de granja acuapónica CAY"
+          class="w-full h-full object-cover"
+          loading="eager"
+        />
+      </div>
+    </section>
+
+    <!-- Qué hacemos (Bento) -->
+    <section class="bg-white py-24">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <h2 class="font-headline text-4xl text-secondary mb-12 text-center">Cinco caminos, un mismo ecosistema</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+          {
+            ecosystem.map((item) =>
+              item.variant === 'card' ? (
+                <div
+                  id={item.id}
+                  class={`${item.span} bg-surface rounded-2xl p-8 flex flex-col justify-between group hover:shadow-lg hover:shadow-primary/10 transition-all`}
+                >
+                  <div>
+                    <span class="material-symbols-outlined text-4xl text-primary mb-4 block">{item.icon}</span>
+                    <h3 class="font-headline text-2xl text-secondary mb-2">{item.title}</h3>
+                    <p class="text-onSurface-variant max-w-md">{item.description}</p>
+                  </div>
+                </div>
+              ) : (
+                <a
+                  id={item.id}
+                  href={`#${item.id}`}
+                  class={`${item.span} relative rounded-2xl overflow-hidden group block`}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div class="absolute bottom-0 left-0 p-6 text-white">
+                    <h3 class="font-headline text-2xl mb-1">{item.title}</h3>
+                    <p class="text-sm opacity-90">{item.description}</p>
+                  </div>
+                </a>
+              )
+            )
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Qué es la acuaponía -->
+    <section id="que-es" class="bg-secondary/5 py-24">
+      <div class="max-w-[1200px] mx-auto px-6 text-center">
+        <h2 class="font-headline text-4xl text-secondary mb-16">El ciclo perfecto</h2>
+        <div class="grid md:grid-cols-3 gap-12 relative">
+          <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-primary/20 -z-10"></div>
+          {
+            cycle.map((step) => (
+              <div class="bg-white p-8 rounded-2xl shadow-sm relative">
+                <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-6 absolute -top-8 left-1/2 -translate-x-1/2">
+                  {step.step}
+                </div>
+                <span class="material-symbols-outlined text-4xl text-secondary mb-4 mt-4 block">{step.icon}</span>
+                <h3 class="font-headline text-2xl text-secondary mb-3">{step.title}</h3>
+                <p class="text-onSurface-variant text-sm">{step.description}</p>
+              </div>
+            ))
+          }
+        </div>
+        <div class="mt-16">
+          <a
+            href="#contacto"
+            class="inline-block bg-secondary text-white px-8 py-3 rounded-full font-medium hover:bg-secondary/90 transition-colors"
+          >
+            Aprende más sobre el proceso
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nuestra historia -->
+    <section id="historia" class="bg-primary-lightest py-24">
+      <div class="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+        <div class="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl shadow-secondary/10">
+          <img src="/images/hero-granja.jpg" alt="Granja CAY" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div>
+          <p class="text-sm text-primary font-semibold uppercase tracking-wider mb-3">Sobre CAY</p>
+          <h2 class="font-headline text-4xl text-secondary mb-6 leading-tight">Una historia con raíces.</h2>
+          <p class="text-onSurface-variant text-base leading-relaxed mb-4">
+            Nacimos en Jalisco con una idea simple: producir alimentos limpios, frescos y honestos, devolviéndole al agua
+            la inteligencia con la que opera la naturaleza.
+          </p>
+          <p class="text-onSurface-variant text-base leading-relaxed mb-8">
+            Hoy operamos granjas en varios estados del país y trabajamos con Bofish y Aquaponic Events para llevar la
+            acuaponía a más mexicanos.
+          </p>
+
+          <ul class="space-y-4 mb-8">
+            {
+              timeline.map((milestone) => (
+                <li class="flex items-start gap-4">
+                  <span class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-headline text-sm font-bold">
+                    {milestone.year}
+                  </span>
+                  <span class="font-body text-onSurface pt-3">{milestone.label}</span>
+                </li>
+              ))
+            }
+          </ul>
+
+          <a
+            href="#equipo"
+            class="inline-block border-2 border-secondary text-secondary px-8 py-3 rounded-full font-medium hover:bg-secondary/5 transition-colors"
+          >
+            Conoce al equipo
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="contacto" class="bg-primary py-20 text-center">
+      <div class="max-w-2xl mx-auto px-6">
+        <h2 class="font-headline text-4xl text-white mb-8">¿Listo para meter las manos al agua?</h2>
+        <p class="text-white/85 text-lg mb-10 font-body">
+          Cuéntanos tu proyecto y diseñamos el ecosistema que necesitas.
+        </p>
+        <a
+          href="mailto:hola@cay.mx"
+          class="inline-block bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-surface shadow-lg shadow-black/10 hover:-translate-y-1 transition-all duration-200"
+        >
+          Contáctanos ahora
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
