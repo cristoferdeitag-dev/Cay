@@ -125,38 +125,22 @@ const puntosVentaList = [
 const mvv = [
   {
     title: 'Propuesta de valor',
-    body: 'Productos acuapónicos de alta calidad, 100% orgánicos, que contribuyen a una mejor alimentación y son amigables con el medio ambiente',
+    body: 'Alimentos acuapónicos sostenibles para una vida más saludable',
     icon: 'star',
   },
   {
     title: 'Misión',
-    body: 'Proveer productos acuapónicos que contribuyan a la salud y nutrición de los consumidores, y promover prácticas de desarrollo sostenible',
+    body: 'Revolucionar la producción de alimentos a través de la acuaponía',
     icon: 'flag',
   },
   {
     title: 'Visión',
-    body: 'Ser la empresa mexicana líder en el sector agropecuario, con alimentos saludables y accesibles para todos. Construir la red de agricultores acuapónicos más grande del país, basada en comercio justo',
+    body: 'Ser líderes en innovación agroalimentaria sostenible en México',
     icon: 'visibility',
   },
 ];
 
-const valores = [
-  'Humanidad',
-  'Empresa Socialmente Responsable',
-  'Calidad',
-  'Honestidad',
-  'Integridad',
-  'Salud',
-  'Respeto',
-  'Solidaridad',
-  'Transparencia',
-  'Bienestar',
-  'Pasión',
-  'Transformación',
-  'Trabajo en equipo',
-  'Creatividad e innovación',
-  'Compromiso',
-];
+const valores = ['Humanidad', 'Integridad', 'Calidad', 'Innovación', 'Compromiso'];
 
 // ODS oficiales ONU — imágenes recortadas del banner oficial que mandó Asaí
 const ods = [
@@ -506,86 +490,84 @@ const blogTeasers = [
       </div>
     </section>
 
-    <!-- HISTORIA (antes Sobre CAY — MVV + Founders embed compactos) -->
-    <section id="historia" class="relative py-24 md:py-32 bg-secondary text-white overflow-hidden">
-      <div class="hidden md:block absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
+    <!-- HISTORIA (densa, 1 pantalla, sin scroll en desktop) -->
+    <section id="historia" class="relative py-20 md:py-24 bg-secondary text-white overflow-hidden">
+      <div class="hidden md:block absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>
 
-      <!-- Intro + imagen + MVV en layout más compacto -->
       <div class="relative max-w-[1200px] mx-auto px-6">
-        <div class="grid md:grid-cols-12 gap-12 items-start mb-16">
-          <!-- Imagen vertical (4 cols) -->
-          <div class="md:col-span-5 md:sticky md:top-24">
+        <div class="grid md:grid-cols-12 gap-8 items-center">
+          <!-- Imagen (5 cols) -->
+          <div class="md:col-span-5">
             <div class="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl shadow-black/30">
-              <img src="/images/cafecito-fruto.jpg" alt="Equipo CAY" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-
-            <!-- Founders compactos junto a la imagen -->
-            <div class="mt-8">
-              <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">Fundadores</p>
-              <div class="space-y-3">
-                {founders.map((f) => (
-                  <div class="flex items-center gap-4 bg-white/10 border border-white/15 rounded-2xl p-3">
-                    <div class="w-11 h-11 bg-primary text-secondary rounded-full flex items-center justify-center font-headline font-bold text-sm flex-shrink-0">
-                      {f.initials}
-                    </div>
-                    <div>
-                      <div class="font-headline text-base font-bold leading-tight">{f.name}</div>
-                      <div class="text-primary text-[11px] font-bold uppercase tracking-wider">{f.role}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <img src="/images/cafecito-fruto.jpg" alt="Granjas CAY" class="w-full h-full object-cover" loading="lazy" />
             </div>
           </div>
 
-          <!-- Texto + MVV (7 cols) -->
-          <div class="md:col-span-7 space-y-10">
+          <!-- Texto + MVV + Valores (7 cols) -->
+          <div class="md:col-span-7 space-y-6">
             <div>
-              <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Historia · 100% mexicana</p>
-              <h2 class="font-headline text-4xl md:text-5xl font-bold leading-[1.05] mb-6">
-                Un granito de arena<br />que viene de raíz
+              <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">Historia · 100% mexicana</p>
+              <h2 class="font-headline text-3xl md:text-4xl font-bold leading-[1.1] mb-3">
+                Tecnología inspirada<br />en nuestras raíces
               </h2>
-              <div class="text-white/90 text-base leading-relaxed font-body space-y-4 text-justify">
+              <div class="text-white/90 text-sm md:text-base leading-relaxed font-body space-y-2 text-justify">
                 <p>
-                  Los <strong>mayas</strong> y los <strong>aztecas</strong> ya hacían acuaponía mucho antes de que
-                  existiera la palabra. Sus <strong>chinampas</strong> cultivaban peces y plantas en el mismo
-                  ecosistema.
+                  Las antiguas <strong>chinampas mesoamericanas</strong> demostraron que era posible producir
+                  alimentos en equilibrio con la naturaleza.
                 </p>
                 <p>
-                  Esa herencia no se inventó en un laboratorio europeo: se inventó aquí.
+                  En CAY transformamos esa inspiración en sistemas acuapónicos modernos que unen innovación,
+                  sostenibilidad y producción inteligente.
                 </p>
                 <p>
-                  CAY se fundó en <strong>2020</strong>. Recogemos ese saber, lo combinamos con tecnología actual y lo
-                  operamos con manos mexicanas — para alimentar al país sin secarlo.
+                  Construimos el futuro de la alimentación con tecnología, agua y manos mexicanas.
                 </p>
               </div>
             </div>
 
-            <!-- MVV cards compactas en stack -->
+            <!-- MVV compactos como 3 columnas estrechas -->
             <div>
-              <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">Lo que nos mueve</p>
-              <div class="space-y-3">
+              <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">Lo que nos mueve</p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 {mvv.map((m) => (
-                  <div class="bg-white/10 border border-white/15 backdrop-blur-sm rounded-2xl p-5 hover:bg-white/15 transition-colors">
-                    <div class="flex items-center gap-3 mb-2">
-                      <span class="material-symbols-outlined text-primary text-xl">{m.icon}</span>
-                      <h4 class="font-headline text-lg font-bold">{m.title}</h4>
+                  <div class="bg-white/10 border border-white/15 rounded-xl p-3">
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="material-symbols-outlined text-primary text-base">{m.icon}</span>
+                      <h4 class="font-headline text-sm font-bold">{m.title}</h4>
                     </div>
-                    <p class="text-sm text-white/80 leading-relaxed font-body">{m.body}</p>
+                    <p class="text-xs text-white/80 leading-snug font-body">{m.body}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <!-- Valores chips compactos -->
-            <div>
-              <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">Nuestros valores</p>
-              <div class="flex flex-wrap gap-1.5">
-                {valores.map((v) => (
-                  <span class="inline-block bg-white/10 border border-primary/40 text-primary text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
-                    {v}
-                  </span>
-                ))}
+            <!-- Valores chips + Founders en una sola fila -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">Valores</p>
+                <div class="flex flex-wrap gap-1.5">
+                  {valores.map((v) => (
+                    <span class="inline-block bg-white/10 border border-primary/40 text-primary text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+                      {v}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">Fundadores</p>
+                <div class="space-y-1.5">
+                  {founders.map((f) => (
+                    <div class="flex items-center gap-2 bg-white/10 border border-white/15 rounded-xl p-2">
+                      <div class="w-7 h-7 bg-primary text-secondary rounded-full flex items-center justify-center font-headline font-bold text-[10px] flex-shrink-0">
+                        {f.initials}
+                      </div>
+                      <div class="flex-1 min-w-0">
+                        <div class="font-headline text-xs font-bold leading-tight truncate">{f.name}</div>
+                        <div class="text-primary text-[9px] font-bold uppercase tracking-wider">{f.role}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
