@@ -102,21 +102,20 @@ const granjas = [
   },
 ];
 
-// Alianzas (antes "Red de colaboración") — agregada Red Sibiolat
 const alianzas = [
   {
     name: 'Bofish',
-    detail: 'Granjas comerciales de gran escala y formación profesional en acuaponía',
+    detail: 'Producción acuapónica comercial y formación profesional',
     icon: 'handshake',
   },
   {
     name: 'Aquaponic Events',
-    detail: 'Eventos, congresos y cursos para llevar la acuaponía a más mexicanos',
+    detail: 'Eventos y experiencias para impulsar la acuaponía en México',
     icon: 'event',
   },
   {
     name: 'Red Sibiolat',
-    detail: 'Red latinoamericana de simbiosis biológica para el cultivo regenerativo',
+    detail: 'Red latinoamericana enfocada en innovación y cultivo regenerativo',
     icon: 'hub',
   },
 ];
@@ -742,26 +741,26 @@ const blogTeasers = [
     <!-- ALIANZAS -->
     <section id="alianzas" class="relative py-20 md:py-24 bg-secondary/10 overflow-hidden">
       <div class="relative max-w-[1200px] mx-auto px-6">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Alianzas</p>
           <h2 class="font-headline text-3xl md:text-5xl text-secondary font-bold leading-tight mb-4">
-            No caminamos solos
+            Alianzas que impulsan el ecosistema
           </h2>
-          <p class="max-w-2xl mx-auto text-onSurface-variant text-base">
-            Construimos junto a otras empresas mexicanas y latinoamericanas que comparten la misma visión: alimentar
-            sin comprometer al planeta
+          <p class="text-onSurface-variant text-base md:text-lg">
+            Colaboramos con empresas, redes y proyectos que están transformando la producción sostenible de alimentos
+            en México y Latinoamérica
           </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {
             alianzas.map((a) => (
-              <div class="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
-                <div class="w-16 h-16 bg-primary/15 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span class="material-symbols-outlined text-3xl">{a.icon}</span>
+              <div class="bg-white rounded-3xl p-7 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                <div class="w-14 h-14 bg-primary/15 text-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <span class="material-symbols-outlined text-2xl">{a.icon}</span>
                 </div>
-                <h3 class="font-headline text-2xl text-secondary font-bold mb-2">{a.name}</h3>
-                <p class="text-sm text-onSurface-variant">{a.detail}</p>
+                <h3 class="font-headline text-xl text-secondary font-bold mb-2">{a.name}</h3>
+                <p class="text-sm text-onSurface-variant leading-relaxed">{a.detail}</p>
               </div>
             ))
           }
