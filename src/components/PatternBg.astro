@@ -1,0 +1,46 @@
+---
+interface Props {
+  variant?: 'fish' | 'leaf' | 'wave' | 'fish-school';
+  color?: string;
+  opacity?: number;
+  density?: 'sparse' | 'medium' | 'dense';
+  className?: string;
+}
+
+const {
+  variant = 'fish',
+  color = 'currentColor',
+  opacity = 0.08,
+  density = 'medium',
+  className = '',
+} = Astro.props;
+
+// Build inline SVG patterns and embed as base64 background.
+function buildPattern(v: string, dens: string) {
+  const sizes = {
+    sparse: { fish: 200, leaf: 240, wave: 240, 'fish-school': 320 },
+    medium: { fish: 130, leaf: 160, wave: 160, 'fish-school': 220 },
+    dense: { fish: 80, leaf: 100, wave: 100, 'fish-school': 140 },
+  } as const;
+  return (sizes as any)[dens][v] || 130;
+}
+
+const tileSize = buildPattern(variant, density);
+
+// Each variant uses currentColor — controlled via the wrapping element's `color` (text-X tailwind).
+const patterns: Record<string, string> = {
+  fish: `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'><path d='M5 15 C 10 5, 25 5, 40 15 C 25 25, 10 25, 5 15 Z M40 15 L55 8 L55 22 Z' fill='${color}'/><circle cx='32' cy='12' r='1.5' fill='white'/></svg>`,
+  leaf: `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 60'><path d='M20 5 C 8 15, 5 35, 20 55 C 35 35, 32 15, 20 5 Z' fill='${color}'/><path d='M20 5 L20 55' stroke='white' stroke-width='1' opacity='0.5'/></svg>`,
+  wave: `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40'><path d='M0 20 Q 25 5, 50 20 T 100 20 T 150 20 T 200 20' stroke='${color}' stroke-width='2' fill='none'/></svg>`,
+  'fish-school': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><g fill='${color}'><path d='M10 30 C 14 24, 22 24, 30 30 C 22 36, 14 36, 10 30 Z M30 30 L36 26 L36 34 Z'/><path d='M70 70 C 74 64, 82 64, 90 70 C 82 76, 74 76, 70 70 Z M90 70 L96 66 L96 74 Z'/><path d='M120 40 C 124 34, 132 34, 140 40 C 132 46, 124 46, 120 40 Z M140 40 L146 36 L146 44 Z'/><path d='M50 110 C 54 104, 62 104, 70 110 C 62 116, 54 116, 50 110 Z M70 110 L76 106 L76 114 Z'/><path d='M150 130 C 154 124, 162 124, 170 130 C 162 136, 154 136, 150 130 Z M170 130 L176 126 L176 134 Z'/><path d='M100 170 C 104 164, 112 164, 120 170 C 112 176, 104 176, 100 170 Z M120 170 L126 166 L126 174 Z'/></g></svg>`,
+};
+
+const svg = patterns[variant];
+const encoded = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+---
+
+<div
+  class={`absolute inset-0 pointer-events-none ${className}`}
+  style={`background-image: url("${encoded}"); background-size: ${tileSize}px ${tileSize}px; background-repeat: repeat; opacity: ${opacity};`}
+>
+</div>

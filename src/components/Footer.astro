@@ -9,34 +9,40 @@ const sections = [
     ],
   },
   {
-    title: 'Explora',
+    title: 'Sitio',
     items: [
-      { label: 'Granjas', href: '#granjas' },
-      { label: 'Cafecitos', href: '#cafecitos' },
-      { label: 'Hortalizas', href: '#hortalizas' },
-      { label: 'Koi', href: '#koi' },
+      { label: 'Inicio', href: '#inicio' },
+      { label: 'Qué es la acuaponía', href: '#que-es' },
+      { label: 'Productos', href: '#productos' },
+      { label: 'Sobre CAY', href: '#sobre' },
     ],
   },
   {
-    title: 'Servicios',
+    title: 'Productos',
     items: [
-      { label: 'Pescados', href: '#pescados' },
-      { label: 'Acuaponía comercial', href: '#proyectos' },
-      { label: 'Contacto', href: '#contacto' },
+      { label: 'Hortalizas y lechugas', href: '#productos' },
+      { label: 'Tilapias', href: '#productos' },
+      { label: 'Carpas koi', href: '#productos' },
       { label: 'Privacidad', href: '/privacidad' },
     ],
   },
 ];
 ---
 
-<footer class="bg-secondary text-surface">
-  <div class="max-w-[1200px] mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
+<footer class="relative bg-secondary text-surface overflow-hidden">
+  <!-- Pattern decorativo de hojas en background -->
+  <div
+    class="absolute inset-0 pointer-events-none text-primary"
+    style="background-image: url(&quot;data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 60'%3E%3Cpath d='M20 5 C 8 15, 5 35, 20 55 C 35 35, 32 15, 20 5 Z' fill='%239DC41B'/%3E%3C/svg%3E&quot;); background-size: 200px 200px; opacity: 0.06;">
+  </div>
+
+  <div class="relative max-w-[1200px] mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
     <div class="md:col-span-1 flex flex-col gap-3">
       <div class="flex items-center gap-3">
         <img src="/images/cay-logo.jpg" alt="CAY Logo" class="h-12 w-12 object-contain rounded-lg bg-white/10 p-1" />
         <span class="font-headline text-2xl font-bold">CAY</span>
       </div>
-      <p class="font-headline text-lg text-primary">Acuaponía profesional</p>
+      <p class="font-headline text-lg text-primary">Acuaponía mexicana</p>
       <p class="text-sm text-surface/70 max-w-xs leading-relaxed mt-2">
         Cultivamos vida mediante el círculo virtuoso del agua, los peces y la tierra. Desde Jalisco para todo México.
       </p>
@@ -64,9 +70,9 @@ const sections = [
     }
   </div>
 
-  <div class="border-t border-white/10">
+  <div class="relative border-t border-white/10">
     <div class="max-w-[1200px] mx-auto px-6 py-6 text-center text-surface/60 font-body text-sm">
-      © {new Date().getFullYear()} CAY Acuaponía Profesional. Guadalajara, México.
+      © {new Date().getFullYear()} CAY Acuaponía. Guadalajara, México.
     </div>
   </div>
 </footer>

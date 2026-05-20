@@ -3,47 +3,30 @@ import Layout from '../layouts/Layout.astro';
 import TopNav from '../components/TopNav.astro';
 import Footer from '../components/Footer.astro';
 
-const ecosystem = [
-  {
-    id: 'granjas',
-    title: 'Granjas acuapónicas',
-    description:
-      'Diseño, construcción y operación de sistemas de cultivo en ambiente cerrado. Eficiencia hídrica y alta densidad productiva.',
-    icon: 'water_drop',
-    span: 'md:col-span-2',
-    variant: 'card',
-  },
-  {
-    id: 'cafecitos',
-    title: "Cafecitos 'Fruto'",
-    description: 'Farm-to-table en su máxima expresión.',
-    image: '/images/cafecito-fruto.jpg',
-    span: 'md:col-span-1',
-    variant: 'image',
-  },
+const productos = [
   {
     id: 'hortalizas',
-    title: 'Hortalizas',
-    description: 'Producto fresco directo al consumidor.',
+    title: 'Hortalizas y lechugas',
+    description: 'Hojas verdes recién cortadas, libres de pesticidas, cultivadas con la limpieza del agua de nuestras granjas.',
     image: '/images/hortalizas.jpg',
-    span: 'md:col-span-1',
-    variant: 'image',
+    icon: 'eco',
+    color: 'primary',
+  },
+  {
+    id: 'tilapias',
+    title: 'Tilapias',
+    description: 'Pescado fresco de granja, con carne firme y sabor limpio. Trazabilidad completa desde el estanque a tu mesa.',
+    image: '/images/hero-granja.jpg',
+    icon: 'set_meal',
+    color: 'secondary',
   },
   {
     id: 'koi',
-    title: 'Carpas Koi',
-    description: 'Ejemplares seleccionados de ornato.',
+    title: 'Carpas koi',
+    description: 'Ejemplares de ornato seleccionados para estanques residenciales y comerciales. Crianza controlada con genética curada.',
     image: '/images/koi.jpg',
-    span: 'md:col-span-1',
-    variant: 'image',
-  },
-  {
-    id: 'proyectos',
-    title: 'Proyectos a medida',
-    description: 'Sistemas residenciales y comerciales.',
-    image: '/images/proyectos.jpg',
-    span: 'md:col-span-1',
-    variant: 'image',
+    icon: 'phishing',
+    color: 'primary',
   },
 ];
 
@@ -52,205 +35,312 @@ const cycle = [
     step: '01',
     icon: 'phishing',
     title: 'Peces',
-    description: 'Alimentamos a los peces, quienes a través de su proceso digestivo generan amoniaco en el agua.',
+    description: 'Alimentamos a los peces. Su proceso digestivo enriquece el agua con compuestos nitrogenados.',
   },
   {
     step: '02',
     icon: 'science',
     title: 'Bacterias',
-    description: 'Biofiltros albergan bacterias benéficas que transforman el amoniaco en nitratos absorbibles.',
+    description: 'Biofiltros con bacterias benéficas transforman el amoniaco en nitratos que las plantas pueden absorber.',
   },
   {
     step: '03',
     icon: 'eco',
     title: 'Plantas',
-    description: 'Las raíces absorben los nutrientes, limpiando el agua que regresa purificada a los tanques.',
+    description: 'Las raíces toman los nutrientes y limpian el agua, que regresa purificada a los peces. El ciclo se repite.',
   },
 ];
 
 const timeline = [
-  { year: '2018', label: 'Fundación de CAY en Jalisco' },
-  { year: '2020', label: 'Primer cafecito Fruto abre puertas' },
-  { year: '2022', label: 'Cinco granjas activas en producción' },
-  { year: '2024', label: 'Alianza con Bofish y Aquaponic Events' },
+  { year: '2018', label: 'Nace CAY en Jalisco con una granja piloto' },
+  { year: '2020', label: 'Primer contrato comercial de hortalizas frescas' },
+  { year: '2022', label: 'Cinco granjas activas en distintos estados' },
+  { year: '2024', label: 'Apertura de venta directa al consumidor' },
 ];
+
+// Pattern data URIs reusable
+const fishPattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 50'><g fill='#9DC41B'><path d='M5 25 C 12 12, 30 12, 50 25 C 30 38, 12 38, 5 25 Z M50 25 L70 15 L70 35 Z'/><circle cx='40' cy='20' r='1.8' fill='white'/></g></svg>`)}`;
+const fishSchoolPattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'><g fill='currentColor'><path d='M12 36 C 16 30, 24 30, 32 36 C 24 42, 16 42, 12 36 Z M32 36 L40 30 L40 42 Z'/><path d='M84 90 C 88 84, 96 84, 104 90 C 96 96, 88 96, 84 90 Z M104 90 L112 84 L112 96 Z'/><path d='M148 50 C 152 44, 160 44, 168 50 C 160 56, 152 56, 148 50 Z M168 50 L176 44 L176 56 Z'/><path d='M60 140 C 64 134, 72 134, 80 140 C 72 146, 64 146, 60 140 Z M80 140 L88 134 L88 146 Z'/><path d='M180 160 C 184 154, 192 154, 200 160 C 192 166, 184 166, 180 160 Z M200 160 L208 154 L208 166 Z'/><path d='M120 200 C 124 194, 132 194, 140 200 C 132 206, 124 206, 120 200 Z M140 200 L148 194 L148 206 Z'/></g></svg>`)}`;
+const leafPattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 60'><path d='M20 5 C 8 15, 5 35, 20 55 C 35 35, 32 15, 20 5 Z' fill='currentColor'/><path d='M20 5 L20 55' stroke='white' stroke-width='1' opacity='0.5'/></svg>`)}`;
+const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'><path d='M0 30 Q 25 10, 50 30 T 100 30 T 150 30 T 200 30' stroke='currentColor' stroke-width='2.5' fill='none' opacity='0.9'/><path d='M0 45 Q 25 25, 50 45 T 100 45 T 150 45 T 200 45' stroke='currentColor' stroke-width='1.8' fill='none' opacity='0.5'/></svg>`)}`;
 ---
 
 <Layout>
   <TopNav />
 
-  <main class="pt-24">
-    <!-- Hero -->
-    <section id="inicio" class="max-w-[1200px] mx-auto px-6 py-12 md:py-24 grid md:grid-cols-2 gap-12 items-center">
-      <div class="space-y-8">
-        <h1 class="font-headline text-5xl md:text-6xl lg:text-[72px] leading-tight text-secondary">
-          Acuaponía<br />
-          mexicana,<br />
-          raíz del futuro.
-        </h1>
-        <p class="text-onSurface-variant text-lg max-w-md font-body leading-relaxed">
-          Cultivamos vida mediante el círculo virtuoso del agua. Granjas tecnificadas que producen alimentos limpios,
-          frescos y con propósito.
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <a
-            href="#granjas"
-            class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-primary/90 transition-colors"
-          >
-            Conoce nuestras granjas
-          </a>
-          <a
-            href="#contacto"
-            class="border-2 border-secondary text-secondary px-8 py-3 rounded-full font-medium hover:bg-secondary/5 transition-colors"
-          >
-            Habla con nosotros
-          </a>
-        </div>
-        <div class="pt-8 border-t border-surface-dim">
-          <p class="text-sm text-onSurface-variant mb-4 uppercase tracking-wider font-semibold">
-            Partners &amp; Presencia
+  <main>
+    <!-- HERO -->
+    <section
+      id="inicio"
+      class="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32 bg-surface"
+    >
+      <!-- Pattern de peces como overlay (text-primary controla color) -->
+      <div
+        class="absolute inset-0 pointer-events-none text-primary"
+        style={`background-image: url("${fishSchoolPattern}"); background-size: 320px 320px; opacity: 0.07;`}
+      >
+      </div>
+
+      <!-- Blob orgánico decorativo grande -->
+      <div
+        class="hidden md:block absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-primary/15 blur-3xl pointer-events-none"
+      >
+      </div>
+      <div
+        class="hidden md:block absolute top-1/2 -left-40 w-[500px] h-[500px] rounded-full bg-secondary/10 blur-3xl pointer-events-none"
+      >
+      </div>
+
+      <div class="relative max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+          <p class="text-sm text-primary font-bold uppercase tracking-[0.2em]">
+            🌱 Acuaponía mexicana
           </p>
-          <div class="flex flex-wrap items-center gap-6">
-            <span class="font-bold text-lg text-secondary">Bofish</span>
-            <span class="font-bold text-lg text-secondary">Aquaponic Events</span>
-            <span class="text-sm text-onSurface-variant">Jalisco · Colima · CDMX</span>
+          <h1 class="font-headline text-5xl md:text-6xl lg:text-[80px] leading-[0.95] text-secondary font-bold">
+            Donde el<br />
+            agua, los peces<br />
+            <span class="text-primary">y las plantas</span><br />
+            se cuidan.
+          </h1>
+          <p class="text-onSurface-variant text-lg max-w-md font-body leading-relaxed">
+            Cultivamos hortalizas y peces vivos en un ciclo cerrado que limpia el agua mientras alimenta a México.
+            Granjas tecnificadas, producto limpio, sin atajos.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="#productos"
+              class="bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:-translate-y-0.5"
+            >
+              Ver productos
+            </a>
+            <a
+              href="#que-es"
+              class="border-2 border-secondary text-secondary px-8 py-4 rounded-full font-bold hover:bg-secondary/5 transition-colors"
+            >
+              ¿Qué es la acuaponía?
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <!-- Imagen con shape orgánico curvo -->
+          <div
+            class="relative aspect-[4/5] overflow-hidden shadow-2xl shadow-secondary/20"
+            style="border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;"
+          >
+            <img
+              src="/images/hero-granja.jpg"
+              alt="Granja acuapónica CAY"
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+          <!-- Decorative leaf -->
+          <div
+            class="absolute -top-6 -left-6 w-24 h-32 text-primary rotate-12 hidden md:block"
+            style={`background-image: url("${leafPattern}"); background-size: contain; background-repeat: no-repeat;`}
+          >
+          </div>
+          <!-- Decorative fish blob -->
+          <div
+            class="absolute -bottom-8 -right-4 w-28 h-20 text-secondary -rotate-12 hidden md:block"
+            style={`background-image: url("${fishPattern.replace('#9DC41B', '#37388D')}"); background-size: contain; background-repeat: no-repeat;`}
+          >
           </div>
         </div>
       </div>
-      <div class="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl shadow-primary/10">
-        <img
-          src="/images/hero-granja.jpg"
-          alt="Interior de granja acuapónica CAY"
-          class="w-full h-full object-cover"
-          loading="eager"
-        />
-      </div>
     </section>
 
-    <!-- Qué hacemos (Bento) -->
-    <section class="bg-white py-24">
-      <div class="max-w-[1200px] mx-auto px-6">
-        <h2 class="font-headline text-4xl text-secondary mb-12 text-center">Cinco caminos, un mismo ecosistema</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
-          {
-            ecosystem.map((item) =>
-              item.variant === 'card' ? (
-                <div
-                  id={item.id}
-                  class={`${item.span} bg-surface rounded-2xl p-8 flex flex-col justify-between group hover:shadow-lg hover:shadow-primary/10 transition-all`}
-                >
-                  <div>
-                    <span class="material-symbols-outlined text-4xl text-primary mb-4 block">{item.icon}</span>
-                    <h3 class="font-headline text-2xl text-secondary mb-2">{item.title}</h3>
-                    <p class="text-onSurface-variant max-w-md">{item.description}</p>
-                  </div>
-                </div>
-              ) : (
-                <a
-                  id={item.id}
-                  href={`#${item.id}`}
-                  class={`${item.span} relative rounded-2xl overflow-hidden group block`}
-                >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <div class="absolute bottom-0 left-0 p-6 text-white">
-                    <h3 class="font-headline text-2xl mb-1">{item.title}</h3>
-                    <p class="text-sm opacity-90">{item.description}</p>
-                  </div>
-                </a>
-              )
-            )
-          }
+    <!-- WAVE SEPARATOR -->
+    <div class="relative h-12 bg-surface overflow-hidden">
+      <div
+        class="absolute inset-0 text-primary"
+        style={`background-image: url("${wavePattern}"); background-size: 400px 60px; background-repeat: repeat-x; background-position: center; opacity: 0.5;`}
+      >
+      </div>
+    </div>
+
+    <!-- QUÉ ES LA ACUAPONÍA -->
+    <section id="que-es" class="relative bg-primary/95 text-white py-24 md:py-32 overflow-hidden">
+      <!-- Fish pattern overlay -->
+      <div
+        class="absolute inset-0 text-white pointer-events-none"
+        style={`background-image: url("${fishSchoolPattern}"); background-size: 280px 280px; opacity: 0.1;`}
+      >
+      </div>
+
+      <div class="relative max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-4">El método</p>
+          <h2 class="font-headline text-5xl md:text-6xl font-bold leading-tight mb-6">
+            ¿Qué es<br />la acuaponía?
+          </h2>
+          <p class="max-w-2xl mx-auto text-white/90 text-lg font-body leading-relaxed">
+            Es un sistema cerrado que combina la cría de peces con el cultivo de plantas. El agua circula entre ambos
+            y se purifica naturalmente. <strong>Sin químicos. Sin desperdicio. Sin caprichos del clima.</strong>
+          </p>
         </div>
-      </div>
-    </section>
 
-    <!-- Qué es la acuaponía -->
-    <section id="que-es" class="bg-secondary/5 py-24">
-      <div class="max-w-[1200px] mx-auto px-6 text-center">
-        <h2 class="font-headline text-4xl text-secondary mb-16">El ciclo perfecto</h2>
-        <div class="grid md:grid-cols-3 gap-12 relative">
-          <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-primary/20 -z-10"></div>
+        <div class="grid md:grid-cols-3 gap-8 relative">
+          <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-1 bg-white/20 -z-10"></div>
           {
             cycle.map((step) => (
-              <div class="bg-white p-8 rounded-2xl shadow-sm relative">
-                <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-6 absolute -top-8 left-1/2 -translate-x-1/2">
+              <div class="bg-white text-secondary p-8 rounded-3xl shadow-xl shadow-secondary/10 relative">
+                <div class="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center font-bold text-xl absolute -top-8 left-1/2 -translate-x-1/2">
                   {step.step}
                 </div>
-                <span class="material-symbols-outlined text-4xl text-secondary mb-4 mt-4 block">{step.icon}</span>
-                <h3 class="font-headline text-2xl text-secondary mb-3">{step.title}</h3>
-                <p class="text-onSurface-variant text-sm">{step.description}</p>
+                <span class="material-symbols-outlined text-5xl text-primary mt-6 mb-4 block">{step.icon}</span>
+                <h3 class="font-headline text-2xl font-bold mb-3">{step.title}</h3>
+                <p class="text-onSurface-variant text-base font-body leading-relaxed">{step.description}</p>
               </div>
             ))
           }
         </div>
-        <div class="mt-16">
+
+        <div class="mt-16 text-center">
           <a
-            href="#contacto"
-            class="inline-block bg-secondary text-white px-8 py-3 rounded-full font-medium hover:bg-secondary/90 transition-colors"
+            href="#productos"
+            class="inline-block bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-surface transition-all shadow-lg shadow-black/20 hover:-translate-y-0.5"
           >
-            Aprende más sobre el proceso
+            Conoce lo que cosechamos →
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Nuestra historia -->
-    <section id="historia" class="bg-primary-lightest py-24">
-      <div class="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-        <div class="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl shadow-secondary/10">
-          <img src="/images/hero-granja.jpg" alt="Granja CAY" class="w-full h-full object-cover" loading="lazy" />
+    <!-- PRODUCTOS -->
+    <section id="productos" class="relative py-24 md:py-32 bg-surface overflow-hidden">
+      <!-- Leaf overlay sparse -->
+      <div
+        class="absolute inset-0 text-primary pointer-events-none"
+        style={`background-image: url("${leafPattern}"); background-size: 280px 420px; opacity: 0.05;`}
+      >
+      </div>
+
+      <div class="relative max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Nuestros productos</p>
+          <h2 class="font-headline text-5xl md:text-6xl text-secondary font-bold leading-tight">
+            Tres cosechas,<br />un solo ecosistema.
+          </h2>
         </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          {
+            productos.map((p) => (
+              <article
+                id={p.id}
+                class="group relative bg-white rounded-3xl overflow-hidden shadow-lg shadow-secondary/5 hover:shadow-2xl hover:shadow-primary/15 hover:-translate-y-2 transition-all duration-300"
+              >
+                <div class="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div class="absolute top-4 left-4 w-12 h-12 bg-white/95 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <span class="material-symbols-outlined text-2xl text-primary">{p.icon}</span>
+                  </div>
+                </div>
+                <div class="p-7">
+                  <h3 class="font-headline text-2xl font-bold text-secondary mb-3">{p.title}</h3>
+                  <p class="text-onSurface-variant text-sm font-body leading-relaxed mb-5">{p.description}</p>
+                  <a
+                    href="#contacto"
+                    class="inline-flex items-center gap-1 text-primary font-bold text-sm hover:gap-2 transition-all"
+                  >
+                    Más información
+                    <span class="material-symbols-outlined text-base">arrow_forward</span>
+                  </a>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE CAY (About Us) -->
+    <section id="sobre" class="relative py-24 md:py-32 bg-secondary text-white overflow-hidden">
+      <!-- Pattern de hojas grandes -->
+      <div
+        class="absolute inset-0 text-primary pointer-events-none"
+        style={`background-image: url("${leafPattern}"); background-size: 200px 300px; opacity: 0.08;`}
+      >
+      </div>
+
+      <!-- Blob decorativo verde -->
+      <div
+        class="hidden md:block absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none"
+      >
+      </div>
+
+      <div class="relative max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+        <div
+          class="relative aspect-[4/5] overflow-hidden shadow-2xl shadow-black/30"
+          style="border-radius: 45% 55% 50% 50% / 55% 45% 55% 45%;"
+        >
+          <img src="/images/hero-granja.jpg" alt="Equipo CAY" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+
         <div>
-          <p class="text-sm text-primary font-semibold uppercase tracking-wider mb-3">Sobre CAY</p>
-          <h2 class="font-headline text-4xl text-secondary mb-6 leading-tight">Una historia con raíces.</h2>
-          <p class="text-onSurface-variant text-base leading-relaxed mb-4">
-            Nacimos en Jalisco con una idea simple: producir alimentos limpios, frescos y honestos, devolviéndole al agua
-            la inteligencia con la que opera la naturaleza.
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">Sobre CAY · 100% mexicana</p>
+          <h2 class="font-headline text-5xl md:text-6xl font-bold leading-[0.95] mb-8">
+            Un granito<br />de arena al<br />país que somos.
+          </h2>
+          <p class="text-white/85 text-lg leading-relaxed mb-6 font-body">
+            Los mayas y los aztecas ya hacían acuaponía mucho antes de que existiera la palabra — sus
+            <strong>chinampas</strong> cultivaban peces y plantas en el mismo ecosistema, devolviéndole al agua su
+            inteligencia. Nosotros recogemos esa herencia y la traemos al siglo XXI.
           </p>
-          <p class="text-onSurface-variant text-base leading-relaxed mb-8">
-            Hoy operamos granjas en varios estados del país y trabajamos con Bofish y Aquaponic Events para llevar la
-            acuaponía a más mexicanos.
+          <p class="text-white/85 text-lg leading-relaxed mb-10 font-body">
+            CAY es una empresa 100% mexicana que opera granjas acuapónicas en varios estados del país. Producimos
+            alimentos limpios, construimos sistemas a la medida y compartimos lo que aprendemos con quien quiera
+            cultivar como nosotros.
           </p>
 
-          <ul class="space-y-4 mb-8">
+          <ul class="space-y-5 mb-10">
             {
-              timeline.map((milestone) => (
-                <li class="flex items-start gap-4">
-                  <span class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-headline text-sm font-bold">
-                    {milestone.year}
+              timeline.map((m) => (
+                <li class="flex items-start gap-5">
+                  <span class="flex-shrink-0 w-14 h-14 bg-primary text-secondary rounded-full flex items-center justify-center font-headline text-sm font-bold">
+                    {m.year}
                   </span>
-                  <span class="font-body text-onSurface pt-3">{milestone.label}</span>
+                  <span class="font-body text-white/90 pt-4">{m.label}</span>
                 </li>
               ))
             }
           </ul>
 
           <a
-            href="#equipo"
-            class="inline-block border-2 border-secondary text-secondary px-8 py-3 rounded-full font-medium hover:bg-secondary/5 transition-colors"
+            href="#contacto"
+            class="inline-block bg-primary text-secondary px-8 py-4 rounded-full font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
           >
-            Conoce al equipo
+            Trabajemos juntos
           </a>
         </div>
       </div>
     </section>
 
-    <!-- CTA Final -->
-    <section id="contacto" class="bg-primary py-20 text-center">
-      <div class="max-w-2xl mx-auto px-6">
-        <h2 class="font-headline text-4xl text-white mb-8">¿Listo para meter las manos al agua?</h2>
-        <p class="text-white/85 text-lg mb-10 font-body">
-          Cuéntanos tu proyecto y diseñamos el ecosistema que necesitas.
+    <!-- CTA FINAL -->
+    <section id="contacto" class="relative bg-primary py-20 md:py-24 text-center overflow-hidden">
+      <!-- Pattern overlay sutil -->
+      <div
+        class="absolute inset-0 text-secondary pointer-events-none"
+        style={`background-image: url("${fishSchoolPattern}"); background-size: 240px 240px; opacity: 0.12;`}
+      >
+      </div>
+
+      <div class="relative max-w-2xl mx-auto px-6">
+        <h2 class="font-headline text-5xl md:text-6xl text-secondary font-bold mb-6 leading-tight">
+          ¿Listo para meter<br />las manos al agua?
+        </h2>
+        <p class="text-secondary/80 text-lg mb-10 font-body">
+          Cuéntanos qué necesitas — productos, proyectos o asesoría — y diseñamos algo contigo.
         </p>
         <a
           href="mailto:hola@cay.mx"
-          class="inline-block bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-surface shadow-lg shadow-black/10 hover:-translate-y-1 transition-all duration-200"
+          class="inline-block bg-secondary text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-secondary/90 shadow-2xl shadow-secondary/30 hover:-translate-y-1 transition-all duration-200"
         >
           Contáctanos ahora
         </a>
