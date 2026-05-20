@@ -81,21 +81,15 @@ const problemas = [
 
 const granjas = [
   {
-    type: 'Granjas comerciales',
-    description: 'Producción a escala para abastecer mercados, restaurantes y supermercados',
-    subcats: [
-      { name: 'Productores', detail: 'Volumen industrial de hortalizas y proteína' },
-      { name: 'Farm-to-table', detail: 'Cosecha del día hacia chefs y consumidores directos' },
-    ],
+    type: 'Producción comercial',
+    description: 'Sistemas diseñados para abastecer restaurantes, mercados y cadenas de suministro locales',
+    bullets: ['Producción escalable', 'Cultivo todo el año', 'Modelo farm-to-table'],
     icon: 'agriculture',
   },
   {
     type: 'Granjas agroturísticas',
-    description: 'Espacios abiertos al público para vivir la acuaponía de cerca',
-    subcats: [
-      { name: 'Visitas y tours', detail: 'Experiencia educativa para familias y escuelas' },
-      { name: 'Granjas caseras', detail: 'Sistemas residenciales que diseñamos y armamos contigo' },
-    ],
+    description: 'Espacios diseñados para conectar a las personas con una nueva forma de producir alimentos',
+    bullets: ['Visitas y experiencias', 'Educación ambiental', 'Sistemas residenciales'],
     icon: 'tour',
   },
 ];
@@ -468,31 +462,30 @@ const blogTeasers = [
       <div class="hidden md:block absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>
 
       <div class="relative max-w-[1200px] mx-auto px-6">
-        <div class="text-center mb-16">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Granjas</p>
-          <h2 class="font-headline text-5xl md:text-6xl font-bold leading-tight mb-6">
-            Granjas hechas<br /><span class="text-primary">a la medida</span>
+          <h2 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">
+            Diseñamos granjas<br />para cada visión
           </h2>
-          <p class="max-w-2xl mx-auto text-white/85 text-base">
-            Diseñamos y construimos granjas acuapónicas según el tipo de proyecto — de la operación comercial al
-            espacio agroturístico, pasando por sistemas residenciales
+          <p class="text-white/85 text-base md:text-lg font-body">
+            Creamos sistemas acuapónicos adaptados a distintos modelos de producción, experiencia y escala
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
           {
             granjas.map((g) => (
-              <div class="bg-white text-secondary p-8 md:p-10 rounded-3xl shadow-xl shadow-black/20 hover:-translate-y-1 transition-transform duration-300">
-                <div class="w-14 h-14 bg-primary/15 text-primary rounded-2xl flex items-center justify-center mb-6">
-                  <span class="material-symbols-outlined text-3xl">{g.icon}</span>
+              <div class="bg-white text-secondary p-8 rounded-3xl shadow-xl shadow-black/20 hover:-translate-y-1 transition-transform duration-300">
+                <div class="w-12 h-12 bg-primary/15 text-primary rounded-2xl flex items-center justify-center mb-4">
+                  <span class="material-symbols-outlined text-2xl">{g.icon}</span>
                 </div>
-                <h3 class="font-headline text-3xl font-bold mb-3">{g.type}</h3>
-                <p class="text-onSurface-variant font-body mb-6">{g.description}</p>
-                <ul class="space-y-4">
-                  {g.subcats.map((sc) => (
-                    <li class="border-l-4 border-primary pl-4">
-                      <div class="font-headline text-lg font-bold">{sc.name}</div>
-                      <div class="text-sm text-onSurface-variant">{sc.detail}</div>
+                <h3 class="font-headline text-2xl font-bold mb-2">{g.type}</h3>
+                <p class="text-onSurface-variant text-sm font-body mb-5">{g.description}</p>
+                <ul class="space-y-2">
+                  {g.bullets.map((b) => (
+                    <li class="flex items-center gap-2 text-sm font-body">
+                      <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                      <span>{b}</span>
                     </li>
                   ))}
                 </ul>
@@ -502,9 +495,9 @@ const blogTeasers = [
         </div>
 
         <!-- Estados donde están las granjas -->
-        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 md:p-10 mb-12">
+        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 mb-10">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4 text-center">
-            Hoy operamos en cinco estados
+            Operamos en México
           </p>
           <div class="flex flex-wrap gap-3 justify-center">
             {estados.map((e) => (
@@ -513,23 +506,22 @@ const blogTeasers = [
                   <span class="material-symbols-outlined text-primary text-base">place</span>
                   <span class="font-headline font-bold text-white">{e.name}</span>
                 </div>
-                <div class="text-xs text-white/70 mt-1">{e.subtitle}</div>
               </div>
             ))}
           </div>
         </div>
 
         <!-- CTA Hablemos integrado -->
-        <div class="bg-primary text-secondary rounded-3xl p-10 md:p-12 text-center max-w-3xl mx-auto shadow-2xl shadow-primary/20">
-          <h3 class="font-headline text-3xl md:text-4xl font-bold mb-3 leading-tight">
+        <div class="bg-primary text-secondary rounded-3xl p-8 md:p-10 text-center max-w-3xl mx-auto shadow-2xl shadow-primary/20">
+          <h3 class="font-headline text-2xl md:text-3xl font-bold mb-3 leading-tight">
             ¿Quieres construir tu propia granja?
           </h3>
-          <p class="text-secondary/85 text-base md:text-lg mb-8 font-body">
+          <p class="text-secondary/85 text-sm md:text-base mb-6 font-body">
             Hablemos de tu proyecto — desde el primer sistema casero hasta una operación comercial completa
           </p>
           <a
             href="mailto:info@cay.mx"
-            class="inline-block bg-secondary text-white px-10 py-4 rounded-full font-bold text-base hover:bg-secondary/90 shadow-lg shadow-secondary/30 hover:-translate-y-0.5 transition-all"
+            class="inline-block bg-secondary text-white px-8 py-3 rounded-full font-bold text-base hover:bg-secondary/90 shadow-lg shadow-secondary/30 hover:-translate-y-0.5 transition-all"
           >
             Hablemos de tu proyecto
           </a>
