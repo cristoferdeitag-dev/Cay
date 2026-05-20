@@ -270,7 +270,7 @@ const blogTeasers = [
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 relative">
+        <div class="grid md:grid-cols-3 gap-8 relative mb-20">
           <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-1 bg-white/20 -z-10"></div>
           {
             cycle.map((step) => (
@@ -284,6 +284,73 @@ const blogTeasers = [
               </div>
             ))
           }
+        </div>
+
+        <!-- Diagrama del ciclo de la acuaponía -->
+        <div class="bg-white rounded-3xl p-8 md:p-12 max-w-3xl mx-auto shadow-2xl shadow-black/10">
+          <p class="text-center text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">El ciclo</p>
+          <h3 class="font-headline text-2xl md:text-3xl text-secondary font-bold text-center mb-8">
+            Un ciclo que se cuida solo
+          </h3>
+
+          <svg viewBox="0 0 600 360" class="w-full h-auto" aria-label="Ciclo de la acuaponía" xmlns="http://www.w3.org/2000/svg">
+            <!-- Círculo guía -->
+            <ellipse cx="300" cy="180" rx="220" ry="130" fill="none" stroke="#9DC41B" stroke-width="2" stroke-dasharray="6 6" opacity="0.4"/>
+
+            <!-- Flechas del ciclo (curvas) -->
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#9DC41B"/>
+              </marker>
+            </defs>
+
+            <path d="M 150 180 Q 200 80, 300 80" fill="none" stroke="#9DC41B" stroke-width="3" marker-end="url(#arrowhead)"/>
+            <path d="M 300 80 Q 400 80, 450 180" fill="none" stroke="#9DC41B" stroke-width="3" marker-end="url(#arrowhead)"/>
+            <path d="M 450 180 Q 400 280, 300 280" fill="none" stroke="#9DC41B" stroke-width="3" marker-end="url(#arrowhead)"/>
+            <path d="M 300 280 Q 200 280, 150 180" fill="none" stroke="#9DC41B" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+            <!-- Nodo Peces (izquierda) -->
+            <g>
+              <circle cx="120" cy="180" r="55" fill="#37388D"/>
+              <text x="120" y="172" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="13" font-weight="700">PECES</text>
+              <text x="120" y="195" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="10" opacity="0.85">producen</text>
+              <text x="120" y="208" text-anchor="middle" fill="#9DC41B" font-family="Inter, sans-serif" font-size="10" font-weight="700">nutrientes</text>
+            </g>
+
+            <!-- Nodo Bacterias (arriba) -->
+            <g>
+              <circle cx="300" cy="60" r="55" fill="#9DC41B"/>
+              <text x="300" y="52" text-anchor="middle" fill="#37388D" font-family="Inter, sans-serif" font-size="13" font-weight="700">BACTERIAS</text>
+              <text x="300" y="75" text-anchor="middle" fill="#37388D" font-family="Inter, sans-serif" font-size="10" opacity="0.85">transforman</text>
+              <text x="300" y="88" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="700">residuos</text>
+            </g>
+
+            <!-- Nodo Plantas (derecha) -->
+            <g>
+              <circle cx="480" cy="180" r="55" fill="#37388D"/>
+              <text x="480" y="172" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="13" font-weight="700">PLANTAS</text>
+              <text x="480" y="195" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="10" opacity="0.85">absorben</text>
+              <text x="480" y="208" text-anchor="middle" fill="#9DC41B" font-family="Inter, sans-serif" font-size="10" font-weight="700">nutrientes</text>
+            </g>
+
+            <!-- Nodo Agua (abajo) -->
+            <g>
+              <circle cx="300" cy="300" r="55" fill="#9DC41B"/>
+              <text x="300" y="292" text-anchor="middle" fill="#37388D" font-family="Inter, sans-serif" font-size="13" font-weight="700">AGUA</text>
+              <text x="300" y="315" text-anchor="middle" fill="#37388D" font-family="Inter, sans-serif" font-size="10" opacity="0.85">filtrada</text>
+              <text x="300" y="328" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="700">regresa</text>
+            </g>
+
+            <!-- Etiquetas de flujo (medio de cada flecha) -->
+            <text x="200" y="120" fill="#37388D" font-family="Inter, sans-serif" font-size="11" font-weight="600">amoniaco →</text>
+            <text x="385" y="120" fill="#37388D" font-family="Inter, sans-serif" font-size="11" font-weight="600">nitratos →</text>
+            <text x="385" y="250" fill="#37388D" font-family="Inter, sans-serif" font-size="11" font-weight="600">agua →</text>
+            <text x="170" y="250" fill="#37388D" font-family="Inter, sans-serif" font-size="11" font-weight="600">limpia ←</text>
+          </svg>
+
+          <p class="text-center text-sm text-onSurface-variant mt-6 font-body italic">
+            Sin desperdicio. Sin fertilizantes sintéticos. Sin químicos en el agua.
+          </p>
         </div>
       </div>
     </section>
