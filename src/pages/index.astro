@@ -158,20 +158,20 @@ const valores = [
   'Compromiso',
 ];
 
-// ODS oficiales ONU — colores reales Agenda 2030 + icono material representativo
+// ODS oficiales ONU — imágenes recortadas del banner oficial que mandó Asaí
 const ods = [
-  { num: '2', title: 'Hambre cero', color: '#DDA63A', icon: 'restaurant' },
-  { num: '3', title: 'Salud y bienestar', color: '#4C9F38', icon: 'health_and_safety' },
-  { num: '6', title: 'Agua limpia y saneamiento', color: '#26BDE2', icon: 'water_drop' },
-  { num: '7', title: 'Energía asequible', color: '#FCC30B', icon: 'bolt' },
-  { num: '8', title: 'Trabajo decente', color: '#A21942', icon: 'work' },
-  { num: '9', title: 'Industria e innovación', color: '#FD6925', icon: 'precision_manufacturing' },
-  { num: '10', title: 'Reducción de desigualdades', color: '#DD1367', icon: 'diversity_3' },
-  { num: '11', title: 'Comunidades sostenibles', color: '#FD9D24', icon: 'location_city' },
-  { num: '12', title: 'Producción responsable', color: '#BF8B2E', icon: 'recycling' },
-  { num: '13', title: 'Acción por el clima', color: '#3F7E44', icon: 'public' },
-  { num: '14', title: 'Vida submarina', color: '#0A97D9', icon: 'phishing' },
-  { num: '15', title: 'Vida terrestre', color: '#56C02B', icon: 'park' },
+  { num: 2, image: '/images/ods/ods-2.jpg', alt: 'ODS 2 Hambre cero' },
+  { num: 3, image: '/images/ods/ods-3.jpg', alt: 'ODS 3 Salud y bienestar' },
+  { num: 6, image: '/images/ods/ods-6.jpg', alt: 'ODS 6 Agua limpia y saneamiento' },
+  { num: 7, image: '/images/ods/ods-7.jpg', alt: 'ODS 7 Energía asequible y no contaminante' },
+  { num: 8, image: '/images/ods/ods-8.jpg', alt: 'ODS 8 Trabajo decente y crecimiento económico' },
+  { num: 9, image: '/images/ods/ods-9.jpg', alt: 'ODS 9 Industria, innovación e infraestructura' },
+  { num: 10, image: '/images/ods/ods-10.jpg', alt: 'ODS 10 Reducción de las desigualdades' },
+  { num: 11, image: '/images/ods/ods-11.jpg', alt: 'ODS 11 Ciudades y comunidades sostenibles' },
+  { num: 12, image: '/images/ods/ods-12.jpg', alt: 'ODS 12 Producción y consumo responsables' },
+  { num: 13, image: '/images/ods/ods-13.jpg', alt: 'ODS 13 Acción por el clima' },
+  { num: 14, image: '/images/ods/ods-14.jpg', alt: 'ODS 14 Vida submarina' },
+  { num: 15, image: '/images/ods/ods-15.jpg', alt: 'ODS 15 Vida de ecosistemas terrestres' },
 ];
 
 const certs = [
@@ -192,10 +192,6 @@ const galleryShots = [
   '/images/hero-granja.jpg',
   '/images/hortalizas.jpg',
   '/images/koi.jpg',
-  '/images/proyectos.jpg',
-  '/images/cafecito-fruto.jpg',
-  '/images/hero-granja.jpg',
-  '/images/hortalizas.jpg',
   '/images/proyectos.jpg',
 ];
 
@@ -275,16 +271,22 @@ const blogTeasers = [
       <div class="relative max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-16">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-4">El método</p>
-          <h2 class="font-headline text-5xl md:text-6xl font-bold leading-tight mb-6">
+          <h2 class="font-headline text-5xl md:text-6xl font-bold leading-tight mb-8">
             ¿Qué es<br />la acuaponía?
           </h2>
-          <p class="max-w-3xl mx-auto text-white/95 text-lg font-body leading-relaxed mb-4">
-            La acuaponía es un sistema de cultivo que combina la <strong>acuicultura</strong> (crianza de peces) y la
-            <strong>hidroponía</strong> (cultivo de hortalizas en agua). El agua de los peces aporta los nutrientes
-            necesarios para que las plantas crezcan, mientras que las plantas filtran y limpian el agua para
-            regresarla a los peces. Así se crea un sistema circular que produce alimentos frescos de manera natural e
-            innovadora
-          </p>
+          <div class="max-w-3xl mx-auto text-white/95 text-lg font-body leading-relaxed space-y-5 text-justify mb-8">
+            <p>
+              La acuaponía es un sistema de cultivo que combina la <strong>acuicultura</strong> (crianza de peces) y
+              la <strong>hidroponía</strong> (cultivo de hortalizas en agua).
+            </p>
+            <p>
+              El agua de los peces aporta los nutrientes necesarios para que las plantas crezcan, mientras que las
+              plantas filtran y limpian el agua para regresarla a los peces.
+            </p>
+            <p>
+              Así se crea un sistema circular que produce alimentos frescos de manera natural e innovadora.
+            </p>
+          </div>
           <p class="text-primary font-headline text-2xl md:text-3xl font-bold italic">
             Una simbiosis perfecta
           </p>
@@ -482,94 +484,118 @@ const blogTeasers = [
       </div>
     </section>
 
-    <!-- SOBRE CAY (incluye misión/visión/valores + founders) -->
-    <section id="sobre" class="relative py-24 md:py-32 bg-secondary text-white overflow-hidden">
+    <!-- ENCUÉNTRANOS -->
+    <section id="encuentranos" class="relative py-24 md:py-32 bg-primary/10 overflow-hidden">
+      <div class="relative max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Encuéntranos</p>
+          <h2 class="font-headline text-5xl md:text-6xl text-secondary font-bold leading-tight">
+            Dónde conseguir<br />nuestros productos
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {
+            puntosVentaList.map((p) => (
+              <div class="bg-white p-5 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                <div class="w-12 h-12 bg-primary/15 text-primary rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span class="material-symbols-outlined text-xl">{p.icon}</span>
+                </div>
+                <div class="font-headline text-base text-secondary font-bold mb-1 leading-tight">{p.name}</div>
+                <div class="text-[11px] text-onSurface-variant">{p.detail}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORIA (antes Sobre CAY — MVV + Founders embed compactos) -->
+    <section id="historia" class="relative py-24 md:py-32 bg-secondary text-white overflow-hidden">
       <div class="hidden md:block absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
 
-      <!-- Intro + imagen -->
-      <div class="relative max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-16 items-center mb-24">
-        <div
-          class="relative aspect-[4/5] overflow-hidden shadow-2xl shadow-black/30"
-          style="border-radius: 45% 55% 50% 50% / 55% 45% 55% 45%;"
-        >
-          <img src="/images/hero-granja.jpg" alt="Equipo CAY" class="w-full h-full object-cover" loading="lazy" />
-        </div>
-
-        <div>
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">Sobre CAY · 100% mexicana</p>
-          <h2 class="font-headline text-5xl md:text-6xl font-bold leading-[0.95] mb-8">
-            Un granito de<br />arena que viene<br />de raíz
-          </h2>
-          <p class="text-white/90 text-lg leading-relaxed mb-6 font-body">
-            Los <strong>mayas</strong> y los <strong>aztecas</strong> ya hacían acuaponía mucho antes de que existiera
-            la palabra. Sus <strong>chinampas</strong> cultivaban peces y plantas en el mismo ecosistema. Esa herencia
-            no se inventó en un laboratorio europeo: se inventó aquí
-          </p>
-          <p class="text-white/90 text-lg leading-relaxed font-body">
-            CAY se fundó en <strong>2020</strong>. Recogemos ese saber, lo combinamos con tecnología actual y lo
-            operamos con manos mexicanas — para alimentar al país sin secarlo
-          </p>
-        </div>
-      </div>
-
-      <!-- Misión · Visión · Valores (fusionados aquí adentro) -->
-      <div class="relative max-w-[1200px] mx-auto px-6 mb-20">
-        <div class="text-center mb-12">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Lo que nos mueve</p>
-          <h3 class="font-headline text-4xl md:text-5xl font-bold leading-tight">
-            Misión · Visión · Valores
-          </h3>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8 mb-12">
-          {
-            mvv.map((m, idx) => (
-              <div
-                class={`p-8 rounded-3xl ${idx === 1 ? 'bg-primary text-secondary md:scale-105 md:-translate-y-2 shadow-2xl shadow-primary/30' : 'bg-white text-secondary shadow-lg'} hover:-translate-y-2 transition-all duration-300`}
-              >
-                <div
-                  class={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 ${idx === 1 ? 'bg-secondary text-white' : 'bg-primary/15 text-primary'}`}
-                >
-                  <span class="material-symbols-outlined text-2xl">{m.icon}</span>
-                </div>
-                <h4 class="font-headline text-2xl font-bold mb-3">{m.title}</h4>
-                <p class={`text-sm font-body leading-relaxed ${idx === 1 ? 'text-secondary/90' : 'text-onSurface-variant'}`}>{m.body}</p>
-              </div>
-            ))
-          }
-        </div>
-
-        <!-- Valores chips -->
-        <div class="text-center">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-5">Nuestros valores</p>
-          <div class="flex flex-wrap gap-2 justify-center max-w-4xl mx-auto">
-            {
-              valores.map((v) => (
-                <span class="inline-block bg-white/10 border border-primary/40 text-primary text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full hover:bg-primary hover:text-secondary hover:border-primary transition-all cursor-default">
-                  {v}
-                </span>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-
-      <!-- Founders -->
+      <!-- Intro + imagen + MVV en layout más compacto -->
       <div class="relative max-w-[1200px] mx-auto px-6">
-        <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-6 text-center">Fundadores</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          {
-            founders.map((f) => (
-              <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6 flex items-center gap-5 hover:bg-white/15 transition-colors">
-                <div class="w-16 h-16 bg-primary text-secondary rounded-full flex items-center justify-center font-headline font-bold text-xl flex-shrink-0">
-                  {f.initials}
-                </div>
-                <div>
-                  <div class="font-headline text-xl font-bold">{f.name}</div>
-                  <div class="text-primary text-sm font-bold uppercase tracking-wider">{f.role}</div>
-                </div>
+        <div class="grid md:grid-cols-12 gap-12 items-start mb-16">
+          <!-- Imagen vertical (4 cols) -->
+          <div class="md:col-span-5 md:sticky md:top-24">
+            <div
+              class="relative aspect-[4/5] overflow-hidden shadow-2xl shadow-black/30"
+              style="border-radius: 45% 55% 50% 50% / 55% 45% 55% 45%;"
+            >
+              <img src="/images/cafecito-fruto.jpg" alt="Equipo CAY" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+
+            <!-- Founders compactos junto a la imagen -->
+            <div class="mt-8">
+              <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">Fundadores</p>
+              <div class="space-y-3">
+                {founders.map((f) => (
+                  <div class="flex items-center gap-4 bg-white/10 border border-white/15 rounded-2xl p-3">
+                    <div class="w-11 h-11 bg-primary text-secondary rounded-full flex items-center justify-center font-headline font-bold text-sm flex-shrink-0">
+                      {f.initials}
+                    </div>
+                    <div>
+                      <div class="font-headline text-base font-bold leading-tight">{f.name}</div>
+                      <div class="text-primary text-[11px] font-bold uppercase tracking-wider">{f.role}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))
-          }
+            </div>
+          </div>
+
+          <!-- Texto + MVV (7 cols) -->
+          <div class="md:col-span-7 space-y-10">
+            <div>
+              <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Historia · 100% mexicana</p>
+              <h2 class="font-headline text-4xl md:text-5xl font-bold leading-[1.05] mb-6">
+                Un granito de arena<br />que viene de raíz
+              </h2>
+              <div class="text-white/90 text-base leading-relaxed font-body space-y-4 text-justify">
+                <p>
+                  Los <strong>mayas</strong> y los <strong>aztecas</strong> ya hacían acuaponía mucho antes de que
+                  existiera la palabra. Sus <strong>chinampas</strong> cultivaban peces y plantas en el mismo
+                  ecosistema.
+                </p>
+                <p>
+                  Esa herencia no se inventó en un laboratorio europeo: se inventó aquí.
+                </p>
+                <p>
+                  CAY se fundó en <strong>2020</strong>. Recogemos ese saber, lo combinamos con tecnología actual y lo
+                  operamos con manos mexicanas — para alimentar al país sin secarlo.
+                </p>
+              </div>
+            </div>
+
+            <!-- MVV cards compactas en stack -->
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">Lo que nos mueve</p>
+              <div class="space-y-3">
+                {mvv.map((m) => (
+                  <div class="bg-white/10 border border-white/15 backdrop-blur-sm rounded-2xl p-5 hover:bg-white/15 transition-colors">
+                    <div class="flex items-center gap-3 mb-2">
+                      <span class="material-symbols-outlined text-primary text-xl">{m.icon}</span>
+                      <h4 class="font-headline text-lg font-bold">{m.title}</h4>
+                    </div>
+                    <p class="text-sm text-white/80 leading-relaxed font-body">{m.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- Valores chips compactos -->
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">Nuestros valores</p>
+              <div class="flex flex-wrap gap-1.5">
+                {valores.map((v) => (
+                  <span class="inline-block bg-white/10 border border-primary/40 text-primary text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+                    {v}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -590,6 +616,36 @@ const blogTeasers = [
                 </div>
                 <div class="font-headline font-bold text-secondary text-sm">{c.name}</div>
                 <div class="text-xs text-onSurface-variant mt-1">{c.label}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ALIANZAS -->
+    <section id="alianzas" class="relative py-20 md:py-24 bg-secondary/10 overflow-hidden">
+      <div class="relative max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-12">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Alianzas</p>
+          <h2 class="font-headline text-3xl md:text-5xl text-secondary font-bold leading-tight mb-4">
+            No caminamos solos
+          </h2>
+          <p class="max-w-2xl mx-auto text-onSurface-variant text-base">
+            Construimos junto a otras empresas mexicanas y latinoamericanas que comparten la misma visión: alimentar
+            sin comprometer al planeta
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            alianzas.map((a) => (
+              <div class="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                <div class="w-16 h-16 bg-primary/15 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span class="material-symbols-outlined text-3xl">{a.icon}</span>
+                </div>
+                <h3 class="font-headline text-2xl text-secondary font-bold mb-2">{a.name}</h3>
+                <p class="text-sm text-onSurface-variant">{a.detail}</p>
               </div>
             ))
           }
@@ -644,53 +700,15 @@ const blogTeasers = [
           </h3>
         </div>
 
-        <!-- Banner oficial ONU referencia -->
-        <div class="max-w-3xl mx-auto mb-10 rounded-2xl overflow-hidden border border-white/10">
-          <img src="/images/ods-banner.jpg" alt="Objetivos de Desarrollo Sostenible - ONU" class="w-full h-auto object-contain bg-white" loading="lazy" />
-        </div>
-
-        <p class="text-center text-sm font-bold uppercase tracking-wider text-primary mb-6">
+        <p class="text-center text-sm font-bold uppercase tracking-wider text-primary mb-8">
           Los 12 que CAY trabaja activamente
         </p>
 
         <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
           {
             ods.map((o) => (
-              <div
-                class="aspect-square rounded-2xl p-4 flex flex-col justify-between text-white hover:scale-105 transition-transform duration-300 shadow-md"
-                style={`background-color: ${o.color};`}
-              >
-                <div class="flex items-start justify-between">
-                  <div class="font-headline text-3xl md:text-4xl font-black opacity-90">{o.num}</div>
-                  <span class="material-symbols-outlined text-2xl md:text-3xl opacity-80">{o.icon}</span>
-                </div>
-                <div class="font-headline font-bold text-[11px] md:text-xs leading-tight">{o.title}</div>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <!-- ENCUÉNTRANOS -->
-    <section id="encuentranos" class="relative py-24 md:py-32 bg-primary/10 overflow-hidden">
-      <div class="relative max-w-[1200px] mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Encuéntranos</p>
-          <h2 class="font-headline text-5xl md:text-6xl text-secondary font-bold leading-tight">
-            Dónde conseguir<br />nuestros productos
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {
-            puntosVentaList.map((p) => (
-              <div class="bg-white p-5 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
-                <div class="w-12 h-12 bg-primary/15 text-primary rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span class="material-symbols-outlined text-xl">{p.icon}</span>
-                </div>
-                <div class="font-headline text-base text-secondary font-bold mb-1 leading-tight">{p.name}</div>
-                <div class="text-[11px] text-onSurface-variant">{p.detail}</div>
+              <div class="aspect-square overflow-hidden rounded-lg shadow-md hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                <img src={o.image} alt={o.alt} class="w-full h-full object-cover" loading="lazy" />
               </div>
             ))
           }
@@ -746,36 +764,6 @@ const blogTeasers = [
                   <p class="text-sm text-onSurface-variant font-body leading-relaxed">{post.excerpt}</p>
                 </div>
               </article>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <!-- ALIANZAS -->
-    <section id="alianzas" class="relative py-20 md:py-24 bg-secondary/10 overflow-hidden">
-      <div class="relative max-w-[1200px] mx-auto px-6">
-        <div class="text-center mb-12">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Alianzas</p>
-          <h2 class="font-headline text-3xl md:text-5xl text-secondary font-bold leading-tight mb-4">
-            No caminamos solos
-          </h2>
-          <p class="max-w-2xl mx-auto text-onSurface-variant text-base">
-            Construimos junto a otras empresas mexicanas y latinoamericanas que comparten la misma visión: alimentar
-            sin comprometer al planeta
-          </p>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {
-            alianzas.map((a) => (
-              <div class="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
-                <div class="w-16 h-16 bg-primary/15 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span class="material-symbols-outlined text-3xl">{a.icon}</span>
-                </div>
-                <h3 class="font-headline text-2xl text-secondary font-bold mb-2">{a.name}</h3>
-                <p class="text-sm text-onSurface-variant">{a.detail}</p>
-              </div>
             ))
           }
         </div>
