@@ -40,10 +40,12 @@ export default {
         full: '9999px',
       },
       fontFamily: {
-        headline: ['Newsreader', 'serif'],
-        display: ['Newsreader', 'serif'],
+        // Brand oficial: Kabrio Alternate (Zetafonts, licencia comercial).
+        // Outfit es fallback de Google Fonts hasta que se compre la licencia.
+        headline: ['"Kabrio Alternate"', 'Outfit', 'sans-serif'],
+        display: ['"Kabrio Alternate"', 'Outfit', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
-        label: ['Inter', 'sans-serif'],
+        label: ['"Kabrio Alternate"', 'Outfit', 'sans-serif'],
       },
       boxShadow: {
         'soft-primary': '0 4px 20px -5px rgba(125, 194, 66, 0.15)',
