@@ -189,13 +189,6 @@ const founders = [
   { name: 'Asaí López', role: 'Founder', initials: 'AL' },
 ];
 
-const galleryShots = [
-  '/images/hero-granja.jpg',
-  '/images/hortalizas.jpg',
-  '/images/koi.jpg',
-  '/images/proyectos.jpg',
-];
-
 const blogTeasers = [
   {
     tag: 'Acuaponía 101',
@@ -753,29 +746,7 @@ const blogTeasers = [
       </div>
     </section>
 
-    <!-- GALERÍA -->
-    <section id="galeria" class="relative py-24 md:py-32 bg-secondary text-white overflow-hidden">
-      <div class="relative max-w-[1200px] mx-auto px-6">
-        <div class="text-center mb-12">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Galería</p>
-          <h2 class="font-headline text-3xl md:text-5xl font-bold">
-            La granja en imágenes y video
-          </h2>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {
-            galleryShots.map((src, i) => (
-              <div class="relative aspect-square overflow-hidden rounded-2xl group cursor-pointer shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <img src={src} alt={`Galería ${i + 1}`} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
-                <div class="absolute inset-0 bg-gradient-to-t from-secondary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <!-- BLOG TEASER -->
+<!-- BLOG TEASER -->
     <section id="blog" class="relative py-24 md:py-32 bg-surface overflow-hidden">
       <div class="max-w-[1200px] mx-auto px-6">
         <div class="flex flex-wrap justify-between items-end mb-12 gap-4">
@@ -793,7 +764,7 @@ const blogTeasers = [
             blogTeasers.map((post, i) => (
               <article class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer group">
                 <div class="aspect-[16/10] overflow-hidden">
-                  <img src={galleryShots[i % galleryShots.length]} alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <img src={['/images/hero-granja.jpg', '/images/hortalizas.jpg', '/images/koi.jpg'][i % 3]} alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                 </div>
                 <div class="p-6">
                   <span class="inline-block bg-primary/15 text-primary text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">{post.tag}</span>
