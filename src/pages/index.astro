@@ -3,30 +3,24 @@ import Layout from '../layouts/Layout.astro';
 import TopNav from '../components/TopNav.astro';
 import Footer from '../components/Footer.astro';
 
+// Productos (simplificados: hortalizas + peces). Foco del sitio NO es vender catálogo —
+// es contar la acuaponía y CAY. Productos van compactos.
 const productos = [
   {
     id: 'hortalizas',
-    title: 'Hortalizas y lechugas',
-    description: 'Hojas verdes recién cortadas, libres de pesticidas, cultivadas con la limpieza del agua de nuestras granjas.',
+    title: 'Hortalizas',
+    sub: 'Cosecha del día, sin pesticidas',
+    items: ['Lechuga italiana', 'Lechuga sangría', 'Lechuga orejona', 'Apio', 'Albahaca', 'Espinaca'],
     image: '/images/hortalizas.jpg',
     icon: 'eco',
-    color: 'primary',
   },
   {
-    id: 'tilapias',
-    title: 'Tilapias',
-    description: 'Pescado fresco de granja, con carne firme y sabor limpio. Trazabilidad completa desde el estanque a tu mesa.',
-    image: '/images/hero-granja.jpg',
-    icon: 'set_meal',
-    color: 'secondary',
-  },
-  {
-    id: 'koi',
-    title: 'Carpas koi',
-    description: 'Ejemplares de ornato seleccionados para estanques residenciales y comerciales. Crianza controlada con genética curada.',
+    id: 'peces',
+    title: 'Peces',
+    sub: 'Consumo y ornato',
+    items: ['Tilapia gris', 'Tilapia naranja', 'Carpas koi', 'Guppys'],
     image: '/images/koi.jpg',
     icon: 'phishing',
-    color: 'primary',
   },
 ];
 
@@ -35,34 +29,129 @@ const cycle = [
     step: '01',
     icon: 'phishing',
     title: 'Peces',
-    description: 'Alimentamos a los peces. Su proceso digestivo enriquece el agua con compuestos nitrogenados.',
+    description: 'Los peces nutren el agua con compuestos nitrogenados naturales de su proceso digestivo',
   },
   {
     step: '02',
     icon: 'science',
     title: 'Bacterias',
-    description: 'Biofiltros con bacterias benéficas transforman el amoniaco en nitratos que las plantas pueden absorber.',
+    description: 'Biofiltros con bacterias benéficas transforman esos compuestos en nitratos absorbibles',
   },
   {
     step: '03',
     icon: 'eco',
     title: 'Plantas',
-    description: 'Las raíces toman los nutrientes y limpian el agua, que regresa purificada a los peces. El ciclo se repite.',
+    description: 'Las raíces toman los nutrientes y devuelven el agua purificada a los tanques',
   },
 ];
 
-const timeline = [
-  { year: '2018', label: 'Nace CAY en Jalisco con una granja piloto' },
-  { year: '2020', label: 'Primer contrato comercial de hortalizas frescas' },
-  { year: '2022', label: 'Cinco granjas activas en distintos estados' },
-  { year: '2024', label: 'Apertura de venta directa al consumidor' },
+const benefits = [
+  { stat: '90%', label: 'Menos agua', detail: 'que la agricultura tradicional' },
+  { stat: '4×', label: 'Más rendimiento', detail: 'por metro cuadrado' },
+  { stat: '0', label: 'Pesticidas', detail: 'el agua no permitiría que sobrevivan los peces' },
+  { stat: '0', label: 'Erosión del suelo', detail: 'el cultivo no toca tierra' },
 ];
 
-// Pattern data URIs reusable
-const fishPattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 50'><g fill='#9DC41B'><path d='M5 25 C 12 12, 30 12, 50 25 C 30 38, 12 38, 5 25 Z M50 25 L70 15 L70 35 Z'/><circle cx='40' cy='20' r='1.8' fill='white'/></g></svg>`)}`;
-const fishSchoolPattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'><g fill='currentColor'><path d='M12 36 C 16 30, 24 30, 32 36 C 24 42, 16 42, 12 36 Z M32 36 L40 30 L40 42 Z'/><path d='M84 90 C 88 84, 96 84, 104 90 C 96 96, 88 96, 84 90 Z M104 90 L112 84 L112 96 Z'/><path d='M148 50 C 152 44, 160 44, 168 50 C 160 56, 152 56, 148 50 Z M168 50 L176 44 L176 56 Z'/><path d='M60 140 C 64 134, 72 134, 80 140 C 72 146, 64 146, 60 140 Z M80 140 L88 134 L88 146 Z'/><path d='M180 160 C 184 154, 192 154, 200 160 C 192 166, 184 166, 180 160 Z M200 160 L208 154 L208 166 Z'/><path d='M120 200 C 124 194, 132 194, 140 200 C 132 206, 124 206, 120 200 Z M140 200 L148 194 L148 206 Z'/></g></svg>`)}`;
-const leafPattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 60'><path d='M20 5 C 8 15, 5 35, 20 55 C 35 35, 32 15, 20 5 Z' fill='currentColor'/><path d='M20 5 L20 55' stroke='white' stroke-width='1' opacity='0.5'/></svg>`)}`;
-const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'><path d='M0 30 Q 25 10, 50 30 T 100 30 T 150 30 T 200 30' stroke='currentColor' stroke-width='2.5' fill='none' opacity='0.9'/><path d='M0 45 Q 25 25, 50 45 T 100 45 T 150 45 T 200 45' stroke='currentColor' stroke-width='1.8' fill='none' opacity='0.5'/></svg>`)}`;
+const granjas = [
+  {
+    type: 'Granjas comerciales',
+    description: 'Producción a escala para abastecer mercados, restaurantes y supermercados.',
+    subcats: [
+      { name: 'Productores', detail: 'Volumen industrial de hortalizas y proteína' },
+      { name: 'Farm-to-table', detail: 'Cosecha del día hacia chefs y consumidores directos' },
+    ],
+    icon: 'agriculture',
+  },
+  {
+    type: 'Granjas agroturísticas',
+    description: 'Espacios abiertos al público para conocer la acuaponía y vivirla de cerca.',
+    subcats: [
+      { name: 'Visitas y tours', detail: 'Experiencia educativa para familias y escuelas' },
+      { name: 'Granjas caseras', detail: 'Sistemas residenciales que diseñamos y armamos contigo' },
+    ],
+    icon: 'tour',
+  },
+];
+
+const mvv = [
+  {
+    title: 'Misión',
+    body: 'Reintroducir la acuaponía como una forma seria de alimentar México, devolviéndole al agua su inteligencia y a la tierra un descanso bien merecido.',
+    icon: 'flag',
+  },
+  {
+    title: 'Visión',
+    body: 'Ser la empresa referente de acuaponía en América Latina: de Jalisco al mundo, con producto, educación y sistemas que multipliquen el modelo.',
+    icon: 'visibility',
+  },
+  {
+    title: 'Valores',
+    body: 'Honestidad con el alimento, respeto por el agua, herencia mexicana viva, y obsesión por la calidad sin atajos.',
+    icon: 'favorite',
+  },
+];
+
+const ods = [
+  { num: '2', title: 'Hambre cero', color: '#DDA63A' },
+  { num: '6', title: 'Agua limpia y saneamiento', color: '#26BDE2' },
+  { num: '12', title: 'Producción y consumo responsables', color: '#BF8B2E' },
+  { num: '13', title: 'Acción por el clima', color: '#3F7E44' },
+  { num: '15', title: 'Vida de ecosistemas terrestres', color: '#56C02B' },
+];
+
+const certs = [
+  { name: 'SAGARPA', label: 'Registro federal' },
+  { name: 'Inocuidad', label: 'Cadena alimentaria' },
+  { name: 'Buenas Prácticas', label: 'Acuícolas' },
+  { name: '100% Mexicano', label: 'Producción nacional' },
+];
+
+const estados = [
+  { name: 'Jalisco', subtitle: 'Granja CAY Central · Guadalajara' },
+  { name: 'Puebla', subtitle: 'Hortaliza Sierra Norte' },
+  { name: 'Tlaxcala', subtitle: 'Tilapias Altiplano' },
+  { name: 'Hidalgo', subtitle: 'Agroturismo Real del Monte' },
+  { name: 'Oaxaca', subtitle: 'Productora Valles Centrales' },
+];
+
+const timeline = [
+  { year: '2018', label: 'Nace CAY con la primera granja piloto en Jalisco' },
+  { year: '2020', label: 'Producción comercial estable de hortalizas y tilapia' },
+  { year: '2022', label: 'Expansión a cinco estados de la República' },
+  { year: '2024', label: 'Inauguramos el agroturismo y la venta directa' },
+];
+
+const galleryShots = [
+  '/images/hero-granja.jpg',
+  '/images/hortalizas.jpg',
+  '/images/koi.jpg',
+  '/images/proyectos.jpg',
+];
+
+const blogTeasers = [
+  {
+    tag: 'Acuaponía 101',
+    title: 'Lo que nadie te cuenta del agua que comes',
+    excerpt: 'Por qué el ciclo cerrado cambia las reglas de lo que llamamos "fresco" en México.',
+  },
+  {
+    tag: 'Productor',
+    title: 'Cómo planeamos una cosecha de 1,000 lechugas semanales',
+    excerpt: 'Detrás de la operación: variedades, densidad, temperatura del agua y el ojo del operario.',
+  },
+  {
+    tag: 'Historia',
+    title: 'Chinampas: la acuaponía que ya existía',
+    excerpt: 'Lo que aprendieron los aztecas en Xochimilco y que hoy reaplicamos con tecnología.',
+  },
+];
+
+// Patrones SVG en /public/patterns/ — referenciados por URL absoluta
+const fishSchool = '/patterns/fish-school.svg';
+const leafField = '/patterns/leaf-field.svg';
+const wavePat = '/patterns/wave-line.svg';
+const leafGreenUri = '/patterns/leaf-green.svg';
+const fishVioletUri = '/patterns/fish-violet.svg';
 ---
 
 <Layout>
@@ -70,41 +159,44 @@ const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='h
 
   <main>
     <!-- HERO -->
-    <section
-      id="inicio"
-      class="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32 bg-surface"
-    >
-      <!-- Pattern de peces como overlay (text-primary controla color) -->
+    <section id="inicio" class="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32 bg-surface">
+      <!-- Cardumen patrón overlay -->
       <div
         class="absolute inset-0 pointer-events-none text-primary"
-        style={`background-image: url("${fishSchoolPattern}"); background-size: 320px 320px; opacity: 0.07;`}
+        style={`background-image: url("${fishSchool}"); background-size: 320px 320px; opacity: 0.08;`}
       >
       </div>
 
-      <!-- Blob orgánico decorativo grande -->
+      <!-- Blobs decorativos -->
+      <div class="hidden md:block absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>
+      <div class="hidden md:block absolute top-1/2 -left-40 w-[500px] h-[500px] rounded-full bg-secondary/10 blur-3xl pointer-events-none"></div>
+
+      <!-- Hojas animadas decorativas -->
       <div
-        class="hidden md:block absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-primary/15 blur-3xl pointer-events-none"
+        class="hidden md:block absolute top-32 right-1/3 w-16 h-20 text-primary opacity-30 animate-float-slow"
+        style={`background-image: url("${leafGreenUri}"); background-size: contain; background-repeat: no-repeat;`}
       >
       </div>
       <div
-        class="hidden md:block absolute top-1/2 -left-40 w-[500px] h-[500px] rounded-full bg-secondary/10 blur-3xl pointer-events-none"
+        class="hidden md:block absolute bottom-20 left-20 w-12 h-16 text-primary opacity-40 animate-float-medium"
+        style={`background-image: url("${leafGreenUri}"); background-size: contain; background-repeat: no-repeat;`}
       >
       </div>
 
       <div class="relative max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div class="space-y-8">
           <p class="text-sm text-primary font-bold uppercase tracking-[0.2em]">
-            🌱 Acuaponía mexicana
+            🌱 Acuaponía mexicana · De México al mundo
           </p>
           <h1 class="font-headline text-5xl md:text-6xl lg:text-[80px] leading-[0.95] text-secondary font-bold">
             Donde el<br />
             agua, los peces<br />
             <span class="text-primary">y las plantas</span><br />
-            se cuidan.
+            se cuidan
           </h1>
           <p class="text-onSurface-variant text-lg max-w-md font-body leading-relaxed">
-            Cultivamos hortalizas y peces vivos en un ciclo cerrado que limpia el agua mientras alimenta a México.
-            Granjas tecnificadas, producto limpio, sin atajos.
+            Cultivamos hortalizas y peces vivos en un ciclo cerrado que limpia el agua mientras alimenta al país.
+            Granjas tecnificadas, producto limpio, sin atajos
           </p>
           <div class="flex flex-wrap gap-4">
             <a
@@ -122,28 +214,16 @@ const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='h
           </div>
         </div>
         <div class="relative">
-          <!-- Imagen con shape orgánico curvo -->
           <div
             class="relative aspect-[4/5] overflow-hidden shadow-2xl shadow-secondary/20"
             style="border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;"
           >
-            <img
-              src="/images/hero-granja.jpg"
-              alt="Granja acuapónica CAY"
-              class="w-full h-full object-cover"
-              loading="eager"
-            />
+            <img src="/images/hero-granja.jpg" alt="Granja acuapónica CAY" class="w-full h-full object-cover" loading="eager" />
           </div>
-          <!-- Decorative leaf -->
+          <!-- Pez animado decorativo -->
           <div
-            class="absolute -top-6 -left-6 w-24 h-32 text-primary rotate-12 hidden md:block"
-            style={`background-image: url("${leafPattern}"); background-size: contain; background-repeat: no-repeat;`}
-          >
-          </div>
-          <!-- Decorative fish blob -->
-          <div
-            class="absolute -bottom-8 -right-4 w-28 h-20 text-secondary -rotate-12 hidden md:block"
-            style={`background-image: url("${fishPattern.replace('#9DC41B', '#37388D')}"); background-size: contain; background-repeat: no-repeat;`}
+            class="absolute -bottom-4 -right-4 w-32 h-20 text-secondary animate-swim hidden md:block"
+            style={`background-image: url("${fishVioletUri}"); background-size: contain; background-repeat: no-repeat;`}
           >
           </div>
         </div>
@@ -153,18 +233,17 @@ const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='h
     <!-- WAVE SEPARATOR -->
     <div class="relative h-12 bg-surface overflow-hidden">
       <div
-        class="absolute inset-0 text-primary"
-        style={`background-image: url("${wavePattern}"); background-size: 400px 60px; background-repeat: repeat-x; background-position: center; opacity: 0.5;`}
+        class="absolute inset-0 text-primary animate-wave"
+        style={`background-image: url("${wavePat}"); background-size: 400px 60px; background-repeat: repeat-x; background-position: center; opacity: 0.55;`}
       >
       </div>
     </div>
 
     <!-- QUÉ ES LA ACUAPONÍA -->
     <section id="que-es" class="relative bg-primary/95 text-white py-24 md:py-32 overflow-hidden">
-      <!-- Fish pattern overlay -->
       <div
         class="absolute inset-0 text-white pointer-events-none"
-        style={`background-image: url("${fishSchoolPattern}"); background-size: 280px 280px; opacity: 0.1;`}
+        style={`background-image: url("${fishSchool}"); background-size: 280px 280px; opacity: 0.1;`}
       >
       </div>
 
@@ -174,9 +253,10 @@ const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='h
           <h2 class="font-headline text-5xl md:text-6xl font-bold leading-tight mb-6">
             ¿Qué es<br />la acuaponía?
           </h2>
-          <p class="max-w-2xl mx-auto text-white/90 text-lg font-body leading-relaxed">
-            Es un sistema cerrado que combina la cría de peces con el cultivo de plantas. El agua circula entre ambos
-            y se purifica naturalmente. <strong>Sin químicos. Sin desperdicio. Sin caprichos del clima.</strong>
+          <p class="max-w-2xl mx-auto text-white/95 text-lg font-body leading-relaxed">
+            Es un sistema de cultivo que une la cría de peces con el cultivo de plantas en un mismo flujo de agua. Los
+            peces enriquecen el agua, las bacterias la transforman y las plantas la limpian — todo de forma natural,
+            con cero pesticidas y una fracción del agua que pediría la agricultura tradicional
           </p>
         </div>
 
@@ -184,7 +264,7 @@ const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='h
           <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-1 bg-white/20 -z-10"></div>
           {
             cycle.map((step) => (
-              <div class="bg-white text-secondary p-8 rounded-3xl shadow-xl shadow-secondary/10 relative">
+              <div class="bg-white text-secondary p-8 rounded-3xl shadow-xl shadow-secondary/10 relative hover:-translate-y-1 transition-transform duration-300">
                 <div class="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center font-bold text-xl absolute -top-8 left-1/2 -translate-x-1/2">
                   {step.step}
                 </div>
@@ -195,24 +275,111 @@ const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='h
             ))
           }
         </div>
+      </div>
+    </section>
 
-        <div class="mt-16 text-center">
-          <a
-            href="#productos"
-            class="inline-block bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-surface transition-all shadow-lg shadow-black/20 hover:-translate-y-0.5"
-          >
-            Conoce lo que cosechamos →
-          </a>
+    <!-- POR QUÉ ACUAPONÍA (beneficios vs tradicional/hidroponía) -->
+    <section class="relative bg-surface py-24 md:py-32 overflow-hidden">
+      <div
+        class="absolute inset-0 text-primary pointer-events-none"
+        style={`background-image: url("${leafField}"); background-size: 280px 280px; opacity: 0.05;`}
+      >
+      </div>
+
+      <div class="relative max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Por qué acuaponía</p>
+          <h2 class="font-headline text-5xl md:text-6xl text-secondary font-bold leading-tight mb-6">
+            Mejor que la agricultura<br />tradicional y la hidroponía
+          </h2>
+          <p class="max-w-2xl mx-auto text-onSurface-variant text-lg font-body leading-relaxed">
+            La acuaponía resuelve problemas que la agricultura convencional sigue cargando: erosión, exceso de agua,
+            pesticidas y producción dependiente del suelo. Esto es lo que mejora
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          {
+            benefits.map((b) => (
+              <div class="text-center p-8 bg-white rounded-3xl shadow-lg shadow-secondary/5 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                <div class="font-headline text-5xl md:text-6xl text-primary font-bold mb-2">{b.stat}</div>
+                <div class="font-headline text-lg text-secondary font-bold mb-1">{b.label}</div>
+                <div class="text-sm text-onSurface-variant">{b.detail}</div>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="bg-secondary text-white p-8 rounded-3xl">
+            <h3 class="font-headline text-2xl font-bold mb-4">Y además</h3>
+            <ul class="space-y-3 font-body text-base">
+              <li class="flex gap-3"><span class="material-symbols-outlined text-primary">check_circle</span>Sin erosión del suelo</li>
+              <li class="flex gap-3"><span class="material-symbols-outlined text-primary">check_circle</span>Producción todo el año</li>
+              <li class="flex gap-3"><span class="material-symbols-outlined text-primary">check_circle</span>Menor superficie por kilo producido</li>
+              <li class="flex gap-3"><span class="material-symbols-outlined text-primary">check_circle</span>Mejor sabor, textura y duración</li>
+              <li class="flex gap-3"><span class="material-symbols-outlined text-primary">check_circle</span>Productos orgánicos certificables</li>
+            </ul>
+          </div>
+          <div class="bg-primary text-secondary p-8 rounded-3xl">
+            <h3 class="font-headline text-2xl font-bold mb-4">Lo que resuelve</h3>
+            <ul class="space-y-3 font-body text-base">
+              <li class="flex gap-3"><span class="material-symbols-outlined">water_drop</span>Escasez creciente de agua en México</li>
+              <li class="flex gap-3"><span class="material-symbols-outlined">eco</span>Suelos cansados y desnutridos</li>
+              <li class="flex gap-3"><span class="material-symbols-outlined">no_food</span>Dependencia de pesticidas</li>
+              <li class="flex gap-3"><span class="material-symbols-outlined">local_shipping</span>Cadenas de frío kilométricas</li>
+              <li class="flex gap-3"><span class="material-symbols-outlined">restaurant</span>Alimentos sin trazabilidad real</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIPOS DE GRANJAS -->
+    <section id="granjas" class="relative bg-secondary text-white py-24 md:py-32 overflow-hidden">
+      <div
+        class="absolute inset-0 text-primary pointer-events-none"
+        style={`background-image: url("${leafField}"); background-size: 240px 240px; opacity: 0.08;`}
+      >
+      </div>
+
+      <div class="relative max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Cómo trabajamos</p>
+          <h2 class="font-headline text-5xl md:text-6xl font-bold leading-tight">
+            Dos caminos<br /><span class="text-primary">en cada granja</span>
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          {
+            granjas.map((g) => (
+              <div class="bg-white text-secondary p-8 md:p-10 rounded-3xl shadow-xl shadow-black/20 hover:-translate-y-1 transition-transform duration-300">
+                <div class="w-14 h-14 bg-primary/15 text-primary rounded-2xl flex items-center justify-center mb-6">
+                  <span class="material-symbols-outlined text-3xl">{g.icon}</span>
+                </div>
+                <h3 class="font-headline text-3xl font-bold mb-3">{g.type}</h3>
+                <p class="text-onSurface-variant font-body mb-6">{g.description}</p>
+                <ul class="space-y-4">
+                  {g.subcats.map((sc) => (
+                    <li class="border-l-4 border-primary pl-4">
+                      <div class="font-headline text-lg font-bold">{sc.name}</div>
+                      <div class="text-sm text-onSurface-variant">{sc.detail}</div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
 
     <!-- PRODUCTOS -->
     <section id="productos" class="relative py-24 md:py-32 bg-surface overflow-hidden">
-      <!-- Leaf overlay sparse -->
       <div
         class="absolute inset-0 text-primary pointer-events-none"
-        style={`background-image: url("${leafPattern}"); background-size: 280px 420px; opacity: 0.05;`}
+        style={`background-image: url("${leafField}"); background-size: 280px 280px; opacity: 0.05;`}
       >
       </div>
 
@@ -220,11 +387,11 @@ const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='h
         <div class="text-center mb-16">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Nuestros productos</p>
           <h2 class="font-headline text-5xl md:text-6xl text-secondary font-bold leading-tight">
-            Tres cosechas,<br />un solo ecosistema.
+            De la granja<br />a tu mesa
           </h2>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {
             productos.map((p) => (
               <article
@@ -235,22 +402,29 @@ const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='h
                   <img
                     src={p.image}
                     alt={p.title}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                   />
                   <div class="absolute top-4 left-4 w-12 h-12 bg-white/95 rounded-full flex items-center justify-center backdrop-blur-sm">
                     <span class="material-symbols-outlined text-2xl text-primary">{p.icon}</span>
                   </div>
                 </div>
-                <div class="p-7">
-                  <h3 class="font-headline text-2xl font-bold text-secondary mb-3">{p.title}</h3>
-                  <p class="text-onSurface-variant text-sm font-body leading-relaxed mb-5">{p.description}</p>
+                <div class="p-8">
+                  <h3 class="font-headline text-3xl font-bold text-secondary mb-1">{p.title}</h3>
+                  <p class="text-primary text-sm font-bold uppercase tracking-wider mb-4">{p.sub}</p>
+                  <div class="flex flex-wrap gap-2 mb-6">
+                    {p.items.map((it) => (
+                      <span class="inline-block bg-primary/10 text-secondary text-xs font-semibold px-3 py-1.5 rounded-full">
+                        {it}
+                      </span>
+                    ))}
+                  </div>
                   <a
                     href="#contacto"
-                    class="inline-flex items-center gap-1 text-primary font-bold text-sm hover:gap-2 transition-all"
+                    class="inline-flex items-center gap-1 text-secondary font-bold hover:gap-2 transition-all"
                   >
-                    Más información
-                    <span class="material-symbols-outlined text-base">arrow_forward</span>
+                    Pedir cotización
+                    <span class="material-symbols-outlined">arrow_forward</span>
                   </a>
                 </div>
               </article>
@@ -260,20 +434,72 @@ const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='h
       </div>
     </section>
 
-    <!-- SOBRE CAY (About Us) -->
-    <section id="sobre" class="relative py-24 md:py-32 bg-secondary text-white overflow-hidden">
-      <!-- Pattern de hojas grandes -->
+    <!-- CERTIFICACIONES -->
+    <section class="relative py-20 bg-white overflow-hidden">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-12">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Certificaciones</p>
+          <h2 class="font-headline text-3xl md:text-4xl text-secondary font-bold">Producimos con respaldo</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {
+            certs.map((c) => (
+              <div class="border border-primary/20 rounded-2xl p-6 text-center hover:border-primary hover:bg-primary/5 transition-all">
+                <div class="w-12 h-12 mx-auto mb-3 bg-primary/15 text-primary rounded-full flex items-center justify-center">
+                  <span class="material-symbols-outlined">verified</span>
+                </div>
+                <div class="font-headline font-bold text-secondary">{c.name}</div>
+                <div class="text-xs text-onSurface-variant mt-1">{c.label}</div>
+              </div>
+            ))
+          }
+        </div>
+        <p class="text-center text-xs text-onSurface-variant mt-6 italic">
+          (Logos oficiales pendientes — pásamelos cuando los tengas)
+        </p>
+      </div>
+    </section>
+
+    <!-- ENCUÉNTRANOS -->
+    <section id="encuentranos" class="relative py-24 md:py-32 bg-primary/10 overflow-hidden">
       <div
         class="absolute inset-0 text-primary pointer-events-none"
-        style={`background-image: url("${leafPattern}"); background-size: 200px 300px; opacity: 0.08;`}
+        style={`background-image: url("${wavePat}"); background-size: 300px 60px; background-repeat: repeat; opacity: 0.08;`}
       >
       </div>
 
-      <!-- Blob decorativo verde -->
+      <div class="relative max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Encuéntranos</p>
+          <h2 class="font-headline text-5xl md:text-6xl text-secondary font-bold leading-tight">
+            Cinco estados,<br />una sola red
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {
+            estados.map((e) => (
+              <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                <div class="w-12 h-12 bg-primary/15 text-primary rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span class="material-symbols-outlined">place</span>
+                </div>
+                <div class="font-headline text-xl text-secondary font-bold mb-1">{e.name}</div>
+                <div class="text-xs text-onSurface-variant">{e.subtitle}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE CAY (about us reforzado) -->
+    <section id="sobre" class="relative py-24 md:py-32 bg-secondary text-white overflow-hidden">
       <div
-        class="hidden md:block absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none"
+        class="absolute inset-0 text-primary pointer-events-none"
+        style={`background-image: url("${leafField}"); background-size: 200px 200px; opacity: 0.07;`}
       >
       </div>
+      <div class="hidden md:block absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
 
       <div class="relative max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         <div
@@ -286,25 +512,24 @@ const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='h
         <div>
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">Sobre CAY · 100% mexicana</p>
           <h2 class="font-headline text-5xl md:text-6xl font-bold leading-[0.95] mb-8">
-            Un granito<br />de arena al<br />país que somos.
+            Un granito<br />de arena<br />que viene<br />de raíz
           </h2>
-          <p class="text-white/85 text-lg leading-relaxed mb-6 font-body">
-            Los mayas y los aztecas ya hacían acuaponía mucho antes de que existiera la palabra — sus
-            <strong>chinampas</strong> cultivaban peces y plantas en el mismo ecosistema, devolviéndole al agua su
-            inteligencia. Nosotros recogemos esa herencia y la traemos al siglo XXI.
+          <p class="text-white/90 text-lg leading-relaxed mb-6 font-body">
+            Los <strong>mayas</strong> y los <strong>aztecas</strong> ya hacían acuaponía mucho antes de que existiera la
+            palabra. Sus <strong>chinampas</strong> cultivaban peces y plantas en el mismo ecosistema, regresándole al
+            agua su inteligencia. Esa herencia no se inventó en un laboratorio europeo: se inventó aquí
           </p>
-          <p class="text-white/85 text-lg leading-relaxed mb-8 font-body">
-            CAY es una empresa 100% mexicana. Operamos granjas acuapónicas en
-            <strong>Jalisco, Puebla, Tlaxcala, Hidalgo y Oaxaca</strong>. Producimos alimentos limpios, construimos
-            sistemas a la medida y compartimos lo que aprendemos con quien quiera cultivar como nosotros.
+          <p class="text-white/90 text-lg leading-relaxed mb-8 font-body">
+            CAY recoge ese saber, lo combina con tecnología actual y lo opera con manos mexicanas. Nuestro granito de
+            arena: alimentar al país sin secarlo, abrir granjas para que la gente lo viva, y mostrar al mundo lo que
+            siempre supimos hacer
           </p>
 
-          <!-- States chips -->
           <div class="flex flex-wrap gap-2 mb-10">
-            {['Jalisco', 'Puebla', 'Tlaxcala', 'Hidalgo', 'Oaxaca'].map((estado) => (
+            {estados.map((e) => (
               <span class="inline-flex items-center gap-1.5 bg-white/10 border border-primary/40 text-primary text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
                 <span class="material-symbols-outlined text-sm">place</span>
-                {estado}
+                {e.name}
               </span>
             ))}
           </div>
@@ -321,38 +546,148 @@ const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='h
               ))
             }
           </ul>
+        </div>
+      </div>
+    </section>
 
-          <a
-            href="#contacto"
-            class="inline-block bg-primary text-secondary px-8 py-4 rounded-full font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
-          >
-            Trabajemos juntos
-          </a>
+    <!-- MISIÓN VISIÓN VALORES -->
+    <section class="relative bg-surface py-24 md:py-32 overflow-hidden">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Lo que nos mueve</p>
+          <h2 class="font-headline text-5xl md:text-6xl text-secondary font-bold leading-tight">
+            Misión · Visión · Valores
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          {
+            mvv.map((m, idx) => (
+              <div
+                class={`p-10 rounded-3xl ${idx === 1 ? 'bg-primary text-secondary md:scale-105 md:-translate-y-2 shadow-2xl shadow-primary/30' : 'bg-white text-secondary shadow-lg shadow-secondary/10'} hover:-translate-y-2 transition-all duration-300`}
+              >
+                <div
+                  class={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${idx === 1 ? 'bg-secondary text-white' : 'bg-primary/15 text-primary'}`}
+                >
+                  <span class="material-symbols-outlined text-3xl">{m.icon}</span>
+                </div>
+                <h3 class="font-headline text-3xl font-bold mb-4">{m.title}</h3>
+                <p class={`font-body leading-relaxed ${idx === 1 ? 'text-secondary/90' : 'text-onSurface-variant'}`}>{m.body}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPROMISO ONU / ODS -->
+    <section class="relative py-20 md:py-24 bg-white overflow-hidden">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-12">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Compromiso con la ONU</p>
+          <h2 class="font-headline text-3xl md:text-4xl text-secondary font-bold mb-4">
+            Contribuimos a 5 objetivos de desarrollo sostenible
+          </h2>
+          <p class="max-w-2xl mx-auto text-onSurface-variant text-base">
+            Cada granja, cada cosecha y cada peso que invertimos están alineados con la Agenda 2030 de las Naciones Unidas
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          {
+            ods.map((o) => (
+              <div
+                class="aspect-square rounded-2xl p-6 flex flex-col justify-between text-white hover:scale-105 transition-transform duration-300 shadow-lg"
+                style={`background-color: ${o.color};`}
+              >
+                <div class="font-headline text-5xl font-black opacity-90">{o.num}</div>
+                <div class="font-headline font-bold text-sm leading-tight">{o.title}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria" class="relative py-24 md:py-32 bg-primary/10 overflow-hidden">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-12">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Galería</p>
+          <h2 class="font-headline text-3xl md:text-5xl text-secondary font-bold">
+            La granja en imágenes y video
+          </h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          {
+            galleryShots.map((src, i) => (
+              <div
+                class="relative aspect-square overflow-hidden rounded-2xl group cursor-pointer shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+                style={i % 2 === 0 ? 'border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;' : 'border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;'}
+              >
+                <img src={src} alt={`Galería ${i + 1}`} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
+                <div class="absolute inset-0 bg-gradient-to-t from-secondary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+            ))
+          }
+        </div>
+        <p class="text-center text-xs text-onSurface-variant italic">
+          (Próximamente: videos de las granjas en operación — pásame los archivos cuando los tengas)
+        </p>
+      </div>
+    </section>
+
+    <!-- BLOG TEASER -->
+    <section id="blog" class="relative py-24 md:py-32 bg-surface overflow-hidden">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="flex flex-wrap justify-between items-end mb-12 gap-4">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Blog</p>
+            <h2 class="font-headline text-4xl md:text-5xl text-secondary font-bold leading-tight">
+              Aprende sobre<br />acuaponía y agua
+            </h2>
+          </div>
+          <a href="#" class="text-secondary font-bold hover:text-primary transition-colors">Ver todo →</a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          {
+            blogTeasers.map((post, i) => (
+              <article class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer group">
+                <div class="aspect-[16/10] overflow-hidden">
+                  <img src={galleryShots[i % galleryShots.length]} alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                </div>
+                <div class="p-6">
+                  <span class="inline-block bg-primary/15 text-primary text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">{post.tag}</span>
+                  <h3 class="font-headline text-xl font-bold text-secondary mb-2 leading-tight">{post.title}</h3>
+                  <p class="text-sm text-onSurface-variant font-body leading-relaxed">{post.excerpt}</p>
+                </div>
+              </article>
+            ))
+          }
         </div>
       </div>
     </section>
 
     <!-- CTA FINAL -->
     <section id="contacto" class="relative bg-primary py-20 md:py-24 text-center overflow-hidden">
-      <!-- Pattern overlay sutil -->
       <div
         class="absolute inset-0 text-secondary pointer-events-none"
-        style={`background-image: url("${fishSchoolPattern}"); background-size: 240px 240px; opacity: 0.12;`}
+        style={`background-image: url("${fishSchool}"); background-size: 240px 240px; opacity: 0.12;`}
       >
       </div>
 
       <div class="relative max-w-2xl mx-auto px-6">
         <h2 class="font-headline text-5xl md:text-6xl text-secondary font-bold mb-6 leading-tight">
-          ¿Listo para meter<br />las manos al agua?
+          Hablemos de tu<br />proyecto en acuaponía
         </h2>
-        <p class="text-secondary/80 text-lg mb-10 font-body">
-          Cuéntanos qué necesitas — productos, proyectos o asesoría — y diseñamos algo contigo.
+        <p class="text-secondary/85 text-lg mb-10 font-body">
+          Productos, granjas a la medida, visitas o asesoría — cuéntanos qué necesitas
         </p>
         <a
           href="mailto:hola@cay.mx"
           class="inline-block bg-secondary text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-secondary/90 shadow-2xl shadow-secondary/30 hover:-translate-y-1 transition-all duration-200"
         >
-          Contáctanos ahora
+          Contáctanos
         </a>
       </div>
     </section>
@@ -360,3 +695,26 @@ const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='h
 
   <Footer />
 </Layout>
+
+<style>
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-12px) rotate(4deg); }
+  }
+  @keyframes float-medium {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-8px) rotate(-3deg); }
+  }
+  @keyframes swim {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(-8px) translateY(-6px); }
+  }
+  @keyframes wave-anim {
+    0% { background-position-x: 0; }
+    100% { background-position-x: -400px; }
+  }
+  .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+  .animate-float-medium { animation: float-medium 4.5s ease-in-out infinite; }
+  .animate-swim { animation: swim 5s ease-in-out infinite; }
+  .animate-wave { animation: wave-anim 22s linear infinite; }
+</style>
