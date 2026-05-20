@@ -5,24 +5,54 @@ const socials = [
   { name: 'TikTok', href: '#', icon: 'music_video' },
   { name: 'YouTube', href: '#', icon: 'smart_display' },
 ];
+
+const alianzas = ['Bofish', 'Aquaponic Events', 'Red Sibiolat'];
+const certs = ['Hecho en México', 'USDA Organic', 'CESAJ', 'Rainforest Alliance', 'ISO'];
 ---
 
 <footer class="bg-secondary text-surface">
-  <div class="max-w-[1200px] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-    <!-- Brand block -->
+  <!-- Bandas de Alianzas + Certificaciones (badges visuales) -->
+  <div class="border-b border-white/10">
+    <div class="max-w-[1200px] mx-auto px-6 py-10 grid md:grid-cols-2 gap-8">
+      <div>
+        <h4 class="font-headline text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">Alianzas</h4>
+        <div class="flex flex-wrap gap-2">
+          {alianzas.map((a) => (
+            <span class="inline-flex items-center gap-1.5 bg-white/10 border border-primary/30 text-surface text-xs font-bold px-3 py-1.5 rounded-full">
+              <span class="material-symbols-outlined text-primary text-sm">handshake</span>
+              {a}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h4 class="font-headline text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">Certificaciones</h4>
+        <div class="flex flex-wrap gap-2">
+          {certs.map((c) => (
+            <span class="inline-flex items-center gap-1.5 bg-white/10 border border-primary/30 text-surface text-xs font-bold px-3 py-1.5 rounded-full">
+              <span class="material-symbols-outlined text-primary text-sm">verified</span>
+              {c}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand + contacto + redes -->
+  <div class="max-w-[1200px] mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
     <div class="flex flex-col gap-3">
       <div class="flex items-center gap-3">
-        <img src="/images/cay-logo.png" alt="CAY Logo" class="h-14 w-14 object-contain" />
+        <img src="/images/cay-logo.png" alt="CAY Logo" class="h-12 w-12 object-contain" />
         <div>
           <div class="font-headline text-2xl font-bold leading-none">CAY</div>
-          <div class="text-primary text-xs font-bold uppercase tracking-wider mt-1">Acuaponía mexicana</div>
+          <div class="text-primary text-xs font-bold uppercase tracking-wider mt-1">Cultivando el futuro</div>
         </div>
       </div>
     </div>
 
-    <!-- Contacto -->
     <div>
-      <h4 class="font-headline text-sm font-bold uppercase tracking-wider text-primary mb-3">Contacto</h4>
+      <h4 class="font-headline text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">Contacto</h4>
       <ul class="space-y-1.5 font-body text-sm">
         <li class="text-surface/80">Guadalajara, México</li>
         <li><a href="mailto:info@cay.mx" class="text-surface/80 hover:text-primary transition-colors">info@cay.mx</a></li>
@@ -30,9 +60,8 @@ const socials = [
       </ul>
     </div>
 
-    <!-- Redes sociales -->
     <div>
-      <h4 class="font-headline text-sm font-bold uppercase tracking-wider text-primary mb-3">Síguenos</h4>
+      <h4 class="font-headline text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">Síguenos</h4>
       <div class="flex gap-2">
         {
           socials.map((s) => (
