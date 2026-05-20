@@ -156,20 +156,29 @@ const mvv = [
 
 const valores = ['Humanidad', 'Integridad', 'Calidad', 'Innovación', 'Compromiso'];
 
-// ODS oficiales ONU — imágenes recortadas del banner oficial que mandó Asaí
+// Los 3 ODS principales que CAY trabaja activamente — dibujados con diseño CAY
 const ods = [
-  { num: 2, image: '/images/ods/ods-2.jpg', alt: 'ODS 2 Hambre cero' },
-  { num: 3, image: '/images/ods/ods-3.jpg', alt: 'ODS 3 Salud y bienestar' },
-  { num: 6, image: '/images/ods/ods-6.jpg', alt: 'ODS 6 Agua limpia y saneamiento' },
-  { num: 7, image: '/images/ods/ods-7.jpg', alt: 'ODS 7 Energía asequible y no contaminante' },
-  { num: 8, image: '/images/ods/ods-8.jpg', alt: 'ODS 8 Trabajo decente y crecimiento económico' },
-  { num: 9, image: '/images/ods/ods-9.jpg', alt: 'ODS 9 Industria, innovación e infraestructura' },
-  { num: 10, image: '/images/ods/ods-10.jpg', alt: 'ODS 10 Reducción de las desigualdades' },
-  { num: 11, image: '/images/ods/ods-11.jpg', alt: 'ODS 11 Ciudades y comunidades sostenibles' },
-  { num: 12, image: '/images/ods/ods-12.jpg', alt: 'ODS 12 Producción y consumo responsables' },
-  { num: 13, image: '/images/ods/ods-13.jpg', alt: 'ODS 13 Acción por el clima' },
-  { num: 14, image: '/images/ods/ods-14.jpg', alt: 'ODS 14 Vida submarina' },
-  { num: 15, image: '/images/ods/ods-15.jpg', alt: 'ODS 15 Vida de ecosistemas terrestres' },
+  {
+    num: '2',
+    title: 'Hambre cero',
+    detail: 'Producción eficiente de alimentos frescos y sostenibles',
+    color: '#DDA63A',
+    iconPath: 'M30 26 Q30 14, 50 14 Q70 14, 70 26 L70 30 Q70 32, 68 32 L32 32 Q30 32, 30 30 Z M28 36 L72 36 Q74 36, 73 38 Q68 60, 50 62 Q32 60, 27 38 Q26 36, 28 36 Z M44 8 Q44 4, 46 4 Q48 4, 48 8 L48 12 Q48 14, 46 14 Q44 14, 44 12 Z M52 8 Q52 4, 54 4 Q56 4, 56 8 L56 12 Q56 14, 54 14 Q52 14, 52 12 Z',
+  },
+  {
+    num: '6',
+    title: 'Agua limpia y saneamiento',
+    detail: 'Uso responsable y recirculación eficiente del agua',
+    color: '#26BDE2',
+    iconPath: 'M50 14 Q35 30, 32 46 Q30 60, 50 62 Q70 60, 68 46 Q65 30, 50 14 Z',
+  },
+  {
+    num: '12',
+    title: 'Producción y consumo responsables',
+    detail: 'Sistemas alimentarios más conscientes, limpios y trazables',
+    color: '#BF8B2E',
+    iconPath: 'M50 16 L70 30 L62 30 L62 44 Q62 50, 56 50 L44 50 Q38 50, 38 44 L38 30 L30 30 Z M50 64 L30 50 L38 50 L38 36 Q38 30, 44 30 L56 30 Q62 30, 62 36 L62 50 L70 50 Z',
+  },
 ];
 
 const certs = [
@@ -414,6 +423,42 @@ const blogTeasers = [
               ))}
             </ul>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACTO SOSTENIBLE (3 ODS dibujados con diseño CAY) -->
+    <section id="ods" class="relative bg-surface py-20 md:py-24 overflow-hidden">
+      <div class="relative max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Compromiso con la ONU</p>
+          <h2 class="font-headline text-4xl md:text-5xl text-secondary font-bold leading-tight mb-4">
+            Impacto sostenible
+          </h2>
+          <p class="text-onSurface-variant text-base md:text-lg">
+            Desarrollamos sistemas de producción más eficientes y responsables, alineados con objetivos globales de
+            sostenibilidad
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {
+            ods.map((o) => (
+              <div
+                class="rounded-3xl p-8 text-white hover:-translate-y-2 transition-all duration-300 shadow-xl flex flex-col"
+                style={`background-color: ${o.color};`}
+              >
+                <div class="flex items-start justify-between mb-6">
+                  <div class="font-headline text-6xl font-black opacity-90">{o.num}</div>
+                  <svg viewBox="0 0 100 80" class="w-16 h-12" xmlns="http://www.w3.org/2000/svg">
+                    <path d={o.iconPath} fill="white"/>
+                  </svg>
+                </div>
+                <h3 class="font-headline text-2xl font-bold mb-3 leading-tight">{o.title}</h3>
+                <p class="text-sm text-white/90 font-body leading-relaxed">{o.detail}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -702,69 +747,6 @@ const blogTeasers = [
                 </div>
                 <h3 class="font-headline text-2xl text-secondary font-bold mb-2">{a.name}</h3>
                 <p class="text-sm text-onSurface-variant">{a.detail}</p>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <!-- GRANITO DE ARENA + ODS (fusionados) -->
-    <section id="por-que" class="relative bg-secondary text-white py-24 md:py-32 overflow-hidden">
-      <div class="hidden md:block absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
-
-      <div class="relative max-w-[1200px] mx-auto px-6 mb-20">
-        <div class="max-w-3xl">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">Nuestro porqué</p>
-          <h2 class="font-headline text-5xl md:text-6xl font-bold leading-[1.05] mb-10">
-            Ponemos nuestro<br /><span class="text-primary">granito de arena</span>
-          </h2>
-          <p class="text-white/90 text-lg leading-relaxed mb-6 font-body">
-            En CAY creemos firmemente que en México y en el mundo necesitamos más soluciones y alternativas para los
-            problemas que enfrentamos día con día
-          </p>
-        </div>
-
-        <div class="flex flex-wrap gap-3 my-12 max-w-4xl">
-          {
-            problemas.map((p) => (
-              <span class="inline-block bg-white/10 border border-primary/30 text-primary text-sm font-semibold px-4 py-2 rounded-full">
-                {p}
-              </span>
-            ))
-          }
-        </div>
-
-        <div class="max-w-3xl">
-          <p class="text-white/90 text-lg leading-relaxed mb-6 font-body">
-            Todos podemos aportar en la medida de lo posible — <strong>por nosotros, por ellos, por todos</strong>.
-            Nuestro planeta nos necesita. Seamos más conscientes, más <strong class="text-primary">humanos</strong>
-          </p>
-          <p class="text-white/90 text-lg leading-relaxed font-body">
-            En CAY queremos hacer la diferencia por medio de la acuaponía, alineando nuestro trabajo con la Agenda 2030
-            de las Naciones Unidas
-          </p>
-        </div>
-      </div>
-
-      <!-- ODS dentro de la misma sección -->
-      <div id="ods" class="relative max-w-[1200px] mx-auto px-6">
-        <div class="text-center mb-10">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Compromiso con la ONU</p>
-          <h3 class="font-headline text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            Contribuimos a 12 objetivos<br />de desarrollo sostenible
-          </h3>
-        </div>
-
-        <p class="text-center text-sm font-bold uppercase tracking-wider text-primary mb-8">
-          Los 12 que CAY trabaja activamente
-        </p>
-
-        <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
-          {
-            ods.map((o) => (
-              <div class="aspect-square overflow-hidden rounded-lg shadow-md hover:scale-105 hover:shadow-2xl transition-all duration-300">
-                <img src={o.image} alt={o.alt} class="w-full h-full object-cover" loading="lazy" />
               </div>
             ))
           }
