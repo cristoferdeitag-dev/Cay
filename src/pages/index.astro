@@ -293,11 +293,21 @@ const wavePattern = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='h
             <strong>chinampas</strong> cultivaban peces y plantas en el mismo ecosistema, devolviéndole al agua su
             inteligencia. Nosotros recogemos esa herencia y la traemos al siglo XXI.
           </p>
-          <p class="text-white/85 text-lg leading-relaxed mb-10 font-body">
-            CAY es una empresa 100% mexicana que opera granjas acuapónicas en varios estados del país. Producimos
-            alimentos limpios, construimos sistemas a la medida y compartimos lo que aprendemos con quien quiera
-            cultivar como nosotros.
+          <p class="text-white/85 text-lg leading-relaxed mb-8 font-body">
+            CAY es una empresa 100% mexicana. Operamos granjas acuapónicas en
+            <strong>Jalisco, Puebla, Tlaxcala, Hidalgo y Oaxaca</strong>. Producimos alimentos limpios, construimos
+            sistemas a la medida y compartimos lo que aprendemos con quien quiera cultivar como nosotros.
           </p>
+
+          <!-- States chips -->
+          <div class="flex flex-wrap gap-2 mb-10">
+            {['Jalisco', 'Puebla', 'Tlaxcala', 'Hidalgo', 'Oaxaca'].map((estado) => (
+              <span class="inline-flex items-center gap-1.5 bg-white/10 border border-primary/40 text-primary text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+                <span class="material-symbols-outlined text-sm">place</span>
+                {estado}
+              </span>
+            ))}
+          </div>
 
           <ul class="space-y-5 mb-10">
             {
