@@ -25,21 +25,21 @@ const productos = [
 const cycle = [
   {
     step: '01',
-    icon: 'phishing',
+    icon: 'water_drop',
     title: 'Acuicultura',
-    description: 'Criamos peces. Su proceso digestivo enriquece el agua con compuestos nitrogenados naturales',
+    description: 'Criamos peces sanos en agua limpia. El agua donde viven se enriquece de forma natural con todo lo que las plantas necesitan',
   },
   {
     step: '02',
     icon: 'science',
     title: 'Biofiltros',
-    description: 'Las bacterias transforman esos compuestos en nutrientes que las plantas pueden absorber',
+    description: 'Bacterias benéficas convierten esos nutrientes en algo que las raíces pueden absorber',
   },
   {
     step: '03',
     icon: 'eco',
     title: 'Hidroponía',
-    description: 'Las raíces toman los nutrientes y devuelven el agua limpia a los peces — simbiosis perfecta',
+    description: 'Las plantas toman los nutrientes y devuelven el agua limpia a los peces. Empieza otra vez',
   },
 ];
 
@@ -84,6 +84,34 @@ const granjas = [
     ],
     icon: 'tour',
   },
+];
+
+// Alianzas (antes "Red de colaboración") — agregada Red Sibiolat
+const alianzas = [
+  {
+    name: 'Bofish',
+    detail: 'Granjas comerciales de gran escala y formación profesional en acuaponía',
+    icon: 'handshake',
+  },
+  {
+    name: 'Aquaponic Events',
+    detail: 'Eventos, congresos y cursos para llevar la acuaponía a más mexicanos',
+    icon: 'event',
+  },
+  {
+    name: 'Red Sibiolat',
+    detail: 'Red latinoamericana de simbiosis biológica para el cultivo regenerativo',
+    icon: 'hub',
+  },
+];
+
+const puntosVentaList = [
+  { name: 'Walmart', icon: 'storefront', detail: 'Tiendas seleccionadas' },
+  { name: 'Chedraui Selecto', icon: 'storefront', detail: 'Tiendas seleccionadas' },
+  { name: 'City Market', icon: 'storefront', detail: 'Tiendas seleccionadas' },
+  { name: 'Fruto Café', icon: 'local_cafe', detail: 'Farm-to-table partner' },
+  { name: 'En la granja', icon: 'agriculture', detail: 'Venta directa al productor' },
+  { name: 'Restaurantes', icon: 'restaurant', detail: 'Aliados farm-to-table' },
 ];
 
 const mvv = [
@@ -146,13 +174,6 @@ const certs = [
   { name: 'ISO', label: 'Sistemas de gestión' },
 ];
 
-const puntosVenta = [
-  { name: 'Walmart', icon: 'storefront', detail: 'Tiendas seleccionadas' },
-  { name: 'Chedraui Selecto', icon: 'storefront', detail: 'Tiendas seleccionadas' },
-  { name: 'City Market', icon: 'storefront', detail: 'Tiendas seleccionadas' },
-  { name: 'En la granja', icon: 'agriculture', detail: 'Venta directa al productor' },
-  { name: 'Restaurantes', icon: 'restaurant', detail: 'Aliados farm-to-table' },
-];
 
 const founders = [
   { name: 'Cristofer De Ita', role: 'Founder', initials: 'CD' },
@@ -163,6 +184,10 @@ const galleryShots = [
   '/images/hero-granja.jpg',
   '/images/hortalizas.jpg',
   '/images/koi.jpg',
+  '/images/proyectos.jpg',
+  '/images/cafecito-fruto.jpg',
+  '/images/hero-granja.jpg',
+  '/images/hortalizas.jpg',
   '/images/proyectos.jpg',
 ];
 
@@ -245,9 +270,15 @@ const blogTeasers = [
           <h2 class="font-headline text-5xl md:text-6xl font-bold leading-tight mb-6">
             ¿Qué es<br />la acuaponía?
           </h2>
-          <p class="max-w-2xl mx-auto text-white/95 text-lg font-body leading-relaxed">
-            Es un sistema que une la <strong>crianza de peces</strong> con el <strong>cultivo de plantas</strong> en
-            el mismo flujo de agua. Los peces alimentan a las plantas, las plantas limpian el agua, y todo se repite
+          <p class="max-w-3xl mx-auto text-white/95 text-lg font-body leading-relaxed mb-4">
+            La acuaponía es un sistema de cultivo que combina la <strong>acuicultura</strong> (crianza de peces) y la
+            <strong>hidroponía</strong> (cultivo de hortalizas en agua). El agua de los peces aporta los nutrientes
+            necesarios para que las plantas crezcan, mientras que las plantas filtran y limpian el agua para
+            regresarla a los peces. Así se crea un sistema circular que produce alimentos frescos de manera natural e
+            innovadora
+          </p>
+          <p class="text-primary font-headline text-2xl md:text-3xl font-bold italic">
+            Una simbiosis perfecta
           </p>
         </div>
 
@@ -265,44 +296,6 @@ const blogTeasers = [
               </div>
             ))
           }
-        </div>
-      </div>
-    </section>
-
-    <!-- POR QUÉ CAY (manifesto) -->
-    <section id="por-que" class="relative bg-secondary text-white py-24 md:py-32 overflow-hidden">
-      <div class="hidden md:block absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
-
-      <div class="relative max-w-[1200px] mx-auto px-6">
-        <div class="max-w-3xl">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">Por qué CAY</p>
-          <h2 class="font-headline text-5xl md:text-6xl font-bold leading-[1.05] mb-10">
-            Hay que poner<br />nuestro <span class="text-primary">granito de arena</span>
-          </h2>
-          <p class="text-white/90 text-lg leading-relaxed mb-6 font-body">
-            En CAY creemos firmemente que en México y en el mundo necesitamos más soluciones y alternativas para los
-            problemas que enfrentamos día con día
-          </p>
-        </div>
-
-        <div class="flex flex-wrap gap-3 my-12 max-w-4xl">
-          {
-            problemas.map((p) => (
-              <span class="inline-block bg-white/10 border border-primary/30 text-primary text-sm font-semibold px-4 py-2 rounded-full">
-                {p}
-              </span>
-            ))
-          }
-        </div>
-
-        <div class="max-w-3xl">
-          <p class="text-white/90 text-lg leading-relaxed mb-6 font-body">
-            Todos podemos aportar en la medida de lo posible — <strong>por nosotros, por ellos, por todos</strong>.
-            Nuestro planeta nos necesita. Seamos más conscientes, más <strong class="text-primary">humanos</strong>
-          </p>
-          <p class="text-white/90 text-lg leading-relaxed font-body">
-            En CAY queremos hacer la diferencia por medio de la acuaponía
-          </p>
         </div>
       </div>
     </section>
@@ -354,17 +347,23 @@ const blogTeasers = [
       </div>
     </section>
 
-    <!-- TIPOS DE GRANJAS -->
+    <!-- GRANJAS HECHAS A LA MEDIDA -->
     <section id="granjas" class="relative bg-secondary text-white py-24 md:py-32 overflow-hidden">
+      <div class="hidden md:block absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>
+
       <div class="relative max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-16">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Cómo trabajamos</p>
-          <h2 class="font-headline text-5xl md:text-6xl font-bold leading-tight">
-            Dos caminos<br /><span class="text-primary">en cada granja</span>
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Granjas</p>
+          <h2 class="font-headline text-5xl md:text-6xl font-bold leading-tight mb-6">
+            Granjas hechas<br /><span class="text-primary">a la medida</span>
           </h2>
+          <p class="max-w-2xl mx-auto text-white/85 text-base">
+            Diseñamos y construimos granjas acuapónicas según el tipo de proyecto — de la operación comercial al
+            espacio agroturístico, pasando por sistemas residenciales
+          </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
           {
             granjas.map((g) => (
               <div class="bg-white text-secondary p-8 md:p-10 rounded-3xl shadow-xl shadow-black/20 hover:-translate-y-1 transition-transform duration-300">
@@ -384,6 +383,40 @@ const blogTeasers = [
               </div>
             ))
           }
+        </div>
+
+        <!-- Estados donde están las granjas -->
+        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 md:p-10 mb-12">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4 text-center">
+            Hoy operamos en cinco estados
+          </p>
+          <div class="flex flex-wrap gap-3 justify-center">
+            {estados.map((e) => (
+              <div class="bg-white/10 border border-primary/30 rounded-2xl px-5 py-3 text-center">
+                <div class="flex items-center gap-2 justify-center">
+                  <span class="material-symbols-outlined text-primary text-base">place</span>
+                  <span class="font-headline font-bold text-white">{e.name}</span>
+                </div>
+                <div class="text-xs text-white/70 mt-1">{e.subtitle}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- CTA Hablemos integrado -->
+        <div class="bg-primary text-secondary rounded-3xl p-10 md:p-12 text-center max-w-3xl mx-auto shadow-2xl shadow-primary/20">
+          <h3 class="font-headline text-3xl md:text-4xl font-bold mb-3 leading-tight">
+            ¿Quieres construir tu propia granja?
+          </h3>
+          <p class="text-secondary/85 text-base md:text-lg mb-8 font-body">
+            Hablemos de tu proyecto — desde el primer sistema casero hasta una operación comercial completa
+          </p>
+          <a
+            href="mailto:info@cay.mx"
+            class="inline-block bg-secondary text-white px-10 py-4 rounded-full font-bold text-base hover:bg-secondary/90 shadow-lg shadow-secondary/30 hover:-translate-y-0.5 transition-all"
+          >
+            Hablemos de tu proyecto
+          </a>
         </div>
       </div>
     </section>
@@ -441,11 +474,12 @@ const blogTeasers = [
       </div>
     </section>
 
-    <!-- SOBRE CAY -->
+    <!-- SOBRE CAY (incluye misión/visión/valores + founders) -->
     <section id="sobre" class="relative py-24 md:py-32 bg-secondary text-white overflow-hidden">
       <div class="hidden md:block absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
 
-      <div class="relative max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-16 items-center mb-20">
+      <!-- Intro + imagen -->
+      <div class="relative max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-16 items-center mb-24">
         <div
           class="relative aspect-[4/5] overflow-hidden shadow-2xl shadow-black/30"
           style="border-radius: 45% 55% 50% 50% / 55% 45% 55% 45%;"
@@ -459,15 +493,55 @@ const blogTeasers = [
             Un granito de<br />arena que viene<br />de raíz
           </h2>
           <p class="text-white/90 text-lg leading-relaxed mb-6 font-body">
-            Los <strong>mayas</strong> y los <strong>aztecas</strong> ya hacían acuaponía mucho antes de que existiera la
-            palabra. Sus <strong>chinampas</strong> cultivaban peces y plantas en el mismo ecosistema. Esa herencia no se
-            inventó en un laboratorio europeo: se inventó aquí
+            Los <strong>mayas</strong> y los <strong>aztecas</strong> ya hacían acuaponía mucho antes de que existiera
+            la palabra. Sus <strong>chinampas</strong> cultivaban peces y plantas en el mismo ecosistema. Esa herencia
+            no se inventó en un laboratorio europeo: se inventó aquí
           </p>
-          <p class="text-white/90 text-lg leading-relaxed mb-8 font-body">
+          <p class="text-white/90 text-lg leading-relaxed font-body">
             CAY se fundó en <strong>2020</strong>. Recogemos ese saber, lo combinamos con tecnología actual y lo
-            operamos con manos mexicanas — para alimentar al país sin secarlo, abrir granjas para que la gente lo
-            viva, y mostrarle al mundo lo que siempre supimos hacer
+            operamos con manos mexicanas — para alimentar al país sin secarlo
           </p>
+        </div>
+      </div>
+
+      <!-- Misión · Visión · Valores (fusionados aquí adentro) -->
+      <div class="relative max-w-[1200px] mx-auto px-6 mb-20">
+        <div class="text-center mb-12">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Lo que nos mueve</p>
+          <h3 class="font-headline text-4xl md:text-5xl font-bold leading-tight">
+            Misión · Visión · Valores
+          </h3>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          {
+            mvv.map((m, idx) => (
+              <div
+                class={`p-8 rounded-3xl ${idx === 1 ? 'bg-primary text-secondary md:scale-105 md:-translate-y-2 shadow-2xl shadow-primary/30' : 'bg-white text-secondary shadow-lg'} hover:-translate-y-2 transition-all duration-300`}
+              >
+                <div
+                  class={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 ${idx === 1 ? 'bg-secondary text-white' : 'bg-primary/15 text-primary'}`}
+                >
+                  <span class="material-symbols-outlined text-2xl">{m.icon}</span>
+                </div>
+                <h4 class="font-headline text-2xl font-bold mb-3">{m.title}</h4>
+                <p class={`text-sm font-body leading-relaxed ${idx === 1 ? 'text-secondary/90' : 'text-onSurface-variant'}`}>{m.body}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <!-- Valores chips -->
+        <div class="text-center">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-5">Nuestros valores</p>
+          <div class="flex flex-wrap gap-2 justify-center max-w-4xl mx-auto">
+            {
+              valores.map((v) => (
+                <span class="inline-block bg-white/10 border border-primary/40 text-primary text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full hover:bg-primary hover:text-secondary hover:border-primary transition-all cursor-default">
+                  {v}
+                </span>
+              ))
+            }
+          </div>
         </div>
       </div>
 
@@ -492,51 +566,8 @@ const blogTeasers = [
       </div>
     </section>
 
-    <!-- MISIÓN · VISIÓN · VALORES -->
-    <section id="mvv" class="relative bg-surface py-24 md:py-32 overflow-hidden">
-      <div class="max-w-[1200px] mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Lo que nos mueve</p>
-          <h2 class="font-headline text-5xl md:text-6xl text-secondary font-bold leading-tight">
-            Misión · Visión · Valores
-          </h2>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8 mb-16">
-          {
-            mvv.map((m, idx) => (
-              <div
-                class={`p-10 rounded-3xl ${idx === 1 ? 'bg-primary text-secondary md:scale-105 md:-translate-y-2 shadow-2xl shadow-primary/30' : 'bg-white text-secondary shadow-lg shadow-secondary/10'} hover:-translate-y-2 transition-all duration-300`}
-              >
-                <div
-                  class={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${idx === 1 ? 'bg-secondary text-white' : 'bg-primary/15 text-primary'}`}
-                >
-                  <span class="material-symbols-outlined text-3xl">{m.icon}</span>
-                </div>
-                <h3 class="font-headline text-3xl font-bold mb-4">{m.title}</h3>
-                <p class={`font-body leading-relaxed ${idx === 1 ? 'text-secondary/90' : 'text-onSurface-variant'}`}>{m.body}</p>
-              </div>
-            ))
-          }
-        </div>
-
-        <!-- Valores chips -->
-        <div class="text-center">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-6">Nuestros valores</p>
-          <div class="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto">
-            {
-              valores.map((v) => (
-                <span class="inline-block bg-white border-2 border-primary/30 text-secondary text-sm font-bold px-5 py-2.5 rounded-full hover:bg-primary hover:text-white hover:border-primary transition-all cursor-default">
-                  {v}
-                </span>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- CERTIFICACIONES -->
-    <section class="relative py-20 bg-white overflow-hidden">
+    <section id="certificaciones" class="relative py-20 bg-white overflow-hidden">
       <div class="max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-12">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Certificaciones</p>
@@ -558,18 +589,61 @@ const blogTeasers = [
       </div>
     </section>
 
-    <!-- ODS ONU (12 objetivos) -->
-    <section class="relative py-20 md:py-24 bg-surface overflow-hidden">
-      <div class="max-w-[1200px] mx-auto px-6">
-        <div class="text-center mb-12">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Compromiso con la ONU</p>
-          <h2 class="font-headline text-3xl md:text-5xl text-secondary font-bold mb-4 leading-tight">
-            Contribuimos a 12 objetivos<br />de desarrollo sostenible
+    <!-- GRANITO DE ARENA + ODS (fusionados) -->
+    <section id="por-que" class="relative bg-secondary text-white py-24 md:py-32 overflow-hidden">
+      <div class="hidden md:block absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
+
+      <div class="relative max-w-[1200px] mx-auto px-6 mb-20">
+        <div class="max-w-3xl">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">Nuestro porqué</p>
+          <h2 class="font-headline text-5xl md:text-6xl font-bold leading-[1.05] mb-10">
+            Ponemos nuestro<br /><span class="text-primary">granito de arena</span>
           </h2>
-          <p class="max-w-2xl mx-auto text-onSurface-variant text-base">
-            Cada granja, cada cosecha y cada peso que invertimos están alineados con la Agenda 2030 de las Naciones Unidas
+          <p class="text-white/90 text-lg leading-relaxed mb-6 font-body">
+            En CAY creemos firmemente que en México y en el mundo necesitamos más soluciones y alternativas para los
+            problemas que enfrentamos día con día
           </p>
         </div>
+
+        <div class="flex flex-wrap gap-3 my-12 max-w-4xl">
+          {
+            problemas.map((p) => (
+              <span class="inline-block bg-white/10 border border-primary/30 text-primary text-sm font-semibold px-4 py-2 rounded-full">
+                {p}
+              </span>
+            ))
+          }
+        </div>
+
+        <div class="max-w-3xl">
+          <p class="text-white/90 text-lg leading-relaxed mb-6 font-body">
+            Todos podemos aportar en la medida de lo posible — <strong>por nosotros, por ellos, por todos</strong>.
+            Nuestro planeta nos necesita. Seamos más conscientes, más <strong class="text-primary">humanos</strong>
+          </p>
+          <p class="text-white/90 text-lg leading-relaxed font-body">
+            En CAY queremos hacer la diferencia por medio de la acuaponía, alineando nuestro trabajo con la Agenda 2030
+            de las Naciones Unidas
+          </p>
+        </div>
+      </div>
+
+      <!-- ODS dentro de la misma sección -->
+      <div id="ods" class="relative max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-10">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Compromiso con la ONU</p>
+          <h3 class="font-headline text-3xl md:text-5xl font-bold mb-4 leading-tight">
+            Contribuimos a 12 objetivos<br />de desarrollo sostenible
+          </h3>
+        </div>
+
+        <!-- Banner oficial ONU referencia -->
+        <div class="max-w-3xl mx-auto mb-10 rounded-2xl overflow-hidden border border-white/10">
+          <img src="/images/ods-banner.jpg" alt="Objetivos de Desarrollo Sostenible - ONU" class="w-full h-auto object-contain bg-white" loading="lazy" />
+        </div>
+
+        <p class="text-center text-sm font-bold uppercase tracking-wider text-primary mb-6">
+          Los 12 que CAY trabaja activamente
+        </p>
 
         <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
           {
@@ -587,9 +661,6 @@ const blogTeasers = [
             ))
           }
         </div>
-        <p class="text-center text-xs text-onSurface-variant italic mt-6">
-          (Iconos placeholders — pásame los oficiales de la ONU para reemplazar)
-        </p>
       </div>
     </section>
 
@@ -603,15 +674,15 @@ const blogTeasers = [
           </h2>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {
-            puntosVenta.map((p) => (
-              <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
-                <div class="w-14 h-14 bg-primary/15 text-primary rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span class="material-symbols-outlined text-2xl">{p.icon}</span>
+            puntosVentaList.map((p) => (
+              <div class="bg-white p-5 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                <div class="w-12 h-12 bg-primary/15 text-primary rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span class="material-symbols-outlined text-xl">{p.icon}</span>
                 </div>
-                <div class="font-headline text-lg text-secondary font-bold mb-1">{p.name}</div>
-                <div class="text-xs text-onSurface-variant">{p.detail}</div>
+                <div class="font-headline text-base text-secondary font-bold mb-1 leading-tight">{p.name}</div>
+                <div class="text-[11px] text-onSurface-variant">{p.detail}</div>
               </div>
             ))
           }
@@ -631,10 +702,7 @@ const blogTeasers = [
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           {
             galleryShots.map((src, i) => (
-              <div
-                class="relative aspect-square overflow-hidden rounded-2xl group cursor-pointer shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-                style={i % 2 === 0 ? 'border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;' : 'border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;'}
-              >
+              <div class="relative aspect-square overflow-hidden rounded-2xl group cursor-pointer shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                 <img src={src} alt={`Galería ${i + 1}`} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
                 <div class="absolute inset-0 bg-gradient-to-t from-secondary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
@@ -676,35 +744,32 @@ const blogTeasers = [
       </div>
     </section>
 
-    <!-- RED DE COLABORACIÓN -->
-    <section id="red" class="relative py-20 md:py-24 bg-secondary/10 overflow-hidden">
+    <!-- ALIANZAS -->
+    <section id="alianzas" class="relative py-20 md:py-24 bg-secondary/10 overflow-hidden">
       <div class="relative max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-12">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Red de colaboración</p>
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Alianzas</p>
           <h2 class="font-headline text-3xl md:text-5xl text-secondary font-bold leading-tight mb-4">
             No caminamos solos
           </h2>
           <p class="max-w-2xl mx-auto text-onSurface-variant text-base">
-            Construimos junto a otras empresas mexicanas que comparten la misma visión: alimentar al país sin
-            comprometer al planeta
+            Construimos junto a otras empresas mexicanas y latinoamericanas que comparten la misma visión: alimentar
+            sin comprometer al planeta
           </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          <div class="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
-            <div class="w-16 h-16 bg-primary/15 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
-              <span class="material-symbols-outlined text-3xl">handshake</span>
-            </div>
-            <h3 class="font-headline text-2xl text-secondary font-bold mb-2">Bofish</h3>
-            <p class="text-sm text-onSurface-variant">Granjas comerciales de gran escala y formación profesional en acuaponía</p>
-          </div>
-          <div class="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
-            <div class="w-16 h-16 bg-primary/15 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
-              <span class="material-symbols-outlined text-3xl">event</span>
-            </div>
-            <h3 class="font-headline text-2xl text-secondary font-bold mb-2">Aquaponic Events</h3>
-            <p class="text-sm text-onSurface-variant">Eventos, congresos y cursos para llevar la acuaponía a más mexicanos</p>
-          </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            alianzas.map((a) => (
+              <div class="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                <div class="w-16 h-16 bg-primary/15 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span class="material-symbols-outlined text-3xl">{a.icon}</span>
+                </div>
+                <h3 class="font-headline text-2xl text-secondary font-bold mb-2">{a.name}</h3>
+                <p class="text-sm text-onSurface-variant">{a.detail}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
