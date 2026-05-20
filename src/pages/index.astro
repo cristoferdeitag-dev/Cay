@@ -3,8 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import TopNav from '../components/TopNav.astro';
 import Footer from '../components/Footer.astro';
 
-// Productos (simplificados: hortalizas + peces). Foco del sitio NO es vender catálogo —
-// es contar la acuaponía y CAY. Productos van compactos.
 const productos = [
   {
     id: 'hortalizas',
@@ -28,34 +26,49 @@ const cycle = [
   {
     step: '01',
     icon: 'phishing',
-    title: 'Peces',
-    description: 'Los peces nutren el agua con compuestos nitrogenados naturales de su proceso digestivo',
+    title: 'Acuicultura',
+    description: 'Criamos peces. Su proceso digestivo enriquece el agua con compuestos nitrogenados naturales',
   },
   {
     step: '02',
     icon: 'science',
-    title: 'Bacterias',
-    description: 'Biofiltros con bacterias benéficas transforman esos compuestos en nitratos absorbibles',
+    title: 'Biofiltros',
+    description: 'Las bacterias transforman esos compuestos en nutrientes que las plantas pueden absorber',
   },
   {
     step: '03',
     icon: 'eco',
-    title: 'Plantas',
-    description: 'Las raíces toman los nutrientes y devuelven el agua purificada a los tanques',
+    title: 'Hidroponía',
+    description: 'Las raíces toman los nutrientes y devuelven el agua limpia a los peces — simbiosis perfecta',
   },
 ];
 
 const benefits = [
   { stat: '90%', label: 'Menos agua', detail: 'que la agricultura tradicional' },
   { stat: '4×', label: 'Más rendimiento', detail: 'por metro cuadrado' },
-  { stat: '0', label: 'Pesticidas', detail: 'el agua no permitiría que sobrevivan los peces' },
-  { stat: '0', label: 'Erosión del suelo', detail: 'el cultivo no toca tierra' },
+  { stat: '0', label: 'Pesticidas', detail: 'el agua no permitiría a los peces' },
+  { stat: '0', label: 'Erosión', detail: 'el cultivo no toca tierra' },
+];
+
+const problemas = [
+  'Pobreza',
+  'Hambruna',
+  'Sobrepoblación',
+  'Falta de educación',
+  'Problemas de salud',
+  'Desempleo',
+  'Desigualdad económica',
+  'Falta de agua potable',
+  'Uso irresponsable del agua',
+  'Sobreexplotación de recursos',
+  'Problemas medioambientales',
+  'Maltrato animal',
 ];
 
 const granjas = [
   {
     type: 'Granjas comerciales',
-    description: 'Producción a escala para abastecer mercados, restaurantes y supermercados.',
+    description: 'Producción a escala para abastecer mercados, restaurantes y supermercados',
     subcats: [
       { name: 'Productores', detail: 'Volumen industrial de hortalizas y proteína' },
       { name: 'Farm-to-table', detail: 'Cosecha del día hacia chefs y consumidores directos' },
@@ -64,7 +77,7 @@ const granjas = [
   },
   {
     type: 'Granjas agroturísticas',
-    description: 'Espacios abiertos al público para conocer la acuaponía y vivirla de cerca.',
+    description: 'Espacios abiertos al público para vivir la acuaponía de cerca',
     subcats: [
       { name: 'Visitas y tours', detail: 'Experiencia educativa para familias y escuelas' },
       { name: 'Granjas caseras', detail: 'Sistemas residenciales que diseñamos y armamos contigo' },
@@ -75,50 +88,75 @@ const granjas = [
 
 const mvv = [
   {
+    title: 'Propuesta de valor',
+    body: 'Productos acuapónicos de alta calidad, 100% orgánicos, que contribuyen a una mejor alimentación y son amigables con el medio ambiente',
+    icon: 'star',
+  },
+  {
     title: 'Misión',
-    body: 'Reintroducir la acuaponía como una forma seria de alimentar México, devolviéndole al agua su inteligencia y a la tierra un descanso bien merecido.',
+    body: 'Proveer productos acuapónicos que contribuyan a la salud y nutrición de los consumidores, y promover prácticas de desarrollo sostenible',
     icon: 'flag',
   },
   {
     title: 'Visión',
-    body: 'Ser la empresa referente de acuaponía en América Latina: de Jalisco al mundo, con producto, educación y sistemas que multipliquen el modelo.',
+    body: 'Ser la empresa mexicana líder en el sector agropecuario, con alimentos saludables y accesibles para todos. Construir la red de agricultores acuapónicos más grande del país, basada en comercio justo',
     icon: 'visibility',
-  },
-  {
-    title: 'Valores',
-    body: 'Honestidad con el alimento, respeto por el agua, herencia mexicana viva, y obsesión por la calidad sin atajos.',
-    icon: 'favorite',
   },
 ];
 
+const valores = [
+  'Humanidad',
+  'Empresa Socialmente Responsable',
+  'Calidad',
+  'Honestidad',
+  'Integridad',
+  'Salud',
+  'Respeto',
+  'Solidaridad',
+  'Transparencia',
+  'Bienestar',
+  'Pasión',
+  'Transformación',
+  'Trabajo en equipo',
+  'Creatividad e innovación',
+  'Compromiso',
+];
+
+// ODS oficiales ONU — colores reales del Agenda 2030
 const ods = [
   { num: '2', title: 'Hambre cero', color: '#DDA63A' },
+  { num: '3', title: 'Salud y bienestar', color: '#4C9F38' },
   { num: '6', title: 'Agua limpia y saneamiento', color: '#26BDE2' },
-  { num: '12', title: 'Producción y consumo responsables', color: '#BF8B2E' },
+  { num: '7', title: 'Energía asequible', color: '#FCC30B' },
+  { num: '8', title: 'Trabajo decente', color: '#A21942' },
+  { num: '9', title: 'Industria e innovación', color: '#FD6925' },
+  { num: '10', title: 'Reducción de desigualdades', color: '#DD1367' },
+  { num: '11', title: 'Comunidades sostenibles', color: '#FD9D24' },
+  { num: '12', title: 'Producción responsable', color: '#BF8B2E' },
   { num: '13', title: 'Acción por el clima', color: '#3F7E44' },
-  { num: '15', title: 'Vida de ecosistemas terrestres', color: '#56C02B' },
+  { num: '14', title: 'Vida submarina', color: '#0A97D9' },
+  { num: '15', title: 'Vida terrestre', color: '#56C02B' },
 ];
 
 const certs = [
-  { name: 'SAGARPA', label: 'Registro federal' },
-  { name: 'Inocuidad', label: 'Cadena alimentaria' },
-  { name: 'Buenas Prácticas', label: 'Acuícolas' },
-  { name: '100% Mexicano', label: 'Producción nacional' },
+  { name: 'Hecho en México', label: 'Producción nacional' },
+  { name: 'USDA Organic', label: 'Orgánico certificado' },
+  { name: 'CESAJ', label: 'Calidad acuícola Jalisco' },
+  { name: 'Rainforest Alliance', label: 'Sostenibilidad' },
+  { name: 'ISO', label: 'Sistemas de gestión' },
 ];
 
-const estados = [
-  { name: 'Jalisco', subtitle: 'Granja CAY Central · Guadalajara' },
-  { name: 'Puebla', subtitle: 'Hortaliza Sierra Norte' },
-  { name: 'Tlaxcala', subtitle: 'Tilapias Altiplano' },
-  { name: 'Hidalgo', subtitle: 'Agroturismo Real del Monte' },
-  { name: 'Oaxaca', subtitle: 'Productora Valles Centrales' },
+const puntosVenta = [
+  { name: 'Walmart', icon: 'storefront', detail: 'Tiendas seleccionadas' },
+  { name: 'Chedraui Selecto', icon: 'storefront', detail: 'Tiendas seleccionadas' },
+  { name: 'City Market', icon: 'storefront', detail: 'Tiendas seleccionadas' },
+  { name: 'En la granja', icon: 'agriculture', detail: 'Venta directa al productor' },
+  { name: 'Restaurantes', icon: 'restaurant', detail: 'Aliados farm-to-table' },
 ];
 
-const timeline = [
-  { year: '2018', label: 'Nace CAY con la primera granja piloto en Jalisco' },
-  { year: '2020', label: 'Producción comercial estable de hortalizas y tilapia' },
-  { year: '2022', label: 'Expansión a cinco estados de la República' },
-  { year: '2024', label: 'Inauguramos el agroturismo y la venta directa' },
+const founders = [
+  { name: 'Cristofer De Ita', role: 'Founder', initials: 'CD' },
+  { name: 'Asaí López', role: 'Founder', initials: 'AL' },
 ];
 
 const galleryShots = [
@@ -132,21 +170,21 @@ const blogTeasers = [
   {
     tag: 'Acuaponía 101',
     title: 'Lo que nadie te cuenta del agua que comes',
-    excerpt: 'Por qué el ciclo cerrado cambia las reglas de lo que llamamos "fresco" en México.',
+    excerpt: 'Por qué el ciclo cerrado cambia las reglas de lo que llamamos "fresco" en México',
   },
   {
     tag: 'Productor',
     title: 'Cómo planeamos una cosecha de 1,000 lechugas semanales',
-    excerpt: 'Detrás de la operación: variedades, densidad, temperatura del agua y el ojo del operario.',
+    excerpt: 'Detrás de la operación: variedades, densidad, temperatura del agua y el ojo del operario',
   },
   {
     tag: 'Historia',
     title: 'Chinampas: la acuaponía que ya existía',
-    excerpt: 'Lo que aprendieron los aztecas en Xochimilco y que hoy reaplicamos con tecnología.',
+    excerpt: 'Lo que aprendieron los aztecas en Xochimilco y que hoy reaplicamos con tecnología',
   },
 ];
 
-// Patrones SVG en /public/patterns/ — referenciados por URL absoluta
+// Pattern URLs
 const fishSchool = '/patterns/fish-school.svg';
 const leafField = '/patterns/leaf-field.svg';
 const wavePat = '/patterns/wave-line.svg';
@@ -160,25 +198,22 @@ const fishVioletUri = '/patterns/fish-violet.svg';
   <main>
     <!-- HERO -->
     <section id="inicio" class="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32 bg-surface">
-      <!-- Cardumen patrón overlay -->
       <div
         class="absolute inset-0 pointer-events-none text-primary"
         style={`background-image: url("${fishSchool}"); background-size: 320px 320px; opacity: 0.08;`}
       >
       </div>
 
-      <!-- Blobs decorativos -->
       <div class="hidden md:block absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>
       <div class="hidden md:block absolute top-1/2 -left-40 w-[500px] h-[500px] rounded-full bg-secondary/10 blur-3xl pointer-events-none"></div>
 
-      <!-- Hojas animadas decorativas -->
       <div
-        class="hidden md:block absolute top-32 right-1/3 w-16 h-20 text-primary opacity-30 animate-float-slow"
+        class="hidden md:block absolute top-32 right-1/3 w-16 h-20 opacity-30 animate-float-slow"
         style={`background-image: url("${leafGreenUri}"); background-size: contain; background-repeat: no-repeat;`}
       >
       </div>
       <div
-        class="hidden md:block absolute bottom-20 left-20 w-12 h-16 text-primary opacity-40 animate-float-medium"
+        class="hidden md:block absolute bottom-20 left-20 w-12 h-16 opacity-40 animate-float-medium"
         style={`background-image: url("${leafGreenUri}"); background-size: contain; background-repeat: no-repeat;`}
       >
       </div>
@@ -195,8 +230,8 @@ const fishVioletUri = '/patterns/fish-violet.svg';
             se cuidan
           </h1>
           <p class="text-onSurface-variant text-lg max-w-md font-body leading-relaxed">
-            Cultivamos hortalizas y peces vivos en un ciclo cerrado que limpia el agua mientras alimenta al país.
-            Granjas tecnificadas, producto limpio, sin atajos
+            Somos una empresa mexicana dedicada al cultivo de hortalizas y a la crianza de peces a través de la
+            acuaponía. Producto limpio, sin atajos
           </p>
           <div class="flex flex-wrap gap-4">
             <a
@@ -220,9 +255,8 @@ const fishVioletUri = '/patterns/fish-violet.svg';
           >
             <img src="/images/hero-granja.jpg" alt="Granja acuapónica CAY" class="w-full h-full object-cover" loading="eager" />
           </div>
-          <!-- Pez animado decorativo -->
           <div
-            class="absolute -bottom-4 -right-4 w-32 h-20 text-secondary animate-swim hidden md:block"
+            class="absolute -bottom-4 -right-4 w-32 h-20 animate-swim hidden md:block"
             style={`background-image: url("${fishVioletUri}"); background-size: contain; background-repeat: no-repeat;`}
           >
           </div>
@@ -233,7 +267,7 @@ const fishVioletUri = '/patterns/fish-violet.svg';
     <!-- WAVE SEPARATOR -->
     <div class="relative h-12 bg-surface overflow-hidden">
       <div
-        class="absolute inset-0 text-primary animate-wave"
+        class="absolute inset-0 animate-wave"
         style={`background-image: url("${wavePat}"); background-size: 400px 60px; background-repeat: repeat-x; background-position: center; opacity: 0.55;`}
       >
       </div>
@@ -253,10 +287,11 @@ const fishVioletUri = '/patterns/fish-violet.svg';
           <h2 class="font-headline text-5xl md:text-6xl font-bold leading-tight mb-6">
             ¿Qué es<br />la acuaponía?
           </h2>
-          <p class="max-w-2xl mx-auto text-white/95 text-lg font-body leading-relaxed">
-            Es un sistema de cultivo que une la cría de peces con el cultivo de plantas en un mismo flujo de agua. Los
-            peces enriquecen el agua, las bacterias la transforman y las plantas la limpian — todo de forma natural,
-            con cero pesticidas y una fracción del agua que pediría la agricultura tradicional
+          <p class="max-w-3xl mx-auto text-white/95 text-lg font-body leading-relaxed">
+            Es un sistema de cultivo que mezcla la <strong>acuicultura</strong> (técnica para reproducir peces) y la
+            <strong>hidroponía</strong> (método para cultivar hortalizas usando disoluciones minerales en vez de
+            suelo). Ambas prácticas forman una simbiosis perfecta: los peces nutren a las plantas con fertilizante
+            natural y las plantas limpian el agua que regresa al tanque de los peces
           </p>
         </div>
 
@@ -278,7 +313,50 @@ const fishVioletUri = '/patterns/fish-violet.svg';
       </div>
     </section>
 
-    <!-- POR QUÉ ACUAPONÍA (beneficios vs tradicional/hidroponía) -->
+    <!-- POR QUÉ CAY (manifesto) -->
+    <section id="por-que" class="relative bg-secondary text-white py-24 md:py-32 overflow-hidden">
+      <div
+        class="absolute inset-0 text-primary pointer-events-none"
+        style={`background-image: url("${leafField}"); background-size: 240px 240px; opacity: 0.08;`}
+      >
+      </div>
+      <div class="hidden md:block absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
+
+      <div class="relative max-w-[1200px] mx-auto px-6">
+        <div class="max-w-3xl">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">Por qué CAY</p>
+          <h2 class="font-headline text-5xl md:text-6xl font-bold leading-[1.05] mb-10">
+            Hay que poner<br />nuestro <span class="text-primary">granito de arena</span>
+          </h2>
+          <p class="text-white/90 text-lg leading-relaxed mb-6 font-body">
+            En CAY creemos firmemente que en México y en el mundo necesitamos más soluciones y alternativas para los
+            problemas que enfrentamos día con día
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-3 my-12 max-w-4xl">
+          {
+            problemas.map((p) => (
+              <span class="inline-block bg-white/10 border border-primary/30 text-primary text-sm font-semibold px-4 py-2 rounded-full">
+                {p}
+              </span>
+            ))
+          }
+        </div>
+
+        <div class="max-w-3xl">
+          <p class="text-white/90 text-lg leading-relaxed mb-6 font-body">
+            Todos podemos aportar en la medida de lo posible — <strong>por nosotros, por ellos, por todos</strong>.
+            Nuestro planeta nos necesita. Seamos más conscientes, más <strong class="text-primary">humanos</strong>
+          </p>
+          <p class="text-white/90 text-lg leading-relaxed font-body">
+            En CAY queremos hacer la diferencia por medio de la acuaponía
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- POR QUÉ ACUAPONÍA (vs tradicional/hidroponía) -->
     <section class="relative bg-surface py-24 md:py-32 overflow-hidden">
       <div
         class="absolute inset-0 text-primary pointer-events-none"
@@ -292,10 +370,6 @@ const fishVioletUri = '/patterns/fish-violet.svg';
           <h2 class="font-headline text-5xl md:text-6xl text-secondary font-bold leading-tight mb-6">
             Mejor que la agricultura<br />tradicional y la hidroponía
           </h2>
-          <p class="max-w-2xl mx-auto text-onSurface-variant text-lg font-body leading-relaxed">
-            La acuaponía resuelve problemas que la agricultura convencional sigue cargando: erosión, exceso de agua,
-            pesticidas y producción dependiente del suelo. Esto es lo que mejora
-          </p>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
@@ -316,15 +390,15 @@ const fishVioletUri = '/patterns/fish-violet.svg';
             <ul class="space-y-3 font-body text-base">
               <li class="flex gap-3"><span class="material-symbols-outlined text-primary">check_circle</span>Sin erosión del suelo</li>
               <li class="flex gap-3"><span class="material-symbols-outlined text-primary">check_circle</span>Producción todo el año</li>
-              <li class="flex gap-3"><span class="material-symbols-outlined text-primary">check_circle</span>Menor superficie por kilo producido</li>
               <li class="flex gap-3"><span class="material-symbols-outlined text-primary">check_circle</span>Mejor sabor, textura y duración</li>
-              <li class="flex gap-3"><span class="material-symbols-outlined text-primary">check_circle</span>Productos orgánicos certificables</li>
+              <li class="flex gap-3"><span class="material-symbols-outlined text-primary">check_circle</span>Productos 100% orgánicos</li>
+              <li class="flex gap-3"><span class="material-symbols-outlined text-primary">check_circle</span>Eco-friendly por diseño</li>
             </ul>
           </div>
           <div class="bg-primary text-secondary p-8 rounded-3xl">
             <h3 class="font-headline text-2xl font-bold mb-4">Lo que resuelve</h3>
             <ul class="space-y-3 font-body text-base">
-              <li class="flex gap-3"><span class="material-symbols-outlined">water_drop</span>Escasez creciente de agua en México</li>
+              <li class="flex gap-3"><span class="material-symbols-outlined">water_drop</span>Escasez creciente de agua</li>
               <li class="flex gap-3"><span class="material-symbols-outlined">eco</span>Suelos cansados y desnutridos</li>
               <li class="flex gap-3"><span class="material-symbols-outlined">no_food</span>Dependencia de pesticidas</li>
               <li class="flex gap-3"><span class="material-symbols-outlined">local_shipping</span>Cadenas de frío kilométricas</li>
@@ -434,65 +508,7 @@ const fishVioletUri = '/patterns/fish-violet.svg';
       </div>
     </section>
 
-    <!-- CERTIFICACIONES -->
-    <section class="relative py-20 bg-white overflow-hidden">
-      <div class="max-w-[1200px] mx-auto px-6">
-        <div class="text-center mb-12">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Certificaciones</p>
-          <h2 class="font-headline text-3xl md:text-4xl text-secondary font-bold">Producimos con respaldo</h2>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {
-            certs.map((c) => (
-              <div class="border border-primary/20 rounded-2xl p-6 text-center hover:border-primary hover:bg-primary/5 transition-all">
-                <div class="w-12 h-12 mx-auto mb-3 bg-primary/15 text-primary rounded-full flex items-center justify-center">
-                  <span class="material-symbols-outlined">verified</span>
-                </div>
-                <div class="font-headline font-bold text-secondary">{c.name}</div>
-                <div class="text-xs text-onSurface-variant mt-1">{c.label}</div>
-              </div>
-            ))
-          }
-        </div>
-        <p class="text-center text-xs text-onSurface-variant mt-6 italic">
-          (Logos oficiales pendientes — pásamelos cuando los tengas)
-        </p>
-      </div>
-    </section>
-
-    <!-- ENCUÉNTRANOS -->
-    <section id="encuentranos" class="relative py-24 md:py-32 bg-primary/10 overflow-hidden">
-      <div
-        class="absolute inset-0 text-primary pointer-events-none"
-        style={`background-image: url("${wavePat}"); background-size: 300px 60px; background-repeat: repeat; opacity: 0.08;`}
-      >
-      </div>
-
-      <div class="relative max-w-[1200px] mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Encuéntranos</p>
-          <h2 class="font-headline text-5xl md:text-6xl text-secondary font-bold leading-tight">
-            Cinco estados,<br />una sola red
-          </h2>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {
-            estados.map((e) => (
-              <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
-                <div class="w-12 h-12 bg-primary/15 text-primary rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span class="material-symbols-outlined">place</span>
-                </div>
-                <div class="font-headline text-xl text-secondary font-bold mb-1">{e.name}</div>
-                <div class="text-xs text-onSurface-variant">{e.subtitle}</div>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <!-- SOBRE CAY (about us reforzado) -->
+    <!-- SOBRE CAY -->
     <section id="sobre" class="relative py-24 md:py-32 bg-secondary text-white overflow-hidden">
       <div
         class="absolute inset-0 text-primary pointer-events-none"
@@ -501,7 +517,7 @@ const fishVioletUri = '/patterns/fish-violet.svg';
       </div>
       <div class="hidden md:block absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
 
-      <div class="relative max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <div class="relative max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-16 items-center mb-20">
         <div
           class="relative aspect-[4/5] overflow-hidden shadow-2xl shadow-black/30"
           style="border-radius: 45% 55% 50% 50% / 55% 45% 55% 45%;"
@@ -512,46 +528,44 @@ const fishVioletUri = '/patterns/fish-violet.svg';
         <div>
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">Sobre CAY · 100% mexicana</p>
           <h2 class="font-headline text-5xl md:text-6xl font-bold leading-[0.95] mb-8">
-            Un granito<br />de arena<br />que viene<br />de raíz
+            Un granito de<br />arena que viene<br />de raíz
           </h2>
           <p class="text-white/90 text-lg leading-relaxed mb-6 font-body">
             Los <strong>mayas</strong> y los <strong>aztecas</strong> ya hacían acuaponía mucho antes de que existiera la
-            palabra. Sus <strong>chinampas</strong> cultivaban peces y plantas en el mismo ecosistema, regresándole al
-            agua su inteligencia. Esa herencia no se inventó en un laboratorio europeo: se inventó aquí
+            palabra. Sus <strong>chinampas</strong> cultivaban peces y plantas en el mismo ecosistema. Esa herencia no se
+            inventó en un laboratorio europeo: se inventó aquí
           </p>
           <p class="text-white/90 text-lg leading-relaxed mb-8 font-body">
-            CAY recoge ese saber, lo combina con tecnología actual y lo opera con manos mexicanas. Nuestro granito de
-            arena: alimentar al país sin secarlo, abrir granjas para que la gente lo viva, y mostrar al mundo lo que
-            siempre supimos hacer
+            CAY se fundó en <strong>2020</strong>. Recogemos ese saber, lo combinamos con tecnología actual y lo
+            operamos con manos mexicanas — para alimentar al país sin secarlo, abrir granjas para que la gente lo
+            viva, y mostrarle al mundo lo que siempre supimos hacer
           </p>
+        </div>
+      </div>
 
-          <div class="flex flex-wrap gap-2 mb-10">
-            {estados.map((e) => (
-              <span class="inline-flex items-center gap-1.5 bg-white/10 border border-primary/40 text-primary text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
-                <span class="material-symbols-outlined text-sm">place</span>
-                {e.name}
-              </span>
-            ))}
-          </div>
-
-          <ul class="space-y-5 mb-10">
-            {
-              timeline.map((m) => (
-                <li class="flex items-start gap-5">
-                  <span class="flex-shrink-0 w-14 h-14 bg-primary text-secondary rounded-full flex items-center justify-center font-headline text-sm font-bold">
-                    {m.year}
-                  </span>
-                  <span class="font-body text-white/90 pt-4">{m.label}</span>
-                </li>
-              ))
-            }
-          </ul>
+      <!-- Founders -->
+      <div class="relative max-w-[1200px] mx-auto px-6">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-6 text-center">Fundadores</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          {
+            founders.map((f) => (
+              <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6 flex items-center gap-5 hover:bg-white/15 transition-colors">
+                <div class="w-16 h-16 bg-primary text-secondary rounded-full flex items-center justify-center font-headline font-bold text-xl flex-shrink-0">
+                  {f.initials}
+                </div>
+                <div>
+                  <div class="font-headline text-xl font-bold">{f.name}</div>
+                  <div class="text-primary text-sm font-bold uppercase tracking-wider">{f.role}</div>
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
 
-    <!-- MISIÓN VISIÓN VALORES -->
-    <section class="relative bg-surface py-24 md:py-32 overflow-hidden">
+    <!-- MISIÓN · VISIÓN · VALORES -->
+    <section id="mvv" class="relative bg-surface py-24 md:py-32 overflow-hidden">
       <div class="max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-16">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Lo que nos mueve</p>
@@ -559,7 +573,7 @@ const fishVioletUri = '/patterns/fish-violet.svg';
             Misión · Visión · Valores
           </h2>
         </div>
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
           {
             mvv.map((m, idx) => (
               <div
@@ -576,31 +590,100 @@ const fishVioletUri = '/patterns/fish-violet.svg';
             ))
           }
         </div>
+
+        <!-- Valores chips -->
+        <div class="text-center">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-6">Nuestros valores</p>
+          <div class="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto">
+            {
+              valores.map((v) => (
+                <span class="inline-block bg-white border-2 border-primary/30 text-secondary text-sm font-bold px-5 py-2.5 rounded-full hover:bg-primary hover:text-white hover:border-primary transition-all cursor-default">
+                  {v}
+                </span>
+              ))
+            }
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- COMPROMISO ONU / ODS -->
-    <section class="relative py-20 md:py-24 bg-white overflow-hidden">
+    <!-- CERTIFICACIONES -->
+    <section class="relative py-20 bg-white overflow-hidden">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-12">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Certificaciones</p>
+          <h2 class="font-headline text-3xl md:text-4xl text-secondary font-bold">Producimos con respaldo</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+          {
+            certs.map((c) => (
+              <div class="border border-primary/20 rounded-2xl p-6 text-center hover:border-primary hover:bg-primary/5 transition-all">
+                <div class="w-12 h-12 mx-auto mb-3 bg-primary/15 text-primary rounded-full flex items-center justify-center">
+                  <span class="material-symbols-outlined">verified</span>
+                </div>
+                <div class="font-headline font-bold text-secondary text-sm">{c.name}</div>
+                <div class="text-xs text-onSurface-variant mt-1">{c.label}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ODS ONU (12 objetivos) -->
+    <section class="relative py-20 md:py-24 bg-surface overflow-hidden">
       <div class="max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-12">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Compromiso con la ONU</p>
-          <h2 class="font-headline text-3xl md:text-4xl text-secondary font-bold mb-4">
-            Contribuimos a 5 objetivos de desarrollo sostenible
+          <h2 class="font-headline text-3xl md:text-5xl text-secondary font-bold mb-4 leading-tight">
+            Contribuimos a 12 objetivos<br />de desarrollo sostenible
           </h2>
           <p class="max-w-2xl mx-auto text-onSurface-variant text-base">
             Cada granja, cada cosecha y cada peso que invertimos están alineados con la Agenda 2030 de las Naciones Unidas
           </p>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
           {
             ods.map((o) => (
               <div
-                class="aspect-square rounded-2xl p-6 flex flex-col justify-between text-white hover:scale-105 transition-transform duration-300 shadow-lg"
+                class="aspect-square rounded-2xl p-4 flex flex-col justify-between text-white hover:scale-105 transition-transform duration-300 shadow-md"
                 style={`background-color: ${o.color};`}
               >
-                <div class="font-headline text-5xl font-black opacity-90">{o.num}</div>
-                <div class="font-headline font-bold text-sm leading-tight">{o.title}</div>
+                <div class="font-headline text-3xl md:text-4xl font-black opacity-90">{o.num}</div>
+                <div class="font-headline font-bold text-[11px] md:text-xs leading-tight">{o.title}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ENCUÉNTRANOS -->
+    <section id="encuentranos" class="relative py-24 md:py-32 bg-primary/10 overflow-hidden">
+      <div
+        class="absolute inset-0 text-primary pointer-events-none"
+        style={`background-image: url("${wavePat}"); background-size: 300px 60px; background-repeat: repeat; opacity: 0.08;`}
+      >
+      </div>
+
+      <div class="relative max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Encuéntranos</p>
+          <h2 class="font-headline text-5xl md:text-6xl text-secondary font-bold leading-tight">
+            Dónde conseguir<br />nuestros productos
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {
+            puntosVenta.map((p) => (
+              <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+                <div class="w-14 h-14 bg-primary/15 text-primary rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span class="material-symbols-outlined text-2xl">{p.icon}</span>
+                </div>
+                <div class="font-headline text-lg text-secondary font-bold mb-1">{p.name}</div>
+                <div class="text-xs text-onSurface-variant">{p.detail}</div>
               </div>
             ))
           }
@@ -609,15 +692,20 @@ const fishVioletUri = '/patterns/fish-violet.svg';
     </section>
 
     <!-- GALERÍA -->
-    <section id="galeria" class="relative py-24 md:py-32 bg-primary/10 overflow-hidden">
-      <div class="max-w-[1200px] mx-auto px-6">
+    <section id="galeria" class="relative py-24 md:py-32 bg-secondary text-white overflow-hidden">
+      <div
+        class="absolute inset-0 text-primary pointer-events-none"
+        style={`background-image: url("${fishSchool}"); background-size: 320px 320px; opacity: 0.07;`}
+      >
+      </div>
+      <div class="relative max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-12">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Galería</p>
-          <h2 class="font-headline text-3xl md:text-5xl text-secondary font-bold">
+          <h2 class="font-headline text-3xl md:text-5xl font-bold">
             La granja en imágenes y video
           </h2>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           {
             galleryShots.map((src, i) => (
               <div
@@ -625,14 +713,11 @@ const fishVioletUri = '/patterns/fish-violet.svg';
                 style={i % 2 === 0 ? 'border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;' : 'border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;'}
               >
                 <img src={src} alt={`Galería ${i + 1}`} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
-                <div class="absolute inset-0 bg-gradient-to-t from-secondary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-secondary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
             ))
           }
         </div>
-        <p class="text-center text-xs text-onSurface-variant italic">
-          (Próximamente: videos de las granjas en operación — pásame los archivos cuando los tengas)
-        </p>
       </div>
     </section>
 
@@ -684,10 +769,10 @@ const fishVioletUri = '/patterns/fish-violet.svg';
           Productos, granjas a la medida, visitas o asesoría — cuéntanos qué necesitas
         </p>
         <a
-          href="mailto:hola@cay.mx"
+          href="mailto:info@cay.mx"
           class="inline-block bg-secondary text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-secondary/90 shadow-2xl shadow-secondary/30 hover:-translate-y-1 transition-all duration-200"
         >
-          Contáctanos
+          info@cay.mx
         </a>
       </div>
     </section>
