@@ -1,21 +1,23 @@
 ---
 const links = [
   { href: '#inicio', label: 'Inicio', active: true },
-  { href: '#que-es', label: 'Qué es la acuaponía' },
+  { href: '#que-es', label: 'Acuaponía' },
+  { href: '#granjas', label: 'Granjas' },
   { href: '#productos', label: 'Productos' },
   { href: '#sobre', label: 'Sobre CAY' },
-  { href: '#contacto', label: 'Contacto' },
+  { href: '#blog', label: 'Blog' },
+  { href: '#encuentranos', label: 'Encuéntranos' },
 ];
 ---
 
-<nav class="fixed top-0 w-full z-50 bg-surface/95 backdrop-blur-sm border-b border-primary/10 shadow-soft-primary">
-  <div class="flex justify-between items-center px-6 py-4 max-w-[1200px] mx-auto">
-    <a class="flex items-center gap-3 font-headline text-2xl font-bold text-secondary" href="/">
-      <img alt="CAY Logo" class="h-10 w-10 object-contain" src="/images/cay-logo.jpg" />
+<nav class="fixed top-0 w-full z-50 bg-surface/95 backdrop-blur-sm border-b border-primary/10">
+  <div class="flex justify-between items-center px-6 py-3 max-w-[1200px] mx-auto">
+    <a class="flex items-center gap-2 font-headline text-2xl font-bold text-secondary" href="/">
+      <img alt="CAY Logo" class="h-12 w-12 object-contain" src="/images/cay-logo.png" />
       <span>CAY</span>
     </a>
 
-    <div class="hidden md:flex gap-6 lg:gap-8 items-center font-body text-sm lg:text-base">
+    <div class="hidden lg:flex gap-5 xl:gap-7 items-center font-body text-sm">
       {
         links.map((link) => (
           <a
@@ -32,15 +34,17 @@ const links = [
       }
     </div>
 
-    <a
-      href="#contacto"
-      class="hidden md:inline-flex bg-primary text-white px-6 py-2.5 rounded-full font-medium hover:bg-primary/90 active:scale-95 transition-all"
-    >
-      Contáctanos
-    </a>
+    <div class="flex items-center gap-3">
+      <a
+        href="#contacto"
+        class="hidden md:inline-flex bg-primary text-white px-5 py-2 rounded-full font-medium text-sm hover:bg-primary/90 active:scale-95 transition-all"
+      >
+        Contáctanos
+      </a>
 
-    <button class="md:hidden text-onSurface" aria-label="Abrir menú">
-      <span class="material-symbols-outlined text-3xl">menu</span>
-    </button>
+      <button class="lg:hidden text-onSurface" aria-label="Abrir menú">
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
+    </div>
   </div>
 </nav>

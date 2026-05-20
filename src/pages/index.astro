@@ -122,20 +122,20 @@ const valores = [
   'Compromiso',
 ];
 
-// ODS oficiales ONU — colores reales del Agenda 2030
+// ODS oficiales ONU — colores reales Agenda 2030 + icono material representativo
 const ods = [
-  { num: '2', title: 'Hambre cero', color: '#DDA63A' },
-  { num: '3', title: 'Salud y bienestar', color: '#4C9F38' },
-  { num: '6', title: 'Agua limpia y saneamiento', color: '#26BDE2' },
-  { num: '7', title: 'Energía asequible', color: '#FCC30B' },
-  { num: '8', title: 'Trabajo decente', color: '#A21942' },
-  { num: '9', title: 'Industria e innovación', color: '#FD6925' },
-  { num: '10', title: 'Reducción de desigualdades', color: '#DD1367' },
-  { num: '11', title: 'Comunidades sostenibles', color: '#FD9D24' },
-  { num: '12', title: 'Producción responsable', color: '#BF8B2E' },
-  { num: '13', title: 'Acción por el clima', color: '#3F7E44' },
-  { num: '14', title: 'Vida submarina', color: '#0A97D9' },
-  { num: '15', title: 'Vida terrestre', color: '#56C02B' },
+  { num: '2', title: 'Hambre cero', color: '#DDA63A', icon: 'restaurant' },
+  { num: '3', title: 'Salud y bienestar', color: '#4C9F38', icon: 'health_and_safety' },
+  { num: '6', title: 'Agua limpia y saneamiento', color: '#26BDE2', icon: 'water_drop' },
+  { num: '7', title: 'Energía asequible', color: '#FCC30B', icon: 'bolt' },
+  { num: '8', title: 'Trabajo decente', color: '#A21942', icon: 'work' },
+  { num: '9', title: 'Industria e innovación', color: '#FD6925', icon: 'precision_manufacturing' },
+  { num: '10', title: 'Reducción de desigualdades', color: '#DD1367', icon: 'diversity_3' },
+  { num: '11', title: 'Comunidades sostenibles', color: '#FD9D24', icon: 'location_city' },
+  { num: '12', title: 'Producción responsable', color: '#BF8B2E', icon: 'recycling' },
+  { num: '13', title: 'Acción por el clima', color: '#3F7E44', icon: 'public' },
+  { num: '14', title: 'Vida submarina', color: '#0A97D9', icon: 'phishing' },
+  { num: '15', title: 'Vida terrestre', color: '#56C02B', icon: 'park' },
 ];
 
 const certs = [
@@ -184,12 +184,7 @@ const blogTeasers = [
   },
 ];
 
-// Pattern URLs
-const fishSchool = '/patterns/fish-school.svg';
-const leafField = '/patterns/leaf-field.svg';
-const wavePat = '/patterns/wave-line.svg';
-const leafGreenUri = '/patterns/leaf-green.svg';
-const fishVioletUri = '/patterns/fish-violet.svg';
+// (Patterns SVG removidos — solo usar el logo real como elemento de marca)
 ---
 
 <Layout>
@@ -198,25 +193,8 @@ const fishVioletUri = '/patterns/fish-violet.svg';
   <main>
     <!-- HERO -->
     <section id="inicio" class="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32 bg-surface">
-      <div
-        class="absolute inset-0 pointer-events-none text-primary"
-        style={`background-image: url("${fishSchool}"); background-size: 320px 320px; opacity: 0.08;`}
-      >
-      </div>
-
       <div class="hidden md:block absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>
       <div class="hidden md:block absolute top-1/2 -left-40 w-[500px] h-[500px] rounded-full bg-secondary/10 blur-3xl pointer-events-none"></div>
-
-      <div
-        class="hidden md:block absolute top-32 right-1/3 w-16 h-20 opacity-30 animate-float-slow"
-        style={`background-image: url("${leafGreenUri}"); background-size: contain; background-repeat: no-repeat;`}
-      >
-      </div>
-      <div
-        class="hidden md:block absolute bottom-20 left-20 w-12 h-16 opacity-40 animate-float-medium"
-        style={`background-image: url("${leafGreenUri}"); background-size: contain; background-repeat: no-repeat;`}
-      >
-      </div>
 
       <div class="relative max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div class="space-y-8">
@@ -255,43 +233,21 @@ const fishVioletUri = '/patterns/fish-violet.svg';
           >
             <img src="/images/hero-granja.jpg" alt="Granja acuapónica CAY" class="w-full h-full object-cover" loading="eager" />
           </div>
-          <div
-            class="absolute -bottom-4 -right-4 w-32 h-20 animate-swim hidden md:block"
-            style={`background-image: url("${fishVioletUri}"); background-size: contain; background-repeat: no-repeat;`}
-          >
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- WAVE SEPARATOR -->
-    <div class="relative h-12 bg-surface overflow-hidden">
-      <div
-        class="absolute inset-0 animate-wave"
-        style={`background-image: url("${wavePat}"); background-size: 400px 60px; background-repeat: repeat-x; background-position: center; opacity: 0.55;`}
-      >
-      </div>
-    </div>
-
     <!-- QUÉ ES LA ACUAPONÍA -->
     <section id="que-es" class="relative bg-primary/95 text-white py-24 md:py-32 overflow-hidden">
-      <div
-        class="absolute inset-0 text-white pointer-events-none"
-        style={`background-image: url("${fishSchool}"); background-size: 280px 280px; opacity: 0.1;`}
-      >
-      </div>
-
       <div class="relative max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-16">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-4">El método</p>
           <h2 class="font-headline text-5xl md:text-6xl font-bold leading-tight mb-6">
             ¿Qué es<br />la acuaponía?
           </h2>
-          <p class="max-w-3xl mx-auto text-white/95 text-lg font-body leading-relaxed">
-            Es un sistema de cultivo que mezcla la <strong>acuicultura</strong> (técnica para reproducir peces) y la
-            <strong>hidroponía</strong> (método para cultivar hortalizas usando disoluciones minerales en vez de
-            suelo). Ambas prácticas forman una simbiosis perfecta: los peces nutren a las plantas con fertilizante
-            natural y las plantas limpian el agua que regresa al tanque de los peces
+          <p class="max-w-2xl mx-auto text-white/95 text-lg font-body leading-relaxed">
+            Es un sistema que une la <strong>crianza de peces</strong> con el <strong>cultivo de plantas</strong> en
+            el mismo flujo de agua. Los peces alimentan a las plantas, las plantas limpian el agua, y todo se repite
           </p>
         </div>
 
@@ -315,11 +271,6 @@ const fishVioletUri = '/patterns/fish-violet.svg';
 
     <!-- POR QUÉ CAY (manifesto) -->
     <section id="por-que" class="relative bg-secondary text-white py-24 md:py-32 overflow-hidden">
-      <div
-        class="absolute inset-0 text-primary pointer-events-none"
-        style={`background-image: url("${leafField}"); background-size: 240px 240px; opacity: 0.08;`}
-      >
-      </div>
       <div class="hidden md:block absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
 
       <div class="relative max-w-[1200px] mx-auto px-6">
@@ -358,12 +309,6 @@ const fishVioletUri = '/patterns/fish-violet.svg';
 
     <!-- POR QUÉ ACUAPONÍA (vs tradicional/hidroponía) -->
     <section class="relative bg-surface py-24 md:py-32 overflow-hidden">
-      <div
-        class="absolute inset-0 text-primary pointer-events-none"
-        style={`background-image: url("${leafField}"); background-size: 280px 280px; opacity: 0.05;`}
-      >
-      </div>
-
       <div class="relative max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-16">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Por qué acuaponía</p>
@@ -411,12 +356,6 @@ const fishVioletUri = '/patterns/fish-violet.svg';
 
     <!-- TIPOS DE GRANJAS -->
     <section id="granjas" class="relative bg-secondary text-white py-24 md:py-32 overflow-hidden">
-      <div
-        class="absolute inset-0 text-primary pointer-events-none"
-        style={`background-image: url("${leafField}"); background-size: 240px 240px; opacity: 0.08;`}
-      >
-      </div>
-
       <div class="relative max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-16">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Cómo trabajamos</p>
@@ -451,12 +390,6 @@ const fishVioletUri = '/patterns/fish-violet.svg';
 
     <!-- PRODUCTOS -->
     <section id="productos" class="relative py-24 md:py-32 bg-surface overflow-hidden">
-      <div
-        class="absolute inset-0 text-primary pointer-events-none"
-        style={`background-image: url("${leafField}"); background-size: 280px 280px; opacity: 0.05;`}
-      >
-      </div>
-
       <div class="relative max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-16">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Nuestros productos</p>
@@ -510,11 +443,6 @@ const fishVioletUri = '/patterns/fish-violet.svg';
 
     <!-- SOBRE CAY -->
     <section id="sobre" class="relative py-24 md:py-32 bg-secondary text-white overflow-hidden">
-      <div
-        class="absolute inset-0 text-primary pointer-events-none"
-        style={`background-image: url("${leafField}"); background-size: 200px 200px; opacity: 0.07;`}
-      >
-      </div>
       <div class="hidden md:block absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
 
       <div class="relative max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-16 items-center mb-20">
@@ -650,23 +578,23 @@ const fishVioletUri = '/patterns/fish-violet.svg';
                 class="aspect-square rounded-2xl p-4 flex flex-col justify-between text-white hover:scale-105 transition-transform duration-300 shadow-md"
                 style={`background-color: ${o.color};`}
               >
-                <div class="font-headline text-3xl md:text-4xl font-black opacity-90">{o.num}</div>
+                <div class="flex items-start justify-between">
+                  <div class="font-headline text-3xl md:text-4xl font-black opacity-90">{o.num}</div>
+                  <span class="material-symbols-outlined text-2xl md:text-3xl opacity-80">{o.icon}</span>
+                </div>
                 <div class="font-headline font-bold text-[11px] md:text-xs leading-tight">{o.title}</div>
               </div>
             ))
           }
         </div>
+        <p class="text-center text-xs text-onSurface-variant italic mt-6">
+          (Iconos placeholders — pásame los oficiales de la ONU para reemplazar)
+        </p>
       </div>
     </section>
 
     <!-- ENCUÉNTRANOS -->
     <section id="encuentranos" class="relative py-24 md:py-32 bg-primary/10 overflow-hidden">
-      <div
-        class="absolute inset-0 text-primary pointer-events-none"
-        style={`background-image: url("${wavePat}"); background-size: 300px 60px; background-repeat: repeat; opacity: 0.08;`}
-      >
-      </div>
-
       <div class="relative max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-16">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Encuéntranos</p>
@@ -693,11 +621,6 @@ const fishVioletUri = '/patterns/fish-violet.svg';
 
     <!-- GALERÍA -->
     <section id="galeria" class="relative py-24 md:py-32 bg-secondary text-white overflow-hidden">
-      <div
-        class="absolute inset-0 text-primary pointer-events-none"
-        style={`background-image: url("${fishSchool}"); background-size: 320px 320px; opacity: 0.07;`}
-      >
-      </div>
       <div class="relative max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-12">
           <p class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Galería</p>
@@ -788,12 +711,6 @@ const fishVioletUri = '/patterns/fish-violet.svg';
 
     <!-- CTA FINAL -->
     <section id="contacto" class="relative bg-primary py-20 md:py-24 text-center overflow-hidden">
-      <div
-        class="absolute inset-0 text-secondary pointer-events-none"
-        style={`background-image: url("${fishSchool}"); background-size: 240px 240px; opacity: 0.12;`}
-      >
-      </div>
-
       <div class="relative max-w-2xl mx-auto px-6">
         <h2 class="font-headline text-5xl md:text-6xl text-secondary font-bold mb-6 leading-tight">
           Hablemos de tu<br />proyecto en acuaponía
