@@ -5,18 +5,18 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#7DC242',
-          light: '#B5DE7A',
-          lightest: '#E6F4D4',
-          container: '#E5F4D9',
-          onContainer: '#1F3110',
+          DEFAULT: '#9DC41B',
+          light: '#C1DC6E',
+          lightest: '#E8F2C5',
+          container: '#E8F2C5',
+          onContainer: '#2A3508',
         },
         secondary: {
-          DEFAULT: '#2E2A8A',
-          light: '#6960C5',
-          lightest: '#DCD9EF',
-          container: '#E0DEFF',
-          onContainer: '#0B0A22',
+          DEFAULT: '#37388D',
+          light: '#7374B5',
+          lightest: '#D7D7E8',
+          container: '#D7D7E8',
+          onContainer: '#0E0E2E',
         },
         tertiary: {
           DEFAULT: '#F4A24C',
